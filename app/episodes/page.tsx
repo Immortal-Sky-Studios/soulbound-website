@@ -7,7 +7,7 @@ export default async function Episodes() {
     const [searchItem, setSearchItem] = useState('')
     const [filteredEps, setFilteredEps] = useState(data)
     const handleSearch = (e) => {
-        const searchTerm = e.target.value;
+        const searchTerm = e.target?.value;
         setSearchItem(searchTerm);
 
         const filteredItems = data.filter((entry) => 

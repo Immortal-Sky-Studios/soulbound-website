@@ -47,3 +47,24 @@ export async function getLatestEp() {
     )`;
     return response[0];
 }
+
+export async function getTeamList() {
+    const sql = neon(process.env.DB_URL);
+    const nameResponse = await sql`
+    SELECT id, full_name
+    FROM team`;
+
+    const roleResponse = await sql`
+    SELECT DISTINCT team_id, role
+    FROM credits`;
+
+    let compiledData = nameResponse.map((member) => {
+        let memberRoles = roleResponse.filter((entry) => entry.teawm_id === member.id).map((entry) => entry.role);
+        return {
+            name: member.full_name,
+            roles: memberRoles
+        }
+    });
+    
+    return compiledData;
+}

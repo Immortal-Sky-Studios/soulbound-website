@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { getLatestEp } from "./neonFunctions";
 
-export default function Home() {
-    const data = getLatestEp()
+export default async function Home() {
+    const data = await getLatestEp()
     return (
         <main>
             <div id="top-banner" className="flex bg-[/StarryBG.gif]">
@@ -24,11 +24,11 @@ export default function Home() {
             </div>
             <div id="latestep-section">
                 <h2>Latest Episode</h2>
-                <iframe src={data.slug}/>
+                <iframe src={`episodes/${data.slug}`}/>
             </div>
             <div id="keepingup-section">
                 <ul className="flex flex-row list-none">
-                    <li><i>InstaIconGoesHere</i></li>
+                    <li><i>ICONS GO HERE</i></li>
                 </ul>
             </div>
         </main>
