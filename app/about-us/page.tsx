@@ -60,13 +60,13 @@ export default async function AboutUs() {
                 <div>
                     <div>1 / 3</div>
                     <Image
-                                className=""
-                                src="IMAGEFILENAME"
-                                alt="IMAGEALTTXT"
-                                width={300}
-                                height={300}
-                                priority
-                            />
+                        className=""
+                        src="IMAGEFILENAME"
+                        alt="IMAGEALTTXT"
+                        width={300}
+                        height={300}
+                        priority
+                    />
                     <div>Caption Text</div>
                 </div>
                 </div>

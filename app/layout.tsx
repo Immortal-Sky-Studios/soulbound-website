@@ -28,17 +28,13 @@ export default async function RootLayout({
         >
             <header className="flex flex-row justify-between">
             <div className="flex flex-row">
-                <a
-                href="/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >
-                <Image
-                    src="/soulboundName.svg"
-                    alt="Soulbound logo"
-                    width={20}
-                    height={20}
-                />
+                <a href="/">
+                    <Image
+                        src="/soulboundName.svg"
+                        alt="Soulbound logo"
+                        width={20}
+                        height={20}
+                    />
                 </a>
             </div>
 
@@ -54,7 +50,7 @@ export default async function RootLayout({
 
             <footer>
                 <ul id="footer-links" className="flex flex-row list-none">
-                    <li>FOOTER LINKS GO HERE</li>
+                    <li><a href="">FOOTER LINKS GO HERE</a></li>
                 </ul>
                 <a id="back-to-top" href="#top">Back to top</a>
                 <div id="copyright-notice"></div>

@@ -23,10 +23,10 @@ export default async function Episodes() {
                 <div id="main-header" className="flex flex-col">
                     <h1>EPISODES</h1>
                     <div id="showlinks-container" className="flex flex-row">
-                        <a href="">Spotify</a>
-                        <a href="">Itunes</a>
-                        <a href="">Amazon</a>
-                        <a href="">Youtube</a>
+                        <a href="" target="_blank" rel="noopener noreferrer">Spotify</a>
+                        <a href="" target="_blank" rel="noopener noreferrer">Itunes</a>
+                        <a href="" target="_blank" rel="noopener noreferrer">Amazon</a>
+                        <a href="" target="_blank" rel="noopener noreferrer">Youtube</a>
                     </div>
                     <hr/>
                     <div id="search-container">

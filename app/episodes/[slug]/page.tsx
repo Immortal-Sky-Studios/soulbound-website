@@ -22,7 +22,11 @@ export default async function EpisodeDynamic({
                             priority
                         />
                         <div id="spotify-player"></div>
-                        <div id="showlinks-container"></div>
+                        <div id="showlinks-container">
+                            <a href={data.link_spotify} target="_blank" rel="noopener noreferrer"><i>SPOTIFYICONHERE</i></a>
+                            <a href={data.link_apple} target="_blank" rel="noopener noreferrer"><i>APPLEICONHERE</i></a>
+                            <a href={data.link_amazon} target="_blank" rel="noopener noreferrer"><i>AMAZONICONHERE</i></a>
+                        </div>
                     </div>
                     <div id="right-section">
                         <div id="episode-info-container">
