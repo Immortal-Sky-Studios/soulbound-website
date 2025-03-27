@@ -3,6 +3,10 @@ import { getTeamList } from "../neonFunctions";
 
 export default async function AboutUs() {
     const data = await getTeamList();
+    const plusSlides = (n: Number) => {
+        // magic happens
+    }
+
     return (
         <main>
             <div id="aboutus-container">
@@ -49,6 +53,26 @@ export default async function AboutUs() {
                         )
                     })}
                 </ul>
+            </div>
+            <div id="conceptgallery-container">
+                <h2>Concept Art Gallery</h2>
+                <div id="concept-gallery">
+                <div>
+                    <div>1 / 3</div>
+                    <Image
+                                className=""
+                                src="IMAGEFILENAME"
+                                alt="IMAGEALTTXT"
+                                width={300}
+                                height={300}
+                                priority
+                            />
+                    <div>Caption Text</div>
+                </div>
+                </div>
+                
+                <a id="prev-button" onClick={plusSlides(-1)}>&#10094;</a>
+                <a id="next-button" onClick={plusSlides(1)}>&#10095;</a>
             </div>
         </main>
     )
