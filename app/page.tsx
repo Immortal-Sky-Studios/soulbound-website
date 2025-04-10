@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getLatestEp } from "./neonFunctions";
+import { getLatestEp, getShowLinks } from "./neonFunctions";
 
 export default async function Home() {
-    const data = await getLatestEp()
+    const data = await getLatestEp();
+    const showLinks = await getShowLinks();
+
     return (
         <main className="flex flex-col">
             <div id="top-banner" className="flex bg-[url('/backgrounds/StarryBG.gif')]">
@@ -31,40 +33,24 @@ export default async function Home() {
             <div id="keepingup-section" className="flex flex-col justify-center align-center p-[3em] bg-cyan-300 border-[2em] border-image-[url('/borders/MetalScrewBorder.png')] border-slice-[990] border-image-width-[150px] border-repeat-round">
                 <h2>Keep up to date with us!</h2>
                 <ul className="flex flex-row w-2/3 px-[2em] justify-between align-center list-none">
-                    <li>
-                        <Link
-                            href="https://www.instagram.com/thesoulboundseries"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Image
-                                src="icons/instagram-icon.svg"
-                                alt="Instagram"
-                                width={50}
-                                height={50}
-                            />
-                        </Link>
-                    </li>
-                    <li>
-                    <Link
-                            href="https://www.facebook.com/people/The-Soulbound-Series/61557417103438/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Image
-                                src="icons/facebook-icon.svg"
-                                alt="Facebook"
-                                width={50}
-                                height={50}
-                            />
-                        </Link>
-                    </li>
-                    <li><i>YOUTUBE</i></li>
-                    <li><i>TIKTOK</i></li>
-                    <li><i>TUMBLR</i></li>
-                    <li><i>SPOTIFY</i></li>
-                    <li><i>APPLE</i></li>
-                    <li><i>AMAZON</i></li>
+                    {showLinks.map((entry,index) => {
+                        return (
+                            <li key={index}>
+                                <Link
+                                    href={entry.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Image
+                                        src={`icons/${entry.icon_filename}`}
+                                        alt={entry.icon_alt_text}
+                                        width={50}
+                                        height={50}
+                                    />
+                                </Link>
+                            </li>
+                        )
+                    })}
                 </ul>
             </div>
         </main>

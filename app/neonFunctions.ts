@@ -68,3 +68,13 @@ export async function getTeamList() {
     
     return compiledData;
 }
+
+export async function getShowLinks() {
+    const sql = neon(process.env.DB_URL);
+    const response = await sql`
+    SELECT *
+    FROM show_links
+    ORDER BY id ASC`;
+
+    return response;
+}
