@@ -15,7 +15,7 @@ export default async function EpisodeDynamic({
                         <Image
                             id="episode-cover"
                             className=""
-                            src={data.cover_filename}
+                            src={`/covers/episodes/${data.cover_filename}`}
                             alt={data.cover_alt_txt}
                             width={300}
                             height={300}

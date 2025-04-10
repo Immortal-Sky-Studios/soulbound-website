@@ -3,7 +3,7 @@ import { getTeamList } from "../neonFunctions";
 
 export default async function AboutUs() {
     const data = await getTeamList();
-    const plusSlides = (n: Number) => {
+    const plusSlides = (n: number) => {
         // magic happens
     }
 
@@ -21,14 +21,14 @@ export default async function AboutUs() {
                         const direction = index % 2 === 0 ? 'flex-row' : 'flex-row-reverse';
                         return (
                         <li key={index} className={`flex ${direction}`}>
-                            <Image
+                            {/* <Image
                                 className=""
                                 src="MEMBERIMAGEFILENAME"
                                 alt={`Image of ${member.name}`}
                                 width={300}
                                 height={300}
                                 priority
-                            />
+                            /> */}
                             <div>
                                 <div>
                                     <div>{member.name}</div>
@@ -59,14 +59,14 @@ export default async function AboutUs() {
                 <div id="concept-gallery">
                 <div>
                     <div>1 / 3</div>
-                    <Image
+                    {/* <Image
                         className=""
                         src="IMAGEFILENAME"
                         alt="IMAGEALTTXT"
                         width={300}
                         height={300}
                         priority
-                    />
+                    /> */}
                     <div>Caption Text</div>
                 </div>
                 </div>

@@ -13,11 +13,11 @@ export async function getEpisode(slug: string) {
     const sql = neon(process.env.DB_URL);
     // get episodes with joins for foreign keys
     const episodeResponse = await sql`
-    SELECT ep_num, season_num, season_ep_num, title, slug, link_spotify, link_apple, link_amazon, description, triggers, transcript_filename, episode_covers.filename as cover_filename, episode_covers.alt_text as cover_alt_text, seasons.cover_filename as season_cover_filename, seasons.cover_alt_txt as season_cover_alt_txt
+    SELECT ep_num, season_num, season_ep_num, title, slug, link_spotify, link_apple, link_amazon, description, triggers, transcript_filename, episode_covers.filename as cover_filename, episode_covers.alt_text as cover_alt_text, seasons.cover_filename as season_cover_filename, seasons.cover_alt_text as season_cover_alt_text
     FROM episodes
-    JOIN episode_covers ON ep_id = episodes.id
+    JOIN episode_covers ON episode_covers.id = episodes.cover_id
     JOIN seasons ON season_id = seasons.id
-    WHERE slug='${slug}'`;
+    WHERE slug=${slug}`;
 
     // get list of all credits with names and roles
     const creditResponse = await sql`
@@ -25,7 +25,7 @@ export async function getEpisode(slug: string) {
     FROM episodes
     JOIN credits ON ep_id = episodes.id
     JOIN team ON team_id = team.id
-    WHERE slug='${slug}'`;
+    WHERE slug=${slug}`;
 
     // compile data from both queries into one object for use on page
     const compiledData = {
@@ -58,8 +58,8 @@ export async function getTeamList() {
     SELECT DISTINCT team_id, role
     FROM credits`;
 
-    let compiledData = nameResponse.map((member) => {
-        let memberRoles = roleResponse.filter((entry) => entry.teawm_id === member.id).map((entry) => entry.role);
+    const compiledData = nameResponse.map((member) => {
+        const memberRoles = roleResponse.filter((entry) => entry.teawm_id === member.id).map((entry) => entry.role);
         return {
             name: member.full_name,
             roles: memberRoles

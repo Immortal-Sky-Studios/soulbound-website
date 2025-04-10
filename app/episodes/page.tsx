@@ -1,11 +1,14 @@
+'use client'
+
 import { useState } from 'react'
 import { getEpisodeList } from "../neonFunctions";
 
 export default async function Episodes() {
-    const data = await getEpisodeList()
+    const data = await getEpisodeList();
 
-    const [searchItem, setSearchItem] = useState('')
-    const [filteredEps, setFilteredEps] = useState(data)
+    const [searchItem, setSearchItem] = useState('');
+    const [filteredEps, setFilteredEps] = useState(data);
+
     const handleSearch = (e) => {
         const searchTerm = e.target?.value;
         setSearchItem(searchTerm);

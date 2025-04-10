@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.10.4",
-    "next": "15.2.1",
+    "next": "^15.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -22,7 +22,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "tailwindcss": "^4",
+    "tailwindcss-border-image": "^1.1.2",
     "typescript": "^5"
   }
 }
