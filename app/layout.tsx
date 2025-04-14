@@ -3,8 +3,10 @@ import { Oswald } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from 'react';
 
-import { getLatestEp } from "@lib/neonFunctions";
+import LatestEpButton from "@/components/LatestEpButton";
+import { getLatestEp } from "@/lib/neonFunctions";
 
 const oswald = Oswald({
     variable: "--font-oswald",
@@ -16,12 +18,13 @@ export const metadata: Metadata = {
     description: "A Sci-Fi Audio Drama by Immortal Sky Studios",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const data = await getLatestEp();
+    const data = getLatestEp();
+
     return (
         <html lang="en">
         <body
@@ -43,7 +46,9 @@ export default async function RootLayout({
             </div>
 
             <ul id="nav-bar" className="flex flex-row list-none justify-center w-1/3 sticky top-0">
-                <li><Link href={`episodes/${data.slug}`} className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Latest Ep</Link></li>
+                <Suspense fallback={<li><Link href="#" className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Latest Episode</Link></li>}>
+                    <LatestEpButton episode={data}/>
+                </Suspense>
                 <li><Link href="episodes" className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Episodes</Link></li>
                 <li><Link href="about-us" className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">About Us</Link></li>
             </ul>
@@ -53,7 +58,9 @@ export default async function RootLayout({
 
             <footer className="flex flex-row justify-between align-center h-[5em] p-[1em]">
                 <ul id="footer-links" className="flex flex-row justify-center w-1/4 py-[1em] list-none">
-                    <li><Link href={`episodes/${data.slug}`}  className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Latest Ep</Link></li>
+                    <Suspense fallback={<li><Link href="#" className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Latest Episode</Link></li>}>
+                        <LatestEpButton episode={data}/>
+                    </Suspense>
                     <li><Link href="episodes"  className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Episodes</Link></li>
                     <li><Link href="about-us"  className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">About Us</Link></li>
                 </ul>
