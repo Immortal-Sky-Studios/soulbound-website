@@ -51,7 +51,7 @@ export async function getLatestEp() {
 export async function getTeamList() {
     const sql = neon(process.env.DB_URL);
     const infoResponse = await sql`
-    SELECT id, full_name as name, pronouns
+    SELECT id, full_name as name, pronouns, headshot_filename, bio, socials, projects, quote 
     FROM team`;
 
     const roleResponse = await sql`

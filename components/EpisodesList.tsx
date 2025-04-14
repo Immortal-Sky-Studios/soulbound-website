@@ -1,5 +1,5 @@
 'use client'
-import { use, useState } from 'react';
+import { ChangeEvent, use, useState } from 'react';
 import ShowLinks from './ShowLinks';
 import Link from 'next/link';
 
@@ -15,7 +15,7 @@ export default function EmbeddedEpisode({
     const [searchItem, setSearchItem] = useState('');
     const [filteredEps, setFilteredEps] = useState(episodesList);
 
-    const handleSearch = (e) => {
+    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const searchTerm = e.target?.value;
         setSearchItem(searchTerm);
 
