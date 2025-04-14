@@ -28,7 +28,7 @@ export default async function AboutUs() {
                         <li key={index} className={`flex ${direction}`}>
                             <Image
                                 className=""
-                                src={member.headshot_filename}
+                                src={`/headshots/${member.headshot_filename}`}
                                 alt={`Image of ${member.name}`}
                                 width={300}
                                 height={300}
@@ -68,7 +68,7 @@ export default async function AboutUs() {
                             <div>{index + 1} / {conceptArt.length}</div>
                             <Image
                                 className=""
-                                src={entry.filename}
+                                src={`/concept-art/${entry.filename}`}
                                 alt={entry.alt_text}
                                 width={300}
                                 height={300}
