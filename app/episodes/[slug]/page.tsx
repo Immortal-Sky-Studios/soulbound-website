@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+
 import { getEpisode } from '@lib/neonFunctions.ts';
 
 export default async function EpisodeDynamic({
@@ -6,8 +8,10 @@ export default async function EpisodeDynamic({
     }: {
         params: Promise<{ slug: string }>
     }) {
-        const { slug } = await params
-        const data = await getEpisode(slug)
+        const { slug } = await params;
+        const data = await getEpisode(slug);
+        const spotifyComponents = data.link_spotify.split('episode');
+
         return (
             <main>
                 <div id="top-section">
@@ -21,12 +25,39 @@ export default async function EpisodeDynamic({
                             height={300}
                             priority
                         />
-                        <div id="spotify-player"></div>
-                        <div id="showlinks-container">
-                            <a href={data.link_spotify} target="_blank" rel="noopener noreferrer"><i>SPOTIFYICONHERE</i></a>
-                            <a href={data.link_apple} target="_blank" rel="noopener noreferrer"><i>APPLEICONHERE</i></a>
-                            <a href={data.link_amazon} target="_blank" rel="noopener noreferrer"><i>AMAZONICONHERE</i></a>
-                        </div>
+                        <iframe className="border-12" src={`${spotifyComponents[0]}embed/episode/${spotifyComponents[1]}?utm_source=generator`} width="100%" height="352" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <ul id="showlinks-container">
+                            <li>
+                                <Link href={data.link_spotify} target="_blank" rel="noopener noreferrer">
+                                    <Image
+                                        src="/icons/spotify-icon.svg"
+                                        alt="Spotify"
+                                        width={50}
+                                        height={50}
+                                    />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={data.link_apple} target="_blank" rel="noopener noreferrer">
+                                    <Image
+                                        src="/icons/apple-icon.svg"
+                                        alt="Apple Podcasts"
+                                        width={50}
+                                        height={50}
+                                    />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={data.link_amazon} target="_blank" rel="noopener noreferrer">
+                                    <Image
+                                        src="/icons/amazon-icon.svg"
+                                        alt="Amazon Music"
+                                        width={50}
+                                        height={50}
+                                    />
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
                     <div id="right-section">
                         <div id="episode-info-container">

@@ -1,10 +1,13 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Suspense } from "react";
+
+import EmbeddedEpisode from "@components/EmbeddedEpisode";
+import ShowLinks from "@components/ShowLinks";
 import { getLatestEp, getShowLinks } from "@lib/neonFunctions";
 
 export default async function Home() {
-    const data = await getLatestEp();
-    const showLinks = await getShowLinks();
+    const latestEp = getLatestEp();
+    const showLinks = getShowLinks();
 
     return (
         <main className="flex flex-col">
@@ -28,30 +31,21 @@ export default async function Home() {
             </div>
             <div id="latestep-section" className="flex flex-col align-center py-[2em] px-[10em] bg-[url('/backgrounds/MetalHeartBackground.png')] bg-size-[5em] bg-repeat border-[2em] border-image-[url('/borders/MetalHashBorder.png')] border-slice-t-[980] border-slice-r-[1000] border-slice-b-[990] border-slice-l-[1030] border-image-width-[150px] border-repeat-round">
                 <h2>Latest Episode</h2>
-                <iframe src={`episodes/${data.slug}`}/>
+                <Suspense fallback={
+                    <iframe className="border-12" src="https://open.spotify.com/embed/episode/5qCdO8dR2aa7vhTfPO0CUV?utm_source=generator" width="100%" height="352" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                }>
+                    <EmbeddedEpisode episode={latestEp}/>
+                </Suspense>
             </div>
             <div id="keepingup-section" className="flex flex-col justify-center align-center p-[3em] bg-cyan-300 border-[2em] border-image-[url('/borders/MetalScrewBorder.png')] border-slice-[990] border-image-width-[150px] border-repeat-round">
                 <h2>Keep up to date with us!</h2>
-                <ul className="flex flex-row w-2/3 px-[2em] justify-between align-center list-none">
-                    {showLinks.map((entry,index) => {
-                        return (
-                            <li key={index}>
-                                <Link
-                                    href={entry.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <Image
-                                        src={`icons/${entry.icon_filename}`}
-                                        alt={entry.icon_alt_text}
-                                        width={50}
-                                        height={50}
-                                    />
-                                </Link>
-                            </li>
-                        )
-                    })}
-                </ul>
+                <Suspense fallback={
+                    <ul className="flex flex-row w-2/3 px-[2em] justify-between align-center list-none">
+                        <li >Loading...</li>
+                    </ul>
+                }>
+                    <ShowLinks links={showLinks}/>
+                </Suspense>
             </div>
         </main>
     )

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from 'react';
 
-import LatestEpButton from "@/components/LatestEpButton";
+import EpisodeLinkButton from "@/components/EpisodeLinkButton";
 import { getLatestEp } from "@/lib/neonFunctions";
 
 const oswald = Oswald({
@@ -37,7 +37,7 @@ export default function RootLayout({
                     href="/"
                 >
                     <Image
-                        src="soulboundName.svg"
+                        src="/icons/soulboundName.svg"
                         alt="Soulbound logo"
                         width={200}
                         height={24}
@@ -47,10 +47,10 @@ export default function RootLayout({
 
             <ul id="nav-bar" className="flex flex-row list-none justify-center w-1/3 sticky top-0">
                 <Suspense fallback={<li><Link href="#" className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Latest Episode</Link></li>}>
-                    <LatestEpButton episode={data}/>
+                    <EpisodeLinkButton episode={data}/>
                 </Suspense>
-                <li><Link href="episodes" className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Episodes</Link></li>
-                <li><Link href="about-us" className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">About Us</Link></li>
+                <li><Link href="/episodes" className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Episodes</Link></li>
+                <li><Link href="/about-us" className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">About Us</Link></li>
             </ul>
             </header>
             
@@ -59,10 +59,10 @@ export default function RootLayout({
             <footer className="flex flex-row justify-between align-center h-[5em] p-[1em]">
                 <ul id="footer-links" className="flex flex-row justify-center w-1/4 py-[1em] list-none">
                     <Suspense fallback={<li><Link href="#" className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Latest Episode</Link></li>}>
-                        <LatestEpButton episode={data}/>
+                        <EpisodeLinkButton episode={data}/>
                     </Suspense>
-                    <li><Link href="episodes"  className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Episodes</Link></li>
-                    <li><Link href="about-us"  className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">About Us</Link></li>
+                    <li><Link href="/episodes"  className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Episodes</Link></li>
+                    <li><Link href="/about-us"  className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">About Us</Link></li>
                 </ul>
                 <a id="back-to-top" href="#top" className="py-[1em]">Back to top</a>
                 <div id="copyright-notice" className="w-[30em] py-[0.5em] text-[0.75em] text-center text-background bg-[#414042] border-2 border-[#58595b]">

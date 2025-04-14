@@ -1,9 +1,14 @@
 import Image from "next/image";
-import { getTeamList } from "@lib/neonFunctions";
+import { getTeamList, getConceptArt } from "@lib/neonFunctions";
 
 export default async function AboutUs() {
-    const data = await getTeamList();
-    const plusSlides = (n: number) => {
+    const teamList = await getTeamList();
+    const conceptArt = await getConceptArt();
+
+    const plusSlides = () => {
+        // magic happens
+    }
+    const minusSlides = () => {
         // magic happens
     }
 
@@ -17,36 +22,37 @@ export default async function AboutUs() {
             <div id="meettheteam-container" className="bg-[/AboutUsBG.png]">
                 <h2>Meet the Team!</h2>
                 <ul id="team-list" className="flex flex-col list-none">
-                    {data.map((member, index) => {
+                    {teamList.map((member, index) => {
                         const direction = index % 2 === 0 ? 'flex-row' : 'flex-row-reverse';
                         return (
                         <li key={index} className={`flex ${direction}`}>
-                            {/* <Image
+                            <Image
                                 className=""
-                                src="MEMBERIMAGEFILENAME"
+                                src={member.headshot_filename}
                                 alt={`Image of ${member.name}`}
                                 width={300}
                                 height={300}
                                 priority
-                            /> */}
+                            />
                             <div>
                                 <div>
                                     <div>{member.name}</div>
+                                    <div>{member.pronouns}</div>
                                     <div>{member.roles}</div>
                                 </div>
                                 <div>
-                                    DESCRIPTION GOES HERE
+                                    {member.bio}
                                 </div>
                             </div>
                             <div className="flex flex-col">
                                 <ul>
-                                    SOCIALS
+                                    {member.socials}
                                 </ul>
                                 <ul>
-                                    OTHER PROJECTS
+                                    {member.projects}
                                 </ul>
                                 <p>
-                                    FAV QUOTE
+                                    {member.quote}
                                 </p>
                             </div>
                         </li>
@@ -57,22 +63,25 @@ export default async function AboutUs() {
             <div id="conceptgallery-container">
                 <h2>Concept Art Gallery</h2>
                 <div id="concept-gallery">
-                <div>
-                    <div>1 / 3</div>
-                    {/* <Image
-                        className=""
-                        src="IMAGEFILENAME"
-                        alt="IMAGEALTTXT"
-                        width={300}
-                        height={300}
-                        priority
-                    /> */}
-                    <div>Caption Text</div>
-                </div>
+                    {conceptArt.map((entry,index) => (
+                        <div key={index}>
+                            <div>{index + 1} / {conceptArt.length}</div>
+                            <Image
+                                className=""
+                                src={entry.filename}
+                                alt={entry.alt_text}
+                                width={300}
+                                height={300}
+                                priority
+                            />
+                            <div>{entry.caption}</div>
+                        </div>
+                    ))}
+                    
                 </div>
                 
-                <a id="prev-button" onClick={plusSlides(-1)}>&#10094;</a>
-                <a id="next-button" onClick={plusSlides(1)}>&#10095;</a>
+                <a id="prev-button" onClick={minusSlides}>&#10094;</a>
+                <a id="next-button" onClick={plusSlides}>&#10095;</a>
             </div>
         </main>
     )

@@ -50,18 +50,18 @@ export async function getLatestEp() {
 
 export async function getTeamList() {
     const sql = neon(process.env.DB_URL);
-    const nameResponse = await sql`
-    SELECT id, full_name
+    const infoResponse = await sql`
+    SELECT id, full_name as name, pronouns
     FROM team`;
 
     const roleResponse = await sql`
     SELECT DISTINCT team_id, role
     FROM credits`;
 
-    const compiledData = nameResponse.map((member) => {
-        const memberRoles = roleResponse.filter((entry) => entry.teawm_id === member.id).map((entry) => entry.role);
+    const compiledData = infoResponse.map((member) => {
+        const memberRoles = roleResponse.filter((entry) => entry.team_id === member.id).map((entry) => entry.role);
         return {
-            name: member.full_name,
+            ...member,
             roles: memberRoles
         }
     });
@@ -69,12 +69,42 @@ export async function getTeamList() {
     return compiledData;
 }
 
-export async function getShowLinks() {
+export async function getShowLinks(type?: string) {
     const sql = neon(process.env.DB_URL);
-    const response = await sql`
-    SELECT *
-    FROM show_links
-    ORDER BY id ASC`;
+    let response;
+    
+    if (type) {
+        response = await sql`
+        SELECT *
+        FROM show_links
+        WHERE type = ${type}
+        ORDER BY id ASC`;
+    }else {
+        response = await sql`
+        SELECT *
+        FROM show_links
+        ORDER BY id ASC`;
+    }
+
+    return response;
+}
+
+export async function getConceptArt(type?: string) {
+    const sql = neon(process.env.DB_URL);
+    let response;
+    
+    if (type) {
+        response = await sql`
+        SELECT *
+        FROM concept_art
+        WHERE type = ${type}
+        ORDER BY id ASC`;
+    }else {
+        response = await sql`
+        SELECT *
+        FROM concept_art
+        ORDER BY id ASC`;
+    }
 
     return response;
 }
