@@ -18,7 +18,7 @@ export default function Episodes() {
                         </ul>
                         <hr/>
                         <div id="search-container">
-                            <input name="episode-search" type="text" placeholder="Loading..." value="" autoFocus={true} />
+                            <input name="episode-search" type="text" placeholder="Loading..." defaultValue="" autoFocus={true} />
                         </div>
                     </div>
                     <ul id="results-list" className="overflow-scroll list-none">
