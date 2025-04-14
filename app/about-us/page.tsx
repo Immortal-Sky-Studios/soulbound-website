@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getTeamList } from "../neonFunctions";
+import { getTeamList } from "@lib/neonFunctions";
 
 export default async function AboutUs() {
     const data = await getTeamList();

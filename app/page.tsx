@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getLatestEp, getShowLinks } from "./neonFunctions";
+import { getLatestEp, getShowLinks } from "@lib/neonFunctions";
 
 export default async function Home() {
     const data = await getLatestEp();

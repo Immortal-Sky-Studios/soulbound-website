@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getEpisode } from '../../neonFunctions.ts';
+import { getEpisode } from '@lib/neonFunctions.ts';
 
 export default async function EpisodeDynamic({
         params,

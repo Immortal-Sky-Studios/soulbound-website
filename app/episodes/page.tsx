@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { getEpisodeList } from "../neonFunctions";
+import { getEpisodeList } from "@lib/neonFunctions";
 
 export default async function Episodes() {
     const data = await getEpisodeList();

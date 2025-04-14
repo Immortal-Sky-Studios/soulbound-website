@@ -4,7 +4,7 @@ import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
 
-import { getLatestEp } from "./neonFunctions";
+import { getLatestEp } from "@lib/neonFunctions";
 
 const oswald = Oswald({
     variable: "--font-oswald",
