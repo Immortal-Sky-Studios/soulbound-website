@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import Image from 'next/image';
 
 import ConceptGallery from "@components/ConceptGallery";
 import TeamList from "@components/TeamList";
@@ -10,10 +11,31 @@ export default function AboutUs() {
 
     return (
         <main>
-            <div id="aboutus-container">
-                <div id="left-art"></div>
-                <div id="description-container"></div>
-                <div id="right-art"></div>
+            <div id="aboutus-container" className="flex flex-row justify-between">
+                <div id="left-art" className="p-25">
+                    <Image
+                        id="episode-cover"
+                        className=""
+                        src="/AboutUsLeftArt.png"
+                        alt="ALTTEXT"
+                        width={250}
+                        height={250}
+                    />
+                </div>
+                <div id="description-container" className="p-[1em]">
+                    <h1>ABOUT US</h1>
+                    <p>Description goes here.</p>
+                </div>
+                <div id="right-art" className="p-25">
+                    <Image
+                        id="episode-cover"
+                        className=""
+                        src="/AboutUsRightArt.png"
+                        alt="ALTTEXT"
+                        width={250}
+                        height={250}
+                    />
+                </div>
             </div>
             <div id="meettheteam-container" className="bg-[/AboutUsBG.png]">
                 <h2>Meet the Team!</h2>
