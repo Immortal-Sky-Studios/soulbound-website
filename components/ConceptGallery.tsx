@@ -21,7 +21,7 @@ export default function EmbeddedEpisode({
             <h2>Concept Art Gallery</h2>
             <div id="concept-gallery">
                 {conceptArt.map((entry,index) => (
-                    <div key={index}>
+                    <div key={entry.id}>
                         <div>{index + 1} / {conceptArt.length}</div>
                         <Image
                             className=""

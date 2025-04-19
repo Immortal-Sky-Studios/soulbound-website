@@ -11,9 +11,9 @@ export default function ShowLinks({
     const showLinks = use(links);
     return (
         <ul className="flex flex-row w-2/3 px-[2em] justify-between align-center list-none">
-            {showLinks.map((entry,index) => {
+            {showLinks.map((entry) => {
                 return (
-                    <li key={index}>
+                    <li key={entry.id}>
                         <Link
                             href={entry.link}
                             target="_blank"

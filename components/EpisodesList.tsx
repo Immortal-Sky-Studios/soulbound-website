@@ -38,9 +38,9 @@ export default function EmbeddedEpisode({
                         </div>
                     </div>
                     <ul id="results-list" className="flex flex-col overflow-scroll list-none">
-                        {filteredEps.map((entry, index) => {
+                        {filteredEps.map((entry) => {
                             return (
-                                <li key={index} className="flex flex-row">
+                                <li key={entry.id} className="flex flex-row">
                                     <div>Season {entry.season_num}</div>
                                     <h2><Link href={`/episodes/${entry.slug}`}>Ep {entry.ep_num} {entry.title}</Link></h2>
                                 </li>

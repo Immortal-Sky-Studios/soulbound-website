@@ -10,37 +10,37 @@ export default function EmbeddedEpisode({
     const teamList = use(team);
     return (
         <ul id="team-list" className="flex flex-col list-none">
-            {teamList.map((member, index) => {
+            {teamList.map((entry, index) => {
                 const direction = index % 2 === 0 ? 'flex-row' : 'flex-row-reverse';
                 return (
-                <li key={index} className={`flex ${direction}`}>
+                <li key={entry.id} className={`flex ${direction}`}>
                     <Image
                         className=""
-                        src={`/headshots/${member.headshot_filename}`}
-                        alt={`Image of ${member.name}`}
+                        src={`/headshots/${entry.headshot_filename}`}
+                        alt={`Image of ${entry.name}`}
                         width={300}
                         height={300}
                         priority
                     />
                     <div>
                         <div>
-                            <div>{member.name}</div>
-                            <div>{member.pronouns}</div>
-                            <div>{member.roles.join(", ")}</div>
+                            <div>{entry.name}</div>
+                            <div>{entry.pronouns}</div>
+                            <div>{entry.roles.join(", ")}</div>
                         </div>
                         <div>
-                            {member.bio}
+                            {entry.bio}
                         </div>
                     </div>
                     <div className="flex flex-col">
                         <div>
-                            {member.socials}
+                            {entry.socials}
                         </div>
                         <div>
-                            {member.projects}
+                            {entry.projects}
                         </div>
                         <div>
-                            {member.quote}
+                            {entry.quote}
                         </div>
                     </div>
                 </li>
