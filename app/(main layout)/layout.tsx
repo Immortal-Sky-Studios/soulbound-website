@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from 'react';
 
-import EpisodeLinkButton from "@/components/EpisodeLinkButton";
+import HeaderFooterButtons from "@/components/HeaderFooterButtons";
 import { getLatestEp } from "@/lib/neonFunctions";
 
 const oswald = Oswald({
@@ -31,39 +31,39 @@ export default function RootLayout({
             className={`${oswald.variable} antialiased text-black`}
         >
             <a id="top" className=""></a>
-            <header className="flex flex-row justify-between p-[1em]">
-            <div className="flex flex-row">
-                <Link
-                    href="/"
-                >
-                    <Image
-                        src="/icons/soulboundName.svg"
-                        alt="Soulbound logo"
-                        width={200}
-                        height={24}
-                    />
-                </Link>
-            </div>
+            <header className="flex flex-row justify-between align-center p-[1em] bg-background border-[0.5em] border-image-[url('/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch sticky top-0">
+                <div className="flex flex-row">
+                    <Link
+                        href="/"
+                    >
+                        <Image
+                            src="/icons/header-logo-icon.svg"
+                            alt="Soulbound logo"
+                            width={100}
+                            height={12}
+                        />
+                    </Link>
+                </div>
 
-            <ul id="nav-bar" className="flex flex-row list-none justify-center w-1/3 sticky top-0">
-                <Suspense fallback={<li><Link href="#" className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Latest Episode</Link></li>}>
-                    <EpisodeLinkButton episode={data}/>
+                <Suspense fallback={
+                    <ul className="flex flex-row list-none justify-center align-center w-1/3">
+                        <li className="flex justify-center align-center bg-cyan-300 border-2"><Link href="#" className="px-[0.5em] py-[0.25em]">Loading</Link></li>
+                    </ul>
+                }>
+                    <HeaderFooterButtons episode={data}/>
                 </Suspense>
-                <li><Link href="/episodes" className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Episodes</Link></li>
-                <li><Link href="/about-us" className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">About Us</Link></li>
-            </ul>
             </header>
             
             {children}
 
-            <footer className="flex flex-row justify-between align-center h-[5em] p-[1em]">
-                <ul id="footer-links" className="flex flex-row justify-center w-1/4 py-[1em] list-none">
-                    <Suspense fallback={<li><Link href="#" className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Latest Episode</Link></li>}>
-                        <EpisodeLinkButton episode={data}/>
-                    </Suspense>
-                    <li><Link href="/episodes"  className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">Episodes</Link></li>
-                    <li><Link href="/about-us"  className="px-[0.5em] py-[0.25em] bg-cyan-300 border-2">About Us</Link></li>
-                </ul>
+            <footer className="flex flex-row justify-between align-center p-[1em] border-[1em] border-image-[url('/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch">
+                <Suspense fallback={
+                    <ul className="flex flex-row list-none justify-center align-center w-1/3">
+                        <li className="flex justify-center align-center bg-cyan-300 border-2 h-fit"><Link href="#" className="px-[0.5em] py-[0.25em]">Loading</Link></li>
+                    </ul>
+                }>
+                    <HeaderFooterButtons episode={data}/>
+                </Suspense>
                 <a id="back-to-top" href="#top" className="py-[1em]">Back to top</a>
                 <div id="copyright-notice" className="w-[30em] py-[0.5em] text-[0.75em] text-center text-background bg-[#414042] border-2 border-[#58595b]">
                     Soulbound is published under an Attribution-NonComercial-ShareAlike 4.0 International License

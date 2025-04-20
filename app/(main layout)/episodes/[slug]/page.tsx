@@ -20,13 +20,13 @@ export default async function EpisodeDynamic({
                             id="episode-cover"
                             className=""
                             src={`/covers/episodes/${data.cover_filename}`}
-                            alt={data.cover_alt_txt}
+                            alt={data.cover_alt_text}
                             width={300}
                             height={300}
                             priority
                         />
                         <iframe className="border-12" src={`${spotifyComponents[0]}embed/episode/${spotifyComponents[1]}?utm_source=generator`} width="100%" height="352" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                        <ul id="showlinks-container">
+                        <ul id="showlinks-container" className="flex flex-row justify-around align-center">
                             <li>
                                 <Link href={data.link_spotify} target="_blank" rel="noopener noreferrer">
                                     <Image
