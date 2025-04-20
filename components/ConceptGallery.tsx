@@ -2,24 +2,20 @@
 import { use } from 'react';
 import Image from 'next/image';
 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+
 export default function EmbeddedEpisode({
     art,
 }: {
     art: Promise<Record<string, any>[]>
 }) {
     const conceptArt = use(art);
-
-    const plusSlides = () => {
-        // magic happens
-    }
-    const minusSlides = () => {
-        // magic happens
-    }
     
     return (
         <div id="conceptgallery-container">
             <h2>Concept Art Gallery</h2>
-            <div id="concept-gallery">
+            <Carousel>
                 {conceptArt.map((entry,index) => (
                     <div key={entry.id}>
                         <div>{index + 1} / {conceptArt.length}</div>
@@ -35,10 +31,7 @@ export default function EmbeddedEpisode({
                     </div>
                 ))}
                 
-            </div>
-            
-            <a id="prev-button" onClick={minusSlides}>&#10094;</a>
-            <a id="next-button" onClick={plusSlides}>&#10095;</a>
+            </Carousel>
         </div>
     )
 }

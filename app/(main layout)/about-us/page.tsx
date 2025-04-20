@@ -16,7 +16,7 @@ export default function AboutUs() {
                     <Image
                         id="episode-cover"
                         className=""
-                        src="/AboutUsLeftArt.png"
+                        src="/covers/episodes/defaultCover.jpg"
                         alt="ALTTEXT"
                         width={250}
                         height={250}
@@ -30,7 +30,7 @@ export default function AboutUs() {
                     <Image
                         id="episode-cover"
                         className=""
-                        src="/AboutUsRightArt.png"
+                        src="/covers/episodes/defaultCover.jpg"
                         alt="ALTTEXT"
                         width={250}
                         height={250}
