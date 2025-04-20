@@ -11,26 +11,43 @@ export async function getEpisodeList() {
 
 export async function getEpisode(slug: string) {
     const sql = neon(process.env.DB_URL);
-    // get episodes with joins for foreign keys
-    const episodeResponse = await sql`
-    SELECT episodes.id as id, ep_num, season_num, season_ep_num, title, slug, link_spotify, link_apple, link_amazon, description, triggers, transcript_filename, episode_covers.filename as cover_filename, episode_covers.alt_text as cover_alt_text, seasons.cover_filename as season_cover_filename, seasons.cover_alt_text as season_cover_alt_text
-    FROM episodes
-    JOIN episode_covers ON episode_covers.id = episodes.cover_id
-    JOIN seasons ON season_id = seasons.id
-    WHERE slug=${slug}`;
-
-    // get list of all credits with names and roles
-    const creditResponse = await sql`
-    SELECT full_name AS name, superrole, role
-    FROM episodes
-    JOIN credits ON ep_id = episodes.id
-    JOIN team ON team_id = team.id
-    WHERE slug=${slug}`;
+    
+    const [episodeResponse, creditsResponse] = await sql.transaction([
+        sql`
+        SELECT episodes.id as id, ep_num, season_num, season_ep_num, title, slug, link_spotify, link_apple, link_amazon, description, triggers, transcript_filename, episode_covers.filename as cover_filename, episode_covers.alt_text as cover_alt_text, seasons.cover_filename as season_cover_filename, seasons.cover_alt_text as season_cover_alt_text
+        FROM episodes
+        JOIN episode_covers ON episode_covers.id = episodes.cover_id
+        JOIN seasons ON season_id = seasons.id
+        WHERE slug=${slug}`, // get episodes with joins for foreign keys
+        sql`
+        SELECT full_name AS name, superrole, role
+        FROM episodes
+        JOIN credits ON ep_id = episodes.id
+        JOIN team ON team_id = team.id
+        WHERE slug=${slug}`// get list of all credits with names and roles
+    ]);
 
     // compile data from both queries into one object for use on page
+    // yes it looks awful, but this was the last-resort fix for Typescript throwing errors about combining two generic Records
+    // will probably revamp using Kysely later
     const compiledData = {
-        ...episodeResponse[0],
-        credits: creditResponse
+        id: episodeResponse[0].id,
+        ep_num: episodeResponse[0].ep_num,
+        season_num: episodeResponse[0].season_num,
+        season_ep_num: episodeResponse[0].season_ep_num,
+        title: episodeResponse[0].title,
+        slug: episodeResponse[0].slug,
+        link_spotify: episodeResponse[0].link_spotify,
+        link_apple: episodeResponse[0].link_apple,
+        link_amazon: episodeResponse[0].link_amazon,
+        description: episodeResponse[0].description,
+        triggers: episodeResponse[0].triggers,
+        transcript_filename: episodeResponse[0].transcript_filename,
+        cover_filename: episodeResponse[0].cover_filename,
+        cover_alt_text: episodeResponse[0].cover_alt_text,
+        season_cover_filename: episodeResponse[0].season_cover_filename,
+        season_cover_alt_text: episodeResponse[0].season_cover_alt_text,
+        credits: creditsResponse
     }
 
     return compiledData;
@@ -50,13 +67,14 @@ export async function getLatestEp() {
 
 export async function getTeamList() {
     const sql = neon(process.env.DB_URL);
-    const infoResponse = await sql`
-    SELECT id, full_name as name, pronouns, headshot_filename, bio, socials, projects, quote 
-    FROM team`;
-
-    const roleResponse = await sql`
-    SELECT DISTINCT team_id, role
-    FROM credits`;
+    const [infoResponse, roleResponse] = await sql.transaction([
+        sql`
+        SELECT id, full_name as name, pronouns, headshot_filename, bio, socials, projects, quote 
+        FROM team`,
+        sql`
+        SELECT DISTINCT team_id, role
+        FROM credits`
+    ]);
 
     const compiledData = infoResponse.map((member) => {
         const memberRoles = roleResponse.filter((entry) => entry.team_id === member.id).map((entry) => entry.role);
