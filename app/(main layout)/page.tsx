@@ -1,6 +1,10 @@
 import Image from "next/image";
 import { Suspense } from "react";
 
+// Local Image Imports
+import SoulboundTextLogo from "@/public/miscImages/SoulboundTextLogo.png"
+import defaultCover from "@/public/covers/episodes/defaultCover.jpg"
+
 import EmbeddedEpisode from "@components/EmbeddedEpisode";
 import ShowLinks from "@components/ShowLinks";
 import { getLatestEp, getShowLinks } from "@lib/neonFunctions";
@@ -13,12 +17,9 @@ export default async function Home() {
         <main className="flex flex-col">
             <div id="top-banner" className="flex flex-row justify-center align-center p-[2em] bg-[url('/backgrounds/SpaceBannerSTATIC.png')]">
                 <Image
-                    id="episode-cover"
-                    className=""
-                    src="/miscImages/SoulboundTextLogo.png"
+                    className="h-[20em] w-auto"
+                    src={SoulboundTextLogo}
                     alt="Space banner image"
-                    width={500}
-                    height={500}
                     priority
                 />
             </div>
@@ -29,11 +30,9 @@ export default async function Home() {
                 </div>
                 <Image
                     id="episode-cover"
-                    className="mx-[5em]"
-                    src="/covers/episodes/defaultCover.jpg"
+                    className="h-[20em] w-auto mx-[5em]"
+                    src={defaultCover}
                     alt="Soulbound Podcast cover art"
-                    width={384}
-                    height={384}
                 />
             </div>
             <div id="latestep-section" className="flex flex-col align-center py-[2em] px-[10em] bg-[url('/backgrounds/MetalHeartBackground.png')] bg-size-[5em] bg-repeat border-[2em] border-image-[url('/borders/MetalHashBorder.png')] border-slice-t-[980] border-slice-r-[1000] border-slice-b-[990] border-slice-l-[1030] border-image-width-[150px] border-repeat-round">
