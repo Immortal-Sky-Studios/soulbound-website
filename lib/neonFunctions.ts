@@ -29,7 +29,7 @@ export async function getEpisode(slug: string) {
 
     // compile data from both queries into one object for use on page
     // yes it looks awful, but this was the last-resort fix for Typescript throwing errors about combining two generic Records
-    // will probably revamp using Kysely later
+    // will revamp using Kysely later
     const compiledData = {
         id: episodeResponse[0].id,
         ep_num: episodeResponse[0].ep_num,
