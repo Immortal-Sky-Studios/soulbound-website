@@ -3,7 +3,7 @@ import { neon } from '@neondatabase/serverless';
 export async function getEpisodeList() {
     const sql = neon(process.env.DB_URL);
     const response = await sql`
-    SELECT id, title, slug, ep_num, season_num
+    SELECT episodes.id as id, title, slug, ep_num, season_num
     FROM episodes
     JOIN seasons ON season_id = seasons.id`;
     return response;
@@ -13,7 +13,7 @@ export async function getEpisode(slug: string) {
     const sql = neon(process.env.DB_URL);
     // get episodes with joins for foreign keys
     const episodeResponse = await sql`
-    SELECT id, ep_num, season_num, season_ep_num, title, slug, link_spotify, link_apple, link_amazon, description, triggers, transcript_filename, episode_covers.filename as cover_filename, episode_covers.alt_text as cover_alt_text, seasons.cover_filename as season_cover_filename, seasons.cover_alt_text as season_cover_alt_text
+    SELECT episodes.id as id, ep_num, season_num, season_ep_num, title, slug, link_spotify, link_apple, link_amazon, description, triggers, transcript_filename, episode_covers.filename as cover_filename, episode_covers.alt_text as cover_alt_text, seasons.cover_filename as season_cover_filename, seasons.cover_alt_text as season_cover_alt_text
     FROM episodes
     JOIN episode_covers ON episode_covers.id = episodes.cover_id
     JOIN seasons ON season_id = seasons.id
@@ -76,13 +76,13 @@ export async function getShowLinks(type?: string) {
     if (type) {
         response = await sql`
         SELECT *
-        FROM id, show_links
+        FROM show_links
         WHERE type = ${type}
         ORDER BY id ASC`;
     }else {
         response = await sql`
         SELECT *
-        FROM id, show_links
+        FROM show_links
         ORDER BY id ASC`;
     }
 
@@ -96,13 +96,13 @@ export async function getConceptArt(type?: string) {
     if (type) {
         response = await sql`
         SELECT *
-        FROM id, concept_art
+        FROM concept_art
         WHERE type = ${type}
         ORDER BY id ASC`;
     }else {
         response = await sql`
         SELECT *
-        FROM id, concept_art
+        FROM concept_art
         ORDER BY id ASC`;
     }
 
