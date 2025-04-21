@@ -65,6 +65,7 @@ export default async function EpisodeDynamic({
                             <div id="episode-info">
                                 <h2>Soulbound Ep.{data.ep_num} - {data.title}</h2>
                                 <p id="episode-description">{data.description}</p>
+                                <p id="trigger-warnings">Trigger Warnings: {data.triggers}</p>
                             </div>
                         </div>
                         <div id="transcript-container">

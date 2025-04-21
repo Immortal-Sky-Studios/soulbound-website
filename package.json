@@ -6,11 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "update-kysely-types": "kysely-codegen --out-file ./kysely-types.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.10.4",
+    "kysely": "^0.27.6",
+    "kysely-codegen": "^0.18.3",
     "next": "^15.3.0",
+    "pg": "^8.14.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-responsive-carousel": "^3.2.23"

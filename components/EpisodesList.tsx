@@ -7,7 +7,13 @@ export default function EmbeddedEpisode({
     episodes,
     links,
 }: {
-    episodes: Promise<Record<string, any>[]>
+    episodes: Promise<{
+        ep_num: number;
+        slug: string;
+        title: string;
+        season_num: number;
+        id: number;
+    }[]>
     links: Promise<Record<string, any>[]>
 }) {
     const episodesList = use(episodes);
