@@ -12,7 +12,7 @@ export async function getEpisodeList() {
         .select(['episodes.id as id', 'title', 'slug', 'ep_num', 'season_num'])
         .execute();
 
-    await pool.end();
+    pool.end();
 
     return response;
 }
@@ -43,7 +43,7 @@ export async function getEpisode(slug: string) {
         credits: creditsResponse
     }
 
-    await pool.end();
+    pool.end();
 
     return compiledData;
 }
@@ -58,7 +58,7 @@ export async function getLatestEp() {
         .where('id', '=', ({selectFrom}) => (selectFrom('episodes').select((eb) => eb.fn.max('id').as('max_id'))))
         .execute();
 
-    await pool.end();
+    pool.end();
 
     return response[0];
 }
@@ -86,7 +86,7 @@ export async function getTeamList() {
         }
     });
 
-    await pool.end();
+    pool.end();
     
     return compiledData;
 }
@@ -102,7 +102,7 @@ export async function getShowLinks(type?: string) {
         .orderBy('id', 'asc')
         .execute();
     
-    await pool.end();
+    pool.end();
 
     return response;
 }
@@ -118,7 +118,7 @@ export async function getConceptArt(type?: string) {
         .orderBy('id', 'asc')
         .execute();
     
-    await pool.end();
+    pool.end();
 
     return response;
 }
