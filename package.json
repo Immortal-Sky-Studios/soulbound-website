@@ -7,10 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "update-kysely-types": "kysely-codegen --out-file ./kysely-types.ts"
+    "update-kysely-types": "kysely-codegen --out-file ./kysely-types.ts",
+    "update-robots-txt": "fetch-github-release -s robots.txt ai-robots-txt ai.robots.txt lib/releaseDownloads/"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.10.4",
+    "@terascope/fetch-github-release": "^2.1.0",
     "kysely": "^0.27.6",
     "kysely-codegen": "^0.18.3",
     "next": "^15.3.0",
