@@ -16,7 +16,7 @@ export default function EmbeddedEpisode({
                 <li key={entry.id} className={`flex ${direction}`}>
                     <Image
                         className=""
-                        src={`/headshots/${entry.headshot_filename}`}
+                        src={`/images/headshots/${entry.headshot_filename}`}
                         alt={`Image of ${entry.name}`}
                         width={300}
                         height={300}

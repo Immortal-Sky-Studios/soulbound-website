@@ -2,8 +2,8 @@ import Image from "next/image";
 import { Suspense } from "react";
 
 // Local Image Imports
-import SoulboundTextLogo from "@/public/miscImages/SoulboundTextLogo.png"
-import defaultCover from "@/public/covers/episodes/defaultCover.jpg"
+import SoulboundTextLogo from "@images/miscImages/SoulboundTextLogo.png"
+import defaultCover from "@images/covers/episodes/defaultCover.jpg"
 
 import EmbeddedEpisode from "@components/EmbeddedEpisode";
 import ShowLinks from "@components/ShowLinks";

@@ -1,7 +1,12 @@
+import type { Metadata } from 'next';
 import { Suspense } from 'react'
 
 import EpisodesList from "@components/EpisodesList";
 import { getEpisodeList, getShowLinks } from "@lib/neonFunctions";
+
+export const metadata: Metadata = {
+    title: 'Episodes',
+};
 
 export default function Episodes() {
     const episodes = getEpisodeList();

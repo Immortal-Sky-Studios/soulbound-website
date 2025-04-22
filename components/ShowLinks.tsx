@@ -20,7 +20,7 @@ export default function ShowLinks({
                             rel="noopener noreferrer"
                         >
                             <Image
-                                src={`/icons/${entry.icon_filename}`}
+                                src={`/images/icons/${entry.icon_filename}`}
                                 alt={entry.icon_alt_text}
                                 width={50}
                                 height={50}

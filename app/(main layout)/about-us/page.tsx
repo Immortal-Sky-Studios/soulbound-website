@@ -1,9 +1,16 @@
+import type { Metadata } from 'next';
 import { Suspense } from "react";
 import Image from 'next/image';
+
+import defaultCover from "@images/covers/episodes/defaultCover.jpg";
 
 import ConceptGallery from "@components/ConceptGallery";
 import TeamList from "@components/TeamList";
 import { getTeamList, getConceptArt } from "@lib/neonFunctions";
+
+export const metadata: Metadata = {
+    title: 'About Us',
+};
 
 export default function AboutUs() {
     const teamList = getTeamList();
@@ -16,7 +23,7 @@ export default function AboutUs() {
                     <Image
                         id="episode-cover"
                         className=""
-                        src="/covers/episodes/defaultCover.jpg"
+                        src={defaultCover}
                         alt="ALTTEXT"
                         width={250}
                         height={250}
@@ -30,7 +37,7 @@ export default function AboutUs() {
                     <Image
                         id="episode-cover"
                         className=""
-                        src="/covers/episodes/defaultCover.jpg"
+                        src={defaultCover}
                         alt="ALTTEXT"
                         width={250}
                         height={250}

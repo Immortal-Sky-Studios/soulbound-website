@@ -6,11 +6,11 @@ import Link from "next/link";
 import { Suspense } from 'react';
 
 // Local Image Imports
-import HeaderLogo from "@/public/icons/header-logo-icon.svg"
-import MetalShine from "@/public/miscImages/MetalShine.png"
+import HeaderLogo from "@images/icons/header-logo-icon.svg";
+import MetalShine from "@images/miscImages/MetalShine.png";
 
-import HeaderFooterButtons from "@/components/HeaderFooterButtons";
-import { getLatestEp } from "@/lib/neonFunctions";
+import HeaderFooterButtons from "@components/HeaderFooterButtons";
+import { getLatestEp } from "@lib/neonFunctions";
 
 const oswald = Oswald({
     variable: "--font-oswald",
@@ -18,7 +18,10 @@ const oswald = Oswald({
 });
 
 export const metadata: Metadata = {
-    title: "Soulbound",
+    title: {
+        template: "%s | Soulbound",
+        default: "Soulbound"
+    },
     description: "A Sci-Fi Audio Drama by Immortal Sky Studios",
 };
 

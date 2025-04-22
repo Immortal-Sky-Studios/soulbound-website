@@ -1,7 +1,21 @@
+import type { Metadata } from 'next'
 import Image from "next/image";
 import Link from "next/link";
 
 import { getEpisode } from '@lib/neonFunctions.ts';
+
+export async function generateMetadata({
+    params
+}: {
+    params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+    const { slug } = await params;
+    const data = await getEpisode(slug);
+
+    return {
+        title: data.title
+    }
+}
 
 export default async function EpisodeDynamic({
         params,
@@ -19,7 +33,7 @@ export default async function EpisodeDynamic({
                         <Image
                             id="episode-cover"
                             className="h-[300px] w-auto"
-                            src={`/covers/episodes/${data.cover_filename}`}
+                            src={`/images/covers/episodes/${data.cover_filename}`}
                             alt={data.cover_alt_text}
                             width={2048}
                             height={2048}
@@ -30,7 +44,7 @@ export default async function EpisodeDynamic({
                             <li>
                                 <Link href={data.link_spotify} target="_blank" rel="noopener noreferrer">
                                     <Image
-                                        src="/icons/spotify-icon.svg"
+                                        src="/images/icons/spotify-icon.svg"
                                         alt="Spotify"
                                         width={50}
                                         height={50}
@@ -40,7 +54,7 @@ export default async function EpisodeDynamic({
                             <li>
                                 <Link href={data.link_apple} target="_blank" rel="noopener noreferrer">
                                     <Image
-                                        src="/icons/apple-icon.svg"
+                                        src="/images/icons/apple-icon.svg"
                                         alt="Apple Podcasts"
                                         width={50}
                                         height={50}
@@ -50,7 +64,7 @@ export default async function EpisodeDynamic({
                             <li>
                                 <Link href={data.link_amazon} target="_blank" rel="noopener noreferrer">
                                     <Image
-                                        src="/icons/amazon-icon.svg"
+                                        src="/images/icons/amazon-icon.svg"
                                         alt="Amazon Music"
                                         width={50}
                                         height={50}

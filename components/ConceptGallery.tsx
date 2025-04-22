@@ -21,7 +21,7 @@ export default function EmbeddedEpisode({
                         <div>{index + 1} / {conceptArt.length}</div>
                         <Image
                             className=""
-                            src={`/concept-art/${entry.filename}`}
+                            src={`/images/concept-art/${entry.filename}`}
                             alt={entry.alt_text}
                             width={300}
                             height={300}
