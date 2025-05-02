@@ -10,7 +10,7 @@ export default function ShowLinks({
 }) {
     const showLinks = use(links);
     return (
-        <ul className="flex flex-row w-2/3 px-[2em] justify-between align-center list-none">
+        <ul className="grid grid-rows-1 grid-cols-auto w-2/3 px-[2em] list-none">
             {showLinks.map((entry) => {
                 return (
                     <li key={entry.id}>
