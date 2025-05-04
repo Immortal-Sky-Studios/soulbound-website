@@ -18,11 +18,23 @@ const oswald = Oswald({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL('https://thesoulboundseries.com'),
     title: {
         template: "%s | Soulbound",
         default: "Soulbound"
     },
     description: "A Sci-Fi Audio Drama by Immortal Sky Studios",
+    openGraph: {
+        title: "Soulbound",
+        description: "A Sci-Fi Audio Drama by Immortal Sky Studios",
+        url: './',
+        siteName: 'The Soulbound Series',
+        locale: 'en_US',
+        type: 'website',
+    },
+    alternates: {
+        canonical: './',
+    }
 };
 
 export default function RootLayout({

@@ -13,7 +13,10 @@ export async function generateMetadata({
     const data = await getEpisode(slug);
 
     return {
-        title: data.title
+        title: data.title,
+        alternates: {
+            canonical: './episodes',
+        },
     }
 }
 

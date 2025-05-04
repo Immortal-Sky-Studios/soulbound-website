@@ -6,6 +6,9 @@ import { getEpisodeList, getShowLinks } from "@lib/neonFunctions";
 
 export const metadata: Metadata = {
     title: 'Episodes',
+    alternates: {
+        canonical: './episodes',
+    },
 };
 
 export default function Episodes() {

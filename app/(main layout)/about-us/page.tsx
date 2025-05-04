@@ -10,6 +10,9 @@ import { getTeamList, getConceptArt } from "@lib/neonFunctions";
 
 export const metadata: Metadata = {
     title: 'About Us',
+    alternates: {
+        canonical: './about-us',
+    },
 };
 
 export default function AboutUs() {

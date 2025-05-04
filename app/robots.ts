@@ -13,9 +13,10 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
         },
         {
             userAgent: '*',
-            allow: ['/'],
+            disallow: ['/embed/', '/episodes/'],
+            allow: ['/episodes', '/'],
         },
         ],
-        sitemap: 'https://acme.com/sitemap.xml',
+        sitemap: 'https://thesoulboundseries.com/sitemap.xml',
     }
 }
