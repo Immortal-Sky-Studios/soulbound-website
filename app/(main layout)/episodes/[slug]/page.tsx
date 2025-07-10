@@ -42,7 +42,7 @@ export default async function EpisodeDynamic({
                             height={2048}
                             priority
                         />
-                        <iframe className="border-12" src={`${spotifyComponents[0]}embed/episode/${spotifyComponents[1]}?utm_source=generator`} width="100%" height="352" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe className="w-[300px] h-[152px] my-[1em]" src={`${spotifyComponents[0]}embed/episode/${spotifyComponents[1]}?utm_source=generator`} width="100%" height="352" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                         <ul id="showlinks-container" className="flex flex-row justify-around align-center">
                             <li>
                                 <Link href={data.link_spotify} target="_blank" rel="noopener noreferrer">
@@ -77,7 +77,7 @@ export default async function EpisodeDynamic({
                         </ul>
                     </div>
                     <div id="right-section">
-                        <div id="episode-info-container">
+                        <div id="episode-info-container" className="flex flex-col align-start">
                             <h2>Season {data.season_num}</h2>
                             <div id="episode-info">
                                 <h2>Soulbound Ep.{data.ep_num} - {data.title}</h2>
