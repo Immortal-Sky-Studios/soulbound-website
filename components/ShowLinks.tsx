@@ -10,10 +10,10 @@ export default function ShowLinks({
 }) {
     const showLinks = use(links);
     return (
-        <ul className="flex flex-row justify-between align-center flex-wrap w-2/3 px-[2em] list-none">
+        <ul className="flex flex-row flex-wrap justify-start align-center px-[2em] list-none">
             {showLinks.map((entry) => {
                 return (
-                    <li key={entry.id} >
+                    <li key={entry.id} className="mx-[1em]">
                         <Link
                             href={entry.link}
                             target="_blank"

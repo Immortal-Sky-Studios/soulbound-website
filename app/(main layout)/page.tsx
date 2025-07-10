@@ -43,10 +43,10 @@ export default async function Home() {
                     <EmbeddedEpisode episode={latestEp}/>
                 </Suspense>
             </div>
-            <div id="keepingup-section" className="flex flex-col justify-center p-[3em] bg-cyan-300 border-[2em] border-image-[url('/images/borders/MetalScrewBorder.png')] border-slice-[990] border-image-width-[150px] border-repeat-round">
+            <div id="keepingup-section" className="flex flex-col justify-center align-center p-[3em] bg-cyan-300 border-[2em] border-image-[url('/images/borders/MetalScrewBorder.png')] border-slice-[990] border-image-width-[150px] border-repeat-round">
                 <h2>Keep up to date with us!</h2>
                 <Suspense fallback={
-                    <ul className="flex flex-row w-2/3 px-[2em] justify-between align-center list-none">
+                    <ul className="flex flex-row flex-wrap justify-start align-center w-2/3 px-[2em] list-none">
                         <li >Loading...</li>
                     </ul>
                 }>
