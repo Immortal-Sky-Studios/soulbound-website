@@ -3,6 +3,12 @@ import { ChangeEvent, use, useState } from 'react';
 import ShowLinks from './ShowLinks';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Stalinist_One } from "next/font/google";
+
+const stalinistOne = Stalinist_One({
+    weight: "400",
+    subsets: ['latin'],
+});
 
 export default function EmbeddedEpisode({
     episodes,
@@ -37,9 +43,9 @@ export default function EmbeddedEpisode({
         <div id="center-container" className="flex flex-col align-center w-full md:w-1/2 h-full bg-background">
             <div id="main-header" className="flex flex-col align-center">
                 <div className="flex flex-row justify-center">
-                    <h1 className="w-2/3 text-center">EPISODES</h1>
+                    <h1 className={`${stalinistOne.className} w-2/3 text-center mt-[0.5em]`}>EPISODES</h1>
                 </div>
-                <div className="flex flex-row justify-center">
+                <div className="flex flex-row justify-center -mt-[1.75em]">
                     <ShowLinks links={links} />
                 </div>
                 <hr className="my-[1em]"/>
@@ -58,8 +64,8 @@ export default function EmbeddedEpisode({
                 {filteredEps.map((entry) => {
                     return (
                         <li key={entry.id} className="flex flex-row border">
-                            <div className="flex flex-col justify-center align-center mx-[1em]">Season {entry.season_num}</div>
-                            <Link href={`/episodes/${entry.slug}`} className="flex flex-col justify-center align-center"><h2 className="-mb-[1em]">Ep {entry.ep_num} {entry.title}</h2></Link>
+                            <div className="flex flex-col justify-center align-center h-1/2 m-[1em] p-[0.25em] border-2">Season {entry.season_num}</div>
+                            <Link href={`/episodes/${entry.slug}`} className="flex flex-col justify-center align-center text-3xl font-medium">Ep {entry.ep_num} {entry.title}</Link>
                         </li>
                     )
                 })}
