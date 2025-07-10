@@ -10,6 +10,7 @@ export async function getEpisodeList() {
         .selectFrom('episodes')
         .innerJoin('seasons', 'episodes.season_id', 'seasons.id')
         .select(['episodes.id as id', 'title', 'slug', 'ep_num', 'season_num'])
+        .orderBy('id','desc')
         .execute();
 
     pool.end();
