@@ -16,7 +16,7 @@ export default function Episodes() {
     const showLinks = getShowLinks('Podcast Hosts');
 
     return (
-        <main className="flex flex-row justify-center w-screen bg-[url('/backgrounds/SpaceBannerSTATIC.png')]">
+        <main className="flex flex-row justify-center w-full bg-[url('/images/backgrounds/SpaceBannerSTATIC.png')]">
             <Suspense fallback={
                 <div id="center-container" className="flex flex-col align-center w-1/2 h-full bg-background">
                     <div id="main-header" className="flex flex-col align-center">
@@ -33,7 +33,7 @@ export default function Episodes() {
                             <input className="w-2/3" name="episode-search" type="text" placeholder="Loading..." defaultValue="" autoFocus={true} />
                         </div>
                     </div>
-                    <ul id="results-list" className="overflow-scroll list-none">
+                    <ul id="results-list" className="flex flex-col overflow-scroll list-none h-[75vh]">
                         Loading...
                     </ul>
                 </div>
