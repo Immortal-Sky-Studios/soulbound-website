@@ -1,6 +1,6 @@
 import { Pool } from '@neondatabase/serverless';
-import { Kysely, PostgresDialect, Selectable } from 'kysely';
-import { ConceptArt, DB, ShowLinks } from "@/kysely-types.ts";
+import { Kysely, PostgresDialect } from 'kysely';
+import { DB } from "@/kysely-types.ts";
 
 export async function getEpisodeList() {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
@@ -18,29 +18,7 @@ export async function getEpisodeList() {
     return response;
 }
 
-export async function getEpisode(slug: string): Promise<{
-    credits: {
-        role: string;
-        superrole: string;
-        name: string;
-    }[];
-    description: string;
-    ep_num: number;
-    link_amazon: string;
-    link_apple: string;
-    link_spotify: string;
-    season_ep_num: number | null;
-    id: number;
-    season_num: number;
-    title: string;
-    slug: string;
-    triggers: string;
-    transcript_filename: string | null;
-    cover_filename: string;
-    cover_alt_text: string;
-    season_cover_filename: string;
-    season_cover_alt_text: string;
-}> {
+export async function getEpisode(slug: string) {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
     const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
 
@@ -86,17 +64,7 @@ export async function getLatestEp() {
     return response[0];
 }
 
-export async function getTeamList(): Promise<{
-    roles: string[];
-    id: number;
-    bio: string | null;
-    headshot_filename: string | null;
-    projects: string | null;
-    pronouns: string;
-    quote: string | null;
-    socials: string | null;
-    name: string;
-}[]> {
+export async function getTeamList() {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
     const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
 
@@ -124,7 +92,7 @@ export async function getTeamList(): Promise<{
     return compiledData;
 }
 
-export async function getShowLinks(type?: string): Promise<Selectable<ShowLinks>[]> {
+export async function getShowLinks(type?: string) {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
     const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
 
@@ -140,7 +108,7 @@ export async function getShowLinks(type?: string): Promise<Selectable<ShowLinks>
     return response;
 }
 
-export async function getConceptArt(type?: string): Promise<Selectable<ConceptArt>[]> {
+export async function getConceptArt(type?: string) {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
     const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
 
