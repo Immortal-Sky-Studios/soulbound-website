@@ -1,11 +1,12 @@
 'use client'
 import Link from "next/link";
 import { use } from 'react';
+import { getLatestEp } from "@/lib/neonFunctions";
 
 export default function EpisodeLinkButton({
     episode,
 }: {
-    episode: Promise<Record<string, any>>
+    episode: ReturnType<typeof getLatestEp>
 }) {
     const latestEp = use(episode);
     return (

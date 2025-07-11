@@ -1,6 +1,6 @@
 import { Pool } from '@neondatabase/serverless';
-import { Kysely, PostgresDialect } from 'kysely';
-import { DB } from "@/kysely-types.ts";
+import { Kysely, PostgresDialect, Selectable } from 'kysely';
+import { ConceptArt, DB, ShowLinks } from "@/kysely-types.ts";
 
 export async function getEpisodeList() {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
@@ -18,7 +18,29 @@ export async function getEpisodeList() {
     return response;
 }
 
-export async function getEpisode(slug: string) {
+export async function getEpisode(slug: string): Promise<{
+    credits: {
+        role: string;
+        superrole: string;
+        name: string;
+    }[];
+    description: string;
+    ep_num: number;
+    link_amazon: string;
+    link_apple: string;
+    link_spotify: string;
+    season_ep_num: number | null;
+    id: number;
+    season_num: number;
+    title: string;
+    slug: string;
+    triggers: string;
+    transcript_filename: string | null;
+    cover_filename: string;
+    cover_alt_text: string;
+    season_cover_filename: string;
+    season_cover_alt_text: string;
+}> {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
     const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
 
@@ -26,7 +48,7 @@ export async function getEpisode(slug: string) {
         .selectFrom('episodes')
         .innerJoin('episode_covers', 'episodes.cover_id', 'episode_covers.id')
         .innerJoin('seasons', 'episodes.season_id', 'seasons.id')
-        .select(['episodes.id as id', 'ep_num', 'season_num', 'season_ep_num', 'title', 'slug', 'link_spotify', 'link_apple', 'link_amazon', 'description', 'triggers', 'transcript_filename', 'episode_covers.filename as cover_filename', 'episode_covers.alt_text as cover_alt_text', 'seasons.cover_filename as season_cover_filename', 'seasons.cover_alt_text as season_cover_alt_text'])
+        .select(['episodes.id as id', 'ep_num', 'season_num', 'episodes.season_ep_num', 'title', 'slug', 'link_spotify', 'link_apple', 'link_amazon', 'description', 'triggers', 'episodes.transcript_filename', 'episode_covers.filename as cover_filename', 'episode_covers.alt_text as cover_alt_text', 'seasons.cover_filename as season_cover_filename', 'seasons.cover_alt_text as season_cover_alt_text'])
         .where('slug', '=', slug)
         .execute();
     
@@ -64,7 +86,17 @@ export async function getLatestEp() {
     return response[0];
 }
 
-export async function getTeamList() {
+export async function getTeamList(): Promise<{
+    roles: string[];
+    id: number;
+    bio: string | null;
+    headshot_filename: string | null;
+    projects: string | null;
+    pronouns: string;
+    quote: string | null;
+    socials: string | null;
+    name: string;
+}[]> {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
     const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
 
@@ -92,7 +124,7 @@ export async function getTeamList() {
     return compiledData;
 }
 
-export async function getShowLinks(type?: string) {
+export async function getShowLinks(type?: string): Promise<Selectable<ShowLinks>[]> {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
     const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
 
@@ -108,7 +140,7 @@ export async function getShowLinks(type?: string) {
     return response;
 }
 
-export async function getConceptArt(type?: string) {
+export async function getConceptArt(type?: string): Promise<Selectable<ConceptArt>[]> {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
     const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
 

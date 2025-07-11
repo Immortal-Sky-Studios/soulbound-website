@@ -4,8 +4,7 @@ import ShowLinksList from './ShowLinks';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Stalinist_One } from "next/font/google";
-import type { Selectable } from 'kysely';
-import type { ShowLinks } from '@/kysely-types';
+import { getEpisodeList, getShowLinks } from '@/lib/neonFunctions';
 
 const stalinistOne = Stalinist_One({
     weight: "400",
@@ -16,14 +15,8 @@ export default function EpisodesList({
     episodes,
     links,
 }: {
-    episodes: Promise<{
-        ep_num: number;
-        slug: string;
-        title: string;
-        season_num: number;
-        id: number;
-    }[]>
-    links: Promise<Selectable<ShowLinks>[]>
+    episodes: ReturnType<typeof getEpisodeList>
+    links: ReturnType<typeof getShowLinks>
 }) {
     const episodesList = use(episodes);
 

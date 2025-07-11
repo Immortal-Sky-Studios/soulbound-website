@@ -1,12 +1,11 @@
 'use client'
 import { use } from 'react';
-import type { Selectable } from 'kysely';
-import type { Episodes } from '@/kysely-types';
+import { getEpisode } from '@/lib/neonFunctions';
 
 export default function EmbeddedEpisode({
     episode,
 }: {
-    episode: Promise<Selectable<Episodes>>
+    episode: ReturnType<typeof getEpisode>
 }) {
     const selectedEp = use(episode);
     return (

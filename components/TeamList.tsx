@@ -1,11 +1,12 @@
 'use client'
 import { use } from 'react';
 import Image from 'next/image';
+import { getTeamList } from '@/lib/neonFunctions';
 
 export default function EmbeddedEpisode({
     team,
 }: {
-    team: Promise<Record<string, any>[]>
+    team: ReturnType<typeof getTeamList>
 }) {
     const teamList = use(team);
     return (

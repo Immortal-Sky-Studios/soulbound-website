@@ -1,8 +1,7 @@
 'use client'
 import { use } from 'react';
 import Image from 'next/image';
-import type { Selectable } from 'kysely';
-import type { ConceptArt } from '@/kysely-types';
+import { getConceptArt } from '@/lib/neonFunctions';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
@@ -10,7 +9,7 @@ import { Carousel } from 'react-responsive-carousel';
 export default function ConceptArt({
     art,
 }: {
-    art: Promise<Selectable<ConceptArt>[]>
+    art: ReturnType<typeof getConceptArt>
 }) {
     const conceptArt = use(art);
     
