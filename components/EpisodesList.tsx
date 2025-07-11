@@ -1,16 +1,18 @@
 'use client'
 import { ChangeEvent, use, useState } from 'react';
-import ShowLinks from './ShowLinks';
+import ShowLinksList from './ShowLinks';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Stalinist_One } from "next/font/google";
+import type { Selectable } from 'kysely';
+import type { ShowLinks } from '@/kysely-types';
 
 const stalinistOne = Stalinist_One({
     weight: "400",
     subsets: ['latin'],
 });
 
-export default function EmbeddedEpisode({
+export default function EpisodesList({
     episodes,
     links,
 }: {
@@ -21,7 +23,7 @@ export default function EmbeddedEpisode({
         season_num: number;
         id: number;
     }[]>
-    links: Promise<Record<string, any>[]>
+    links: Promise<Selectable<ShowLinks>[]>
 }) {
     const episodesList = use(episodes);
 
@@ -33,7 +35,7 @@ export default function EmbeddedEpisode({
         setSearchItem(searchTerm);
 
         const filteredItems = episodesList.filter((entry) => 
-            entry.title.toLowerCase().includes(searchTerm.toLowerCase())
+            entry.title.toLowerCase().includes(searchItem.toLowerCase())
         );
 
         setFilteredEps(filteredItems);
@@ -46,7 +48,7 @@ export default function EmbeddedEpisode({
                     <h1 className={`${stalinistOne.className} w-2/3 text-center mt-[0.5em]`}>EPISODES</h1>
                 </div>
                 <div className="flex flex-row justify-center -mt-[1.75em]">
-                    <ShowLinks links={links} />
+                    <ShowLinksList links={links} />
                 </div>
                 <hr className="my-[1em]"/>
                 <div id="search-container" className="flex flex-row justify-center mb-[1em]">

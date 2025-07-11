@@ -2,11 +2,13 @@
 import { use } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import type { Selectable } from 'kysely';
+import type { ShowLinks } from '@/kysely-types';
 
 export default function ShowLinks({
     links,
 }: {
-    links: Promise<Record<string, any>[]>
+    links: Promise<Selectable<ShowLinks>[]>
 }) {
     const showLinks = use(links);
     return (

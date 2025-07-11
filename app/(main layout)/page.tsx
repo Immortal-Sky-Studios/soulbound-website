@@ -7,10 +7,10 @@ import defaultCover from "@images/covers/episodes/defaultCover.jpg"
 
 import EmbeddedEpisode from "@components/EmbeddedEpisode";
 import ShowLinks from "@components/ShowLinks";
-import { getLatestEp, getShowLinks } from "@lib/neonFunctions";
+import { getEpisode, getLatestEp, getShowLinks } from "@lib/neonFunctions";
 
 export default async function Home() {
-    const latestEp = getLatestEp();
+    const latestEp = getLatestEp().then((result) => getEpisode(result.slug));
     const showLinks = getShowLinks();
 
     return (

@@ -1,14 +1,16 @@
 'use client'
 import { use } from 'react';
 import Image from 'next/image';
+import type { Selectable } from 'kysely';
+import type { ConceptArt } from '@/kysely-types';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
-export default function EmbeddedEpisode({
+export default function ConceptArt({
     art,
 }: {
-    art: Promise<Record<string, any>[]>
+    art: Promise<Selectable<ConceptArt>[]>
 }) {
     const conceptArt = use(art);
     
