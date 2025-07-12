@@ -1,8 +1,14 @@
 import type { Metadata } from 'next';
-import { Suspense } from 'react'
+import { Stalinist_One } from "next/font/google";
 
 import EpisodesList from "@components/EpisodesList";
+import ShowLinksList from '@components/ShowLinks';
 import { getEpisodeList, getShowLinks } from "@lib/neonFunctions";
+
+const stalinistOne = Stalinist_One({
+    weight: "400",
+    subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
     title: 'Episodes',
@@ -17,29 +23,18 @@ export default function Episodes() {
 
     return (
         <main className="flex flex-row justify-center w-full bg-[url('/images/backgrounds/SpaceBannerSTATIC.png')]">
-            <Suspense fallback={
-                <div id="center-container" className="flex flex-col align-center w-1/2 h-full bg-background">
-                    <div id="main-header" className="flex flex-col align-center">
-                        <div className="flex flex-row justify-center">
-                            <h1 className="w-2/3 text-center">EPISODES</h1>
-                        </div>
-                        <div className="flex flex-row justify-center">
-                            <ul className="flex flex-row w-2/3 px-[2em] justify-between align-center list-none">
-                                <li>Loading...</li>
-                            </ul>
-                        </div>
-                        <hr className="my-[1em]"/>
-                        <div id="search-container" className="flex flex-row justify-center mb-[1em]">
-                            <input className="w-2/3" name="episode-search" type="text" placeholder="Loading..." defaultValue="" autoFocus={true} />
-                        </div>
+            <div id="center-container" className="flex flex-col align-center w-full md:w-1/2 h-full bg-background">
+                <div id="main-header" className="flex flex-col align-center">
+                    <div className="flex flex-row justify-center">
+                        <h1 className={`${stalinistOne.className} w-2/3 text-center mt-[0.5em] sm:text-sm`}>EPISODES</h1>
                     </div>
-                    <ul id="results-list" className="flex flex-col overflow-scroll list-none h-[75vh]">
-                        Loading...
-                    </ul>
+                    <div className="flex flex-row justify-center -mt-[1.75em]">
+                        <ShowLinksList links={showLinks} />
+                    </div>
+                    <hr className="my-[1em]"/>
                 </div>
-            }>
-                <EpisodesList episodes={episodes} links={showLinks}/>
-            </Suspense>
+                <EpisodesList episodes={episodes}/>
+            </div>
         </main>
     )
 }

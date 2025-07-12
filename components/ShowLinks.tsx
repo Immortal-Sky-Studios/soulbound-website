@@ -3,6 +3,8 @@ import { use } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getShowLinks } from '@/lib/neonFunctions';
+import "react-loading-skeleton/dist/skeleton.css";
+import Skeleton from 'react-loading-skeleton';
 
 export default function ShowLinks({
     links,
@@ -11,8 +13,8 @@ export default function ShowLinks({
 }) {
     const showLinks = use(links);
     return (
-        <ul className="flex flex-row flex-wrap justify-start align-center px-[2em] list-none">
-            {showLinks.map((entry) => {
+        <ul className="flex flex-row flex-wrap justify-start align-center sm:px-[2em] list-none">
+            {!showLinks?.length ? <Skeleton count={10}/> : showLinks.map((entry) => {
                 return (
                     <li key={entry.id} className="mx-[1em]">
                         <Link
