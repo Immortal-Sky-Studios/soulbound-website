@@ -80,7 +80,7 @@ export default async function EpisodeDynamic({
                         <div id="episode-info-container" className="flex flex-col align-start">
                             <h2>Season {data.season_num}</h2>
                             <div id="episode-info">
-                                <h2>Soulbound Ep.{data.ep_num} - {data.title}</h2>
+                                <h2>Soulbound Ep.{data.season_ep_num} - {data.title}</h2>
                                 <p id="episode-description">{data.description}</p>
                                 <p id="trigger-warnings">Trigger Warnings: {data.triggers}</p>
                             </div>
