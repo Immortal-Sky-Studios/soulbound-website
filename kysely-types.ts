@@ -11,10 +11,10 @@ export type Generated<T> = T extends ColumnType<infer S, infer I, infer U>
 
 export interface ConceptArt {
   alt_text: string;
-  caption: string | null;
+  caption: Generated<string>;
   filename: string;
   id: Generated<number>;
-  type: Generated<string | null>;
+  type: Generated<string>;
 }
 
 export interface Credits {
@@ -32,15 +32,15 @@ export interface EpisodeCovers {
 }
 
 export interface Episodes {
-  cover_id: number | null;
+  cover_id: Generated<number>;
   description: string;
   ep_num: number;
   id: Generated<number>;
-  link_amazon: string;
-  link_apple: string;
-  link_spotify: string;
+  link_amazon: Generated<string>;
+  link_apple: Generated<string>;
+  link_spotify: Generated<string>;
   season_ep_num: number | null;
-  season_id: number | null;
+  season_id: Generated<number>;
   slug: string;
   title: string;
   transcript_filename: string | null;
@@ -55,8 +55,8 @@ export interface Seasons {
 }
 
 export interface ShowLinks {
-  icon_alt_text: Generated<string | null>;
-  icon_filename: Generated<string | null>;
+  icon_alt_text: Generated<string>;
+  icon_filename: Generated<string>;
   id: Generated<number>;
   link: string;
   name: string;
@@ -64,16 +64,16 @@ export interface ShowLinks {
 }
 
 export interface Team {
-  bio: Generated<string | null>;
+  bio: Generated<string>;
   fname: string;
   full_name: string;
-  headshot_filename: Generated<string | null>;
+  headshot_filename: Generated<string>;
   id: Generated<number>;
   lname: string;
-  projects: Generated<string | null>;
+  projects: Generated<string>;
   pronouns: Generated<string>;
-  quote: Generated<string | null>;
-  socials: Generated<string | null>;
+  quote: Generated<string>;
+  socials: Generated<string>;
 }
 
 export interface DB {
