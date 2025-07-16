@@ -30,9 +30,9 @@ export default async function EpisodeDynamic({
         const spotifyComponents = data.link_spotify.split('episode');
 
         return (
-            <main>
-                <div id="top-section" className="flex flex-row justify-center">
-                    <div id="left-section">
+            <main className="p-[2em]">
+                <div id="top-section" className="flex flex-col sm:flex-row justify-center">
+                    <div id="left-section" className="mx-[1em]">
                         <Image
                             id="episode-cover"
                             className="h-[300px] w-auto"
@@ -78,7 +78,7 @@ export default async function EpisodeDynamic({
                     </div>
                     <div id="right-section">
                         <div id="episode-info-container" className="flex flex-col align-start">
-                            <h2>Season {data.season_num}</h2>
+                            <h2 className="w-1/3 border-2 mask-clip-border mask-[url(/images/masks/season-mask.svg)]">Season {data.season_num}</h2>
                             <div id="episode-info">
                                 <h2>Soulbound Ep.{data.season_ep_num} - {data.title}</h2>
                                 <p id="episode-description">{data.description}</p>
