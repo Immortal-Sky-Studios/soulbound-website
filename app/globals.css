@@ -22,7 +22,7 @@
   h1 {
     font-size: var(--text-5xl);
     font-weight: var(--text-semibold);
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
   }
 
   @media only screen and (max-width: 768px) {
@@ -34,7 +34,7 @@
   h2 {
     font-size: var(--text-3xl);
     font-weight: var(--text-semibold);
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
   }
 }
 

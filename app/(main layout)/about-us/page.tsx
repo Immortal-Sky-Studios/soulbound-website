@@ -32,7 +32,7 @@ export default function AboutUs() {
                         height={250}
                     />
                 </div>
-                <div id="description-container" className="p-[1em]">
+                <div id="description-container" className="p-[1rem]">
                     <h1>ABOUT US</h1>
                     <p>Description goes here.</p>
                 </div>

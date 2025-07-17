@@ -25,21 +25,21 @@ export default function EpisodesList({
 
     return (
         <>
-            <div id="search-container" className="flex flex-row justify-center mb-[1em]">
+            <div id="search-container" className="flex flex-row justify-center mb-[1rem]">
                 <Image
                     src="/images/icons/search-icon.svg"
                     alt="Search magnifying glass icon"
                     width={15}
                     height={15}
-                    className="-mr-[1.25em]"
+                    className="-mr-[1.25rem]"
                 />
-                <input className="px-[1.5em] w-2/3 border-2" name="episode-search" type="text" placeholder="Search for an episode" defaultValue="" autoFocus={true} onChange={handleSearch} />
+                <input className="px-[1.5rem] w-2/3 border-2" name="episode-search" type="text" placeholder="Search for an episode" defaultValue="" autoFocus={true} onChange={handleSearch} />
             </div>
             <ul id="results-list" className="flex flex-col overflow-y-auto list-none h-[75vh]">
                 {!filteredEps?.length ? <Skeleton count={10}/> : filteredEps.map((entry) => {
                     return (
                         <li key={entry.id} className="flex flex-row border">
-                            <div className="flex flex-col justify-center align-center h-1/2 m-[1em] p-[0.25em] border-2">Season {entry.season_num}</div>
+                            <div className="flex flex-col justify-center align-center h-1/2 m-[1rem] p-[0.25rem] border-2">Season {entry.season_num}</div>
                             <Link href={`/episodes/${entry.slug}`} className="flex flex-col justify-center align-center text-3xl font-medium">Ep {entry.ep_num} {entry.title}</Link>
                         </li>
                     )

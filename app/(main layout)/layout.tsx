@@ -50,27 +50,27 @@ export default function RootLayout({
             className={`${oswald.className} antialiased text-black`}
         >
             <a id="top" className=""></a>
-            <header className="flex flex-row justify-between align-center bg-background border-[0.95em] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch sticky top-0">
+            <header className="flex flex-row justify-between align-center bg-background border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch sticky top-0">
                 <Link
                     href="/"
-                    className="m-[0.5em] h-fit"
+                    className="m-[0.5rem] h-fit"
                 >
                     <Image
-                        className="h-[2.5em] w-auto"
+                        className="h-[2.5rem] w-auto"
                         src={HeaderLogo}
                         alt="Soulbound logo"
                     />
                 </Link>
 
                 <Image
-                    className="h-[3.5em] w-auto"
+                    className="h-[3.5rem] w-auto"
                     src={MetalShine}
                     alt="Metal shine graphic"
                 />
 
                 <Suspense fallback={
-                    <ul className="flex flex-row list-none justify-center align-center w-1/3 m-[0.5em]">
-                        <li className="flex justify-center align-center bg-cyan-300 border-2"><Link href="#" className="px-[0.5em] py-[0.25em]">Loading</Link></li>
+                    <ul className="flex flex-row list-none justify-center align-center w-1/3 m-[0.5rem]">
+                        <li className="flex justify-center align-center bg-cyan-300 border-2"><Link href="#" className="px-[0.5rem] py-[0.25rem]">Loading</Link></li>
                     </ul>
                 }>
                     <HeaderFooterButtons episode={data}/>
@@ -79,16 +79,16 @@ export default function RootLayout({
             
             {children}
 
-            <footer className="flex flex-row justify-between align-center border-[0.95em] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch">
+            <footer className="flex flex-row justify-between align-center border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch">
                 <Suspense fallback={
-                    <ul className="flex flex-row list-none justify-center align-center m-[1em]">
-                        <li className="flex justify-center align-center bg-cyan-300 border-2 h-fit"><Link href="#" className="px-[0.5em] py-[0.25em]">Loading</Link></li>
+                    <ul className="flex flex-row list-none justify-center align-center m-[1rem]">
+                        <li className="flex justify-center align-center bg-cyan-300 border-2 h-fit"><Link href="#" className="px-[0.5rem] py-[0.25rem]">Loading</Link></li>
                     </ul>
                 }>
                     <HeaderFooterButtons episode={data}/>
                 </Suspense>
-                <a id="back-to-top" href="#top" className="py-[1em]">Back to top</a>
-                <div id="copyright-notice" className="w-[30em] py-[0.5em] m-[1em] text-[0.75em] text-center text-background bg-[#414042] border-2 border-[#58595b]">
+                <a id="back-to-top" href="#top" className="py-[1rem]">Back to top</a>
+                <div id="copyright-notice" className="w-[30rem] py-[0.5rem] m-[1rem] text-[0.75rem] text-center text-background bg-[#414042] border-2 border-[#58595b]">
                     Soulbound is published under an Attribution-NonComercial-ShareAlike 4.0 International License
                 </div>
             </footer>

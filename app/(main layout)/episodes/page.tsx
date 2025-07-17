@@ -26,12 +26,12 @@ export default function Episodes() {
             <div id="center-container" className="flex flex-col align-center w-full md:w-1/2 h-full bg-background">
                 <div id="main-header" className="flex flex-col align-center">
                     <div className="flex flex-row justify-center">
-                        <h1 className={`${stalinistOne.className} w-2/3 text-center mt-[0.5em]`}>EPISODES</h1>
+                        <h1 className={`${stalinistOne.className} w-2/3 text-center mt-[0.25rem]`}>EPISODES</h1>
                     </div>
-                    <div className="flex flex-row justify-center -mt-[1.75em]">
+                    <div className="flex flex-row justify-center">
                         <ShowLinksList links={showLinks} />
                     </div>
-                    <hr className="my-[1em]"/>
+                    <hr className="my-[1rem]"/>
                 </div>
                 <EpisodesList episodes={episodes}/>
             </div>
