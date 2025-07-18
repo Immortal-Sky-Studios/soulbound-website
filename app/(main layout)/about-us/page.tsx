@@ -21,8 +21,8 @@ export default function AboutUs() {
 
     return (
         <main>
-            <div id="aboutus-container" className="flex flex-row justify-between">
-                <div id="left-art" className="p-25">
+            <div id="aboutus-container" className="flex flex-row justify-between p-[2em]">
+                <div id="left-art" className="flex flex-col justify-center align-center">
                     <Image
                         id="episode-cover"
                         className=""
@@ -32,11 +32,11 @@ export default function AboutUs() {
                         height={250}
                     />
                 </div>
-                <div id="description-container" className="p-[1rem]">
-                    <h1>ABOUT US</h1>
-                    <p>Description goes here.</p>
+                <div id="description-container" className="flex flex-col justify-center align-center w-1/3">
+                    <h1 className="text-center underline">ABOUT US</h1>
+                    <p className="text-center">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
                 </div>
-                <div id="right-art" className="p-25">
+                <div id="right-art" className="flex flex-col justify-center align-center">
                     <Image
                         id="episode-cover"
                         className=""
@@ -47,15 +47,17 @@ export default function AboutUs() {
                     />
                 </div>
             </div>
-            <div id="meettheteam-container" className="bg-[/AboutUsBG.png]">
-                <h2>Meet the Team!</h2>
-                <Suspense fallback={
-                    <ul id="team-list" className="flex flex-col list-none">
-                        Loading...
-                    </ul>
-                }>
-                    <TeamList team={teamList} />
-                </Suspense>
+            <div id="meettheteam-container" className="border-t-4 px-[5rem] bg-[/AboutUsBG.png]">
+                <div id="team-center-section" className="flex flex-col justify-center align-center border-x-4 p-[1rem]">
+                    <h2 className="mx-[30%] text-center -mt-[1rem] border-2">Meet the Team!</h2>
+                    <Suspense fallback={
+                        <ul id="team-list" className="flex flex-col list-none">
+                            Loading...
+                        </ul>
+                    }>
+                        <TeamList team={teamList} />
+                    </Suspense>
+                </div>
             </div>
             <Suspense fallback={
                 <div id="conceptgallery-container">

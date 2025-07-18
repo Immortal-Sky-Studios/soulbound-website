@@ -14,34 +14,35 @@ export default function EmbeddedEpisode({
             {teamList.map((entry, index) => {
                 const direction = index % 2 === 0 ? 'flex-row' : 'flex-row-reverse';
                 return (
-                <li key={entry.id} className={`flex ${direction}`}>
+                <li key={entry.id} className={`flex ${direction} border-2 p-[1rem] my-[1rem]`}>
                     <Image
-                        className=""
+                        className="border border-black"
                         src={`/images/headshots/${entry.headshot_filename}`}
                         alt={`Image of ${entry.name}`}
                         width={300}
                         height={300}
                         priority
                     />
-                    <div>
-                        <div>
-                            <div>{entry.name}</div>
-                            <div>{entry.pronouns}</div>
-                            <div>{entry.roles.join(", ")}</div>
+                    <div className="">
+                        <div className={`flex ${direction}`}>
+                            <h2 className="border px-[0.5rem]">{entry.name} ({entry.pronouns})</h2>
+                            <div className="w-auto h-1/3 p-[0.25rem] border">{entry.roles.join(", ")}</div>
                         </div>
-                        <div>
-                            {entry.bio}
-                        </div>
-                    </div>
-                    <div className="flex flex-col">
-                        <div>
-                            {entry.socials}
-                        </div>
-                        <div>
-                            {entry.projects}
-                        </div>
-                        <div>
-                            {entry.quote}
+                        <div className={`flex ${direction} p-[0.5rem]`}>
+                            <div className="mx-[1rem]">
+                                {entry.bio}
+                            </div>
+                            <ul className="flex flex-col px-[2rem] py-[1rem] mx-[0.5rem] list-disc border">
+                                <li>
+                                    {entry.socials}
+                                </li>
+                                <li>
+                                    {entry.projects}
+                                </li>
+                                <li>
+                                    {entry.quote}
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </li>
