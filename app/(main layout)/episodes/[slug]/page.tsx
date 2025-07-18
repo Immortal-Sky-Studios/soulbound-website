@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from "next/image";
 import Link from "next/link";
 
-import { getEpisode } from '@lib/neonFunctions.ts';
+import { getEpisode, getNearbyEp } from '@lib/neonFunctions.ts';
 
 export async function generateMetadata({
     params
@@ -27,11 +27,13 @@ export default async function EpisodeDynamic({
     }) {
         const { slug } = await params;
         const data = await getEpisode(slug);
+        const prevEp = await getNearbyEp(data.id,-1);
+        const nextEp = await getNearbyEp(data.id,1);
         const creditsOffset = data.credits.filter((entry) => entry.superrole === 'Cast').length + 2;
         const spotifyComponents = data.link_spotify.split('episode');
 
         return (
-            <main className="min-h-screen p-[2rem]">
+            <main className="min-h-screen w-full p-[2rem]">
                 <div id="top-section" className="flex flex-col sm:flex-row justify-center">
                     <div id="left-section" className="mx-[1rem]">
                         <Image
@@ -77,23 +79,24 @@ export default async function EpisodeDynamic({
                             </li>
                         </ul>
                     </div>
-                    <div id="right-section" className="flex flex-col align-start">
+                    <div id="right-section" className="flex flex-col align-start grow">
                         <div id="episode-info-container" className="flex flex-col align-start">
                             <div className="flex flex-row justify-between">
-                                <h2 className="w-1/3 px-[1rrem] border-2 mask-clip-border">Season {data.season_num}</h2> {/* mask-[url(/images/masks/season-mask.svg)] */}
-                                <div id="prev-next-container" className="flex flex-row align-center pb-[2rem]">
-                                    <button className="p-[0.5rem]">Prev</button>
-                                    <button className="p-[0.5rem]">Next</button>
+                                <h2 className="w-1/3 px-[1rem] border-2 mask-clip-border">Season {data.season_num}</h2> {/* mask-[url(/images/masks/season-mask.svg)] */}
+                                <div id="prev-next-container" className="pt-[0.5em]">
+                                    {prevEp && <Link href={`/episodes/${prevEp?.slug}`} className="h-min px-[1em] py-[0.25rem] border">{'<'} Prev</Link>}
+                                    {nextEp && <Link href={`/episodes/${nextEp?.slug}`} className="h-min px-[1em] py-[0.25rem] border">Next {'>'}</Link>}
                                 </div>
                             </div>
-                            <div id="episode-info" className="border-2 -mt-[1rem] p-[1rem]">
-                                <h2>Soulbound Ep.{data.season_ep_num} - {data.title}</h2>
-                                <p id="episode-description">{data.description}</p>
-                                <p id="trigger-warnings">Trigger Warnings: {data.triggers}</p>
+                            <div id="episode-info" className="flex flex-col justify-center border-2 -mt-[1rem] p-[1rem]">
+                                <h2 className="text-center underline">{data.season_ep_num && `Soulbound Ep. ${data.season_ep_num} -`} {data.title}</h2>
+                                <p id="episode-description" className="text-center">{data.description}</p>
+                                <p id="trigger-warnings" className="text-center">Trigger Warnings: {data.triggers}</p>
                             </div>
                         </div>
-                        <div id="transcript-container" className="border-2 mt-[1rem] p-[1rem] grow">
-                            However the fuck we render the transcript
+                        <div id="transcript-container" className="flex flex-col border-2 mt-[1rem] p-[1rem] grow">
+                            <h2 className="underline">Transcript</h2>
+                            <div className="overflow-y-scroll grow">However the fuck we render the transcript</div>
                         </div>
                     </div>
                 </div>
