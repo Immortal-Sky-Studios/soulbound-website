@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function AboutUs() {
     const teamList = getTeamList();
-    const conceptArt = getConceptArt();
+    const conceptArt = getConceptArt(10);
 
     return (
         <main>
@@ -47,7 +47,7 @@ export default function AboutUs() {
                     />
                 </div>
             </div>
-            <div id="meettheteam-container" className="border-t-4 px-[5rem] bg-[/AboutUsBG.png]">
+            <div id="meettheteam-container" className="border-y-4 px-[5rem] bg-[/AboutUsBG.png]">
                 <div id="team-center-section" className="flex flex-col justify-center align-center border-x-4 p-[1rem]">
                     <h2 className="mx-[30%] text-center -mt-[1rem] border-2">Meet the Team!</h2>
                     <Suspense fallback={
@@ -59,16 +59,19 @@ export default function AboutUs() {
                     </Suspense>
                 </div>
             </div>
-            <Suspense fallback={
-                <div id="conceptgallery-container">
-                    <h2>Concept Art Gallery</h2>
-                    <div id="concept-gallery">
-                        Loading...
+            <div id="conceptgallery-container">
+                <h2 className="text-center underline">Concept Art Gallery</h2>
+                <Suspense fallback={
+                    <div id="conceptgallery-container">
+                        <h2>Concept Art Gallery</h2>
+                        <div id="concept-gallery">
+                            Loading...
+                        </div>
                     </div>
-                </div>
-            }>
-                <ConceptGallery art={conceptArt} />
-            </Suspense>
+                }>
+                    <ConceptGallery art={conceptArt} />
+                </Suspense>
+            </div>
         </main>
     )
 }

@@ -14,25 +14,19 @@ export default function ConceptArt({
     const conceptArt = use(art);
     
     return (
-        <div id="conceptgallery-container">
-            <h2>Concept Art Gallery</h2>
-            <Carousel>
-                {conceptArt.map((entry,index) => (
-                    <div key={entry.id}>
-                        <div>{index + 1} / {conceptArt.length}</div>
-                        <Image
-                            className=""
-                            src={`/images/concept-art/${entry.filename}`}
-                            alt={entry.alt_text}
-                            width={300}
-                            height={300}
-                            priority
-                        />
-                        <div>{entry.caption}</div>
-                    </div>
-                ))}
-                
-            </Carousel>
-        </div>
+        <Carousel autoPlay>
+            {conceptArt.map((entry) => (
+                <div key={entry.id} className="relative h-[75vh]">
+                    <Image
+                        className="object-contain pt-[2rem] pb-[4rem]"
+                        src={`/images/conceptArt/${entry.filename}`}
+                        alt={entry.alt_text}
+                        fill={true}
+                        priority
+                    />
+                    <div className="absolute bottom-[2rem] text-center w-full">{entry.alt_text}</div>
+                </div>
+            ))}
+        </Carousel>
     )
 }

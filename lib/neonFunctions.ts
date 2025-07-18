@@ -123,7 +123,7 @@ export async function getShowLinks(type?: string) {
     return response;
 }
 
-export async function getConceptArt(type?: string) {
+export async function getConceptArt(count?: number, type?: string) {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
     const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
 
@@ -131,6 +131,7 @@ export async function getConceptArt(type?: string) {
         .selectFrom('concept_art')
         .selectAll()
         .$if(Boolean(type), (qb) => qb.where('type', '=', String(type)))
+        .$if(Boolean(count), (qb) => qb.limit(Number(count)))
         .orderBy('id', 'asc')
         .execute();
     
