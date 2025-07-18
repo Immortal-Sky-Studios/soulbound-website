@@ -9,8 +9,8 @@ export async function getEpisodeList() {
     const response = await db
         .selectFrom('episodes')
         .innerJoin('seasons', 'episodes.season_id', 'seasons.id')
-        .select(['episodes.id as id', 'title', 'slug', 'ep_num', 'season_num'])
-        .orderBy('id','desc')
+        .select(['episodes.id as id', 'title', 'slug', 'ep_num', 'season_num', 'season_ep_num'])
+        .orderBy('ep_num','desc')
         .execute();
 
     pool.end();
@@ -57,6 +57,21 @@ export async function getLatestEp() {
         .selectFrom('episodes')
         .select(['id', 'slug'])
         .where('id', '=', ({selectFrom}) => (selectFrom('episodes').select((eb) => eb.fn.max('id').as('max_id'))))
+        .execute();
+
+    pool.end();
+
+    return response[0];
+}
+
+export async function getNearbyEp(start: number, move: number) {
+    const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+    const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
+
+    const response = await db
+        .selectFrom('episodes')
+        .select(['id', 'slug'])
+        .where('id', '=', start + move)
         .execute();
 
     pool.end();
