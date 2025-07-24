@@ -34,7 +34,7 @@ export async function getEpisode(slug: string) {
         .selectFrom('episodes')
         .innerJoin('credits', 'credits.ep_id', 'episodes.id')
         .innerJoin('team', 'credits.team_id', 'team.id')
-        .select(['full_name as name', 'superrole', 'role'])
+        .select(['credits.id as id', 'full_name as name', 'superrole', 'role'])
         .where('slug', '=', slug)
         .execute();
     

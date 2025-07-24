@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from "next/image";
 import Link from "next/link";
+import { Fragment } from 'react';
 import { notFound } from 'next/navigation';
 
 import { getEpisode, getNearbyEp } from '@lib/neonFunctions.ts';
@@ -108,24 +109,24 @@ export default async function EpisodeDynamic({
                 <div id="credits-container" className="border-2 mt-[1rem] p-[1rem]">
                     <h2 className="flex flex-row justify-center">Cast</h2>
                     <div className="grid grid-cols-2 align-start justify-center">
-                        {data.credits.filter((entry) => entry.superrole === 'Cast').map((entry,index) => {
+                        {data.credits.filter((entry) => entry.superrole === 'Cast').map((entry) => {
                             return (
-                                <>
-                                    <div key={2*index} className="flex flex-row-reverse mx-[1rem]"><b>{entry.role}:</b></div>
-                                    <div key={(2*index)+1}>{entry.name}</div>
-                                </>
+                                <Fragment key={entry.id}>
+                                    <div className="flex flex-row-reverse mx-[1rem]"><b>{entry.role}:</b></div>
+                                    <div>{entry.name}</div>
+                                </Fragment>
                             )
                         })}
                     </div>
 
                     <h2 className="flex flex-row justify-center mt-[1rem]">Crew</h2>
                     <div className="grid grid-cols-2 align-start justify-center">
-                        {data.credits.filter((entry) => entry.superrole === 'Crew').map((entry,index) => {
+                        {data.credits.filter((entry) => entry.superrole === 'Crew').map((entry) => {
                             return (
-                                <>
-                                    <div key={2*(index+creditsOffset)} className="flex flex-row-reverse mx-[1rem]"><b>{entry.role}:</b></div>
-                                    <div key={(2*(index+creditsOffset))+1}>{entry.name}</div>
-                                </>
+                                <Fragment key={entry.id}>
+                                    <div className="flex flex-row-reverse mx-[1rem]"><b>{entry.role}:</b></div>
+                                    <div>{entry.name}</div>
+                                </Fragment>
                             )
                         })}
                     </div>
