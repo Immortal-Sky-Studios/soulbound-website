@@ -14,9 +14,9 @@ export default function EmbeddedEpisode({
             {teamList.map((entry, index) => {
                 const direction = index % 2 === 0 ? 'flex-row' : 'flex-row-reverse';
                 return (
-                <li key={entry.id} className={`flex ${direction} border-2 p-[1rem] my-[1rem]`}>
+                <li key={entry.id} className={`flex flex-col sm:${direction} border-2 p-[1rem] my-[1rem]`}>
                     <Image
-                        className="border border-black"
+                        className="object-contain border border-black"
                         src={`/images/headshots/${entry.headshot_filename}`}
                         alt={`Image of ${entry.name}`}
                         width={300}
