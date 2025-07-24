@@ -50,7 +50,7 @@ export default function RootLayout({
             className={`${oswald.className} antialiased text-black`}
         >
             <a id="top" className=""></a>
-            <header className="flex flex-row justify-between align-center bg-background border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch sticky top-0">
+            <header className="flex flex-row justify-between align-center bg-background border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch sticky top-0 z-100">
                 <Link
                     href="/"
                     className="m-[0.5rem] h-fit"
