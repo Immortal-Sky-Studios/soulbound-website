@@ -1,14 +1,14 @@
 'use client'
 import { use } from 'react';
-import { getEpisode } from '@/lib/neonFunctions';
+import { getLatestEp } from '@/lib/neonFunctions';
 
 export default function EmbeddedEpisode({
     episode,
 }: {
-    episode: ReturnType<typeof getEpisode>
+    episode: ReturnType<typeof getLatestEp>
 }) {
     const selectedEp = use(episode);
     return (
-        <iframe src={`/episodes/${selectedEp.slug}`}/>
+        <iframe src={`/embed/episodes/${selectedEp.slug}`}/>
     )
 }
