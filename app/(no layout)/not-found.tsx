@@ -1,7 +1,7 @@
-export default function MainNotFound() {
+export default function EmbedNotFound() {
     return (
         <main>
-            <h1>Error 404</h1>
+            <h1>Embed Error 404</h1>
             <div>Page not found</div>
         </main>
     )

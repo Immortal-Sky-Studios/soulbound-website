@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { getEpisode } from '@lib/neonFunctions.ts';
 
@@ -10,6 +11,10 @@ export default async function EpisodeEmbed({
     }) {
         const { slug } = await params;
         const data = await getEpisode(slug);
+        if (!data?.id) {
+            notFound(); // database returned that slug does not exist, redirect to 404 page
+        }
+        
         const spotifyComponents = data.link_spotify.split('episode');
 
         return (
@@ -20,7 +25,7 @@ export default async function EpisodeEmbed({
                             id="episode-cover"
                             className=""
                             src={`/covers/episodes/${data.cover_filename}`}
-                            alt={data.cover_alt_txt}
+                            alt={data.cover_alt_text}
                             width={300}
                             height={300}
                             priority

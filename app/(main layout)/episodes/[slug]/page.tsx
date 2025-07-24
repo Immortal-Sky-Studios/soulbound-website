@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from 'next/navigation';
 
 import { getEpisode, getNearbyEp } from '@lib/neonFunctions.ts';
 
@@ -27,6 +28,10 @@ export default async function EpisodeDynamic({
     }) {
         const { slug } = await params;
         const data = await getEpisode(slug);
+        if (!data?.id) {
+            notFound(); // database returned that slug does not exist, redirect to 404 page
+        }
+
         const prevEp = await getNearbyEp(data.id,-1);
         const nextEp = await getNearbyEp(data.id,1);
         const creditsOffset = data.credits.filter((entry) => entry.superrole === 'Cast').length + 2;
