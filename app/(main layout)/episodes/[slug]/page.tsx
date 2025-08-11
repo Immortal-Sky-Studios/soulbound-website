@@ -35,7 +35,6 @@ export default async function EpisodeDynamic({
 
         const prevEp = await getNearbyEp(data.id,-1);
         const nextEp = await getNearbyEp(data.id,1);
-        const creditsOffset = data.credits.filter((entry) => entry.superrole === 'Cast').length + 2;
         const spotifyComponents = data.link_spotify.split('episode');
 
         return (

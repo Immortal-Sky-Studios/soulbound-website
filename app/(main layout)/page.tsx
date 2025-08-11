@@ -23,14 +23,14 @@ export default async function Home() {
                     priority
                 />
             </div>
-            <div id="whatis-section" className="flex flex-col sm:flex-row align-center justify-around p-[1rem] bg-cyan-300 border-[2rem] border-image-[url('/images/borders/MetalScrewBorder.png')] border-slice-[990] border-image-width-[150px] border-repeat-round">
-                <div id="podcast-description" className="flex flex-col justify-center m-[1rem] sm:w-1/3">
+            <div id="whatis-section" className="flex flex-col sm:flex-row align-center justify-around p-[2rem] bg-cyan-300 border-[2rem] border-image-[url('/images/borders/MetalScrewBorder.png')] border-slice-[990] border-image-width-[150px] border-repeat-round">
+                <div id="podcast-description" className="flex flex-col justify-center sm:w-1/3">
                     <h2>What is Soulbound?</h2>
                     Doctor Jaylin Glaslow is a well renowned historian aboard a space station known as the Deck. When he learns of robots who have begun to think and feel without the aid of AI or manmade devices, he is sent out to investigate why these robots have developed sentience through interviewing them on a desolate planet known as Last Stand, a place uninhabitable by organic life, but a great place for inorganic life to hide. Every week he interviews a new robot to learn about their planet and their past, hoping that maybe one day he’ll figure out what makes them work the way they do.
                 </div>
                 <Image
                     id="episode-cover"
-                    className="h-[20rem] w-auto sm:mx-[5rem]"
+                    className="h-[20rem] w-auto object-contain m-[2rem]"
                     src={defaultCover}
                     alt="Soulbound Podcast cover art"
                 />

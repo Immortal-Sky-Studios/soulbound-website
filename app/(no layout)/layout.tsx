@@ -20,7 +20,7 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body
-            className={`${oswald.variable} antialiased`}
+            className={`${oswald.variable} antialiased overflow-hidden`}
         >
             {children}
         </body>
