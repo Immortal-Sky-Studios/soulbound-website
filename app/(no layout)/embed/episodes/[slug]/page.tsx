@@ -16,11 +16,11 @@ export default async function EpisodeEmbed({
         }
 
         return (
-            <main className="flex flex-row p-[1rem] bg-[#4D4D4D] rounded-4xl overflow-hidden">
-                <div id="left-section">
+            <main className="flex flex-row h-[100vh] w-[100vw] p-[1rem] bg-[#4D4D4D] rounded-4xl">
+                <div id="left-section" className="h-full">
                     <Image
                         id="episode-cover"
-                        className="rounded-lg"
+                        className="h-full w-auto rounded-lg"
                         src={`/images/covers/episodes/${data.cover_filename}`}
                         alt={data.cover_alt_text}
                         width={300}
@@ -28,7 +28,7 @@ export default async function EpisodeEmbed({
                         priority
                     />
                 </div>
-                <div id="right-section" className="px-[1rem]">
+                <div id="right-section" className="flex flex-col px-[1rem] grow">
                     <div id="episode-info-container" className="flex flex-col">
                         <div id="episode-title" className="flex flex-row justify-between">
                             <Link href={`https://thesoulboundseries.com/episodes/${data.slug}`} target="_blank" rel="noopener noreferrer">
@@ -39,9 +39,9 @@ export default async function EpisodeEmbed({
                             {data.description}
                         </p>
                     </div>
-                    <ul id="showlinks-container" className="flex flex-row justify-around align-center py-[0.5rem] grow">
+                    <ul id="showlinks-container" className="flex flex-row justify-around align-center py-[0.5rem] grow list-none">
                         <li>
-                            <Link href={data.link_spotify} target="_blank" rel="noopener noreferrer">
+                            <Link href={data.link_spotify} target="_blank" rel="noopener noreferrer" className="flex flex-col justify-center h-full">
                                 <Image
                                     src="/images/icons/spotify-icon.svg"
                                     alt="Spotify"
@@ -51,7 +51,7 @@ export default async function EpisodeEmbed({
                             </Link>
                         </li>
                         <li>
-                            <Link href={data.link_apple} target="_blank" rel="noopener noreferrer">
+                            <Link href={data.link_apple} target="_blank" rel="noopener noreferrer" className="flex flex-col justify-center h-full">
                                 <Image
                                     src="/images/icons/apple-icon.svg"
                                     alt="Apple Podcasts"
@@ -61,7 +61,7 @@ export default async function EpisodeEmbed({
                             </Link>
                         </li>
                         <li>
-                            <Link href={data.link_amazon} target="_blank" rel="noopener noreferrer">
+                            <Link href={data.link_amazon} target="_blank" rel="noopener noreferrer" className="flex flex-col justify-center h-full">
                                 <Image
                                     src="/images/icons/amazon-icon.svg"
                                     alt="Amazon Music"
