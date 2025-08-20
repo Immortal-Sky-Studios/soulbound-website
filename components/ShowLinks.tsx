@@ -13,7 +13,7 @@ export default function ShowLinks({
 }) {
     const showLinks = use(links);
     return (
-        <ul className="flex flex-row flex-wrap justify-center align-center sm:px-[2rem] list-none">
+        <ul className="flex flex-row flex-wrap justify-center items-center sm:px-[2rem] list-none">
             {!showLinks?.length ? <Skeleton count={10}/> : showLinks.map((entry) => {
                 return (
                     <li key={entry.id} className="m-[1rem]">

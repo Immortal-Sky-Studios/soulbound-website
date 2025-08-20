@@ -39,8 +39,8 @@ export default function EpisodesList({
                 {!filteredEps?.length ? <Skeleton count={10}/> : filteredEps.map((entry) => {
                     return (
                         <li key={entry.id} className="flex flex-row border">
-                            <div className="flex flex-col justify-center align-center h-1/2 m-[1rem] p-[0.25rem] border-2">Season {entry.season_num}</div>
-                            <Link href={`/episodes/${entry.slug}`} className="flex flex-col justify-center align-center text-3xl font-medium">{entry.season_ep_num && `Ep ${entry.season_ep_num}`} {entry.title}</Link>
+                            <div className="flex flex-col justify-center items-center text-center h-1/2 m-[1rem] p-[0.25rem] border-2">Season {entry.season_num}</div>
+                            <Link href={`/episodes/${entry.slug}`} className="flex flex-col justify-center items-center text-3xl font-medium">{entry.season_ep_num && `Ep ${entry.season_ep_num}`} {entry.title}</Link>
                         </li>
                     )
                 })}

@@ -39,9 +39,9 @@ export default async function EpisodeEmbed({
                             {data.description}
                         </p>
                     </div>
-                    <ul id="showlinks-container" className="flex flex-row justify-around align-center py-[0.5rem] grow list-none">
+                    <ul id="showlinks-container" className="flex flex-row justify-around items-center py-[0.5rem] grow list-none">
                         <li>
-                            <Link href={data.link_spotify} target="_blank" rel="noopener noreferrer" className="flex flex-col justify-center h-full">
+                            <Link href={data.link_spotify} target="_blank" rel="noopener noreferrer">
                                 <Image
                                     src="/images/icons/spotify-icon.svg"
                                     alt="Spotify"
@@ -51,7 +51,7 @@ export default async function EpisodeEmbed({
                             </Link>
                         </li>
                         <li>
-                            <Link href={data.link_apple} target="_blank" rel="noopener noreferrer" className="flex flex-col justify-center h-full">
+                            <Link href={data.link_apple} target="_blank" rel="noopener noreferrer">
                                 <Image
                                     src="/images/icons/apple-icon.svg"
                                     alt="Apple Podcasts"
@@ -61,7 +61,7 @@ export default async function EpisodeEmbed({
                             </Link>
                         </li>
                         <li>
-                            <Link href={data.link_amazon} target="_blank" rel="noopener noreferrer" className="flex flex-col justify-center h-full">
+                            <Link href={data.link_amazon} target="_blank" rel="noopener noreferrer">
                                 <Image
                                     src="/images/icons/amazon-icon.svg"
                                     alt="Amazon Music"

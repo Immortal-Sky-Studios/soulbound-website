@@ -51,7 +51,7 @@ export default async function EpisodeDynamic({
                             priority
                         />
                         <iframe className="w-[300px] h-[152px] my-[1rem]" src={`${spotifyComponents[0]}embed/episode/${spotifyComponents[1]}?utm_source=generator`} width="100%" height="352" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                        <ul id="showlinks-container" className="flex flex-row justify-around align-center">
+                        <ul id="showlinks-container" className="flex flex-row justify-around items-center">
                             <li>
                                 <Link href={data.link_spotify} target="_blank" rel="noopener noreferrer">
                                     <Image
@@ -84,8 +84,8 @@ export default async function EpisodeDynamic({
                             </li>
                         </ul>
                     </div>
-                    <div id="right-section" className="flex flex-col align-start grow">
-                        <div id="episode-info-container" className="flex flex-col align-start">
+                    <div id="right-section" className="flex flex-col items-stretch align-start grow">
+                        <div id="episode-info-container" className="flex flex-col">
                             <div className="flex flex-row justify-between">
                                 <h2 className="w-1/3 px-[1rem] border-2 mask-clip-border">Season {data.season_num}</h2> {/* mask-[url(/images/masks/season-mask.svg)] */}
                                 <div id="prev-next-container" className="pt-[0.5em]">

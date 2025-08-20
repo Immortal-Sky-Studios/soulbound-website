@@ -50,7 +50,7 @@ export default function RootLayout({
             className={`${oswald.className} antialiased text-black`}
         >
             <a id="top" className=""></a>
-            <header className="flex flex-row justify-between align-center bg-background border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch sticky top-0 z-100">
+            <header className="flex flex-row justify-between items-center bg-background border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch sticky top-0 z-100">
                 <Link
                     href="/"
                     className="m-[0.5rem] h-fit"
@@ -69,8 +69,8 @@ export default function RootLayout({
                 />
 
                 <Suspense fallback={
-                    <ul className="flex flex-row list-none justify-center align-center w-1/3 m-[0.5rem]">
-                        <li className="flex justify-center align-center bg-cyan-300 border-2"><Link href="#" className="px-[0.5rem] py-[0.25rem]">Loading</Link></li>
+                    <ul className="flex flex-row list-none justify-center items-center w-1/3 m-[0.5rem]">
+                        <li className="flex justify-center items-center bg-cyan-300 border-2"><Link href="#" className="px-[0.5rem] py-[0.25rem]">Loading</Link></li>
                     </ul>
                 }>
                     <HeaderFooterButtons episode={data}/>
@@ -79,10 +79,10 @@ export default function RootLayout({
             
             {children}
 
-            <footer className="flex flex-row justify-between align-center border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch">
+            <footer className="flex flex-row justify-between items-center border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch">
                 <Suspense fallback={
-                    <ul className="flex flex-row list-none justify-center align-center m-[1rem]">
-                        <li className="flex justify-center align-center bg-cyan-300 border-2 h-fit"><Link href="#" className="px-[0.5rem] py-[0.25rem]">Loading</Link></li>
+                    <ul className="flex flex-row list-none justify-center items-center m-[1rem]">
+                        <li className="flex justify-center items-center bg-cyan-300 border-2 h-fit"><Link href="#" className="px-[0.5rem] py-[0.25rem]">Loading</Link></li>
                     </ul>
                 }>
                     <HeaderFooterButtons episode={data}/>

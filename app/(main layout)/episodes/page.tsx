@@ -23,8 +23,8 @@ export default function Episodes() {
 
     return (
         <main className="flex flex-row justify-center w-full bg-[url('/images/backgrounds/SpaceBannerSTATIC.png')]">
-            <div id="center-container" className="flex flex-col align-center w-full md:w-1/2 h-full bg-background">
-                <div id="main-header" className="flex flex-col align-center">
+            <div id="center-container" className="flex flex-col w-full md:w-1/2 h-full bg-background">
+                <div id="main-header" className="flex flex-col">
                     <div className="flex flex-row justify-center">
                         <h1 className={`${stalinistOne.className} w-2/3 text-center mt-[0.25rem]`}>EPISODES</h1>
                     </div>
