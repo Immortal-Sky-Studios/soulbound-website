@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Suspense } from "react";
 
 // Local Image Imports
 import SoulboundTextLogo from "@images/miscImages/SoulboundTextLogo.png"
