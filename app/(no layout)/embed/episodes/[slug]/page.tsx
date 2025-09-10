@@ -17,17 +17,15 @@ export default async function EpisodeEmbed({
 
         return (
             <main className="flex flex-row h-[100vh] w-[100vw] p-[1rem] bg-[#4D4D4D] rounded-4xl">
-                <div id="left-section" className="h-full">
-                    <Image
-                        id="episode-cover"
-                        className="h-full w-auto rounded-lg"
-                        src={`/images/covers/episodes/${data.cover_filename}`}
-                        alt={data.cover_alt_text}
-                        width={300}
-                        height={300}
-                        priority
-                    />
-                </div>
+                <Image
+                    id="episode-cover"
+                    className="h-full w-auto rounded-lg py-[0.5rem]"
+                    src={`/images/covers/episodes/${data.cover_filename}`}
+                    alt={data.cover_alt_text}
+                    width={300}
+                    height={300}
+                    priority
+                />
                 <div id="right-section" className="flex flex-col px-[1rem] grow">
                     <div id="episode-info-container" className="flex flex-col">
                         <div id="episode-title" className="flex flex-row justify-between">

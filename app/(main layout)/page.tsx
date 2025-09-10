@@ -29,12 +29,12 @@ export default async function Home() {
                 </div>
                 <Image
                     id="episode-cover"
-                    className="h-[20rem] w-auto object-contain m-[2rem]"
+                    className="h-[20rem] w-auto object-contain m-[2rem] rounded-lg"
                     src={defaultCover}
                     alt="Soulbound Podcast cover art"
                 />
             </div>
-            <div id="latestep-section" className="flex flex-col py-[2rem] px-[2rem] sm:px-[10rem] bg-[url('/images/backgrounds/MetalHeartBackground.png')] bg-size-[5rem] bg-repeat border-[2rem] border-image-[url('/images/borders/MetalHashBorder.png')] border-slice-t-[980] border-slice-r-[1000] border-slice-b-[990] border-slice-l-[1030] border-image-width-[150px] border-repeat-round">
+            <div id="latestep-section" className="flex flex-col py-[2rem] px-[2rem] lg:px-[10rem] bg-[url('/images/backgrounds/MetalHeartBackground.png')] bg-size-[5rem] bg-repeat border-[2rem] border-image-[url('/images/borders/MetalHashBorder.png')] border-slice-t-[980] border-slice-r-[1000] border-slice-b-[990] border-slice-l-[1030] border-image-width-[150px] border-repeat-round">
                 <h2 className="text-center">Latest Episode</h2>
                 <div className="flex flex-row justify-center items-center w-full">
                     <EmbeddedEpisode episode={latestEp}/>
