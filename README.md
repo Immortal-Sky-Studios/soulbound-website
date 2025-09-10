@@ -5,7 +5,7 @@ A website for the sci-fi audio drama podcast Soulbound. Find us on Spotify, Itun
 This project is actively under development, but we're getting close folks! The estimates below aren't exact, but are decently representative of how far along the site is.
 
 ### Overall
-![](https://geps.dev/progress/60)
+![](https://geps.dev/progress/80)
 
 ### By Page
 - [x] Home Page ![](https://geps.dev/progress/100)
