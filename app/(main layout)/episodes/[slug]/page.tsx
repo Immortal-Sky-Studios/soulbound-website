@@ -87,7 +87,7 @@ export default async function EpisodeDynamic({
                     <div id="right-section" className="flex flex-col items-stretch align-start grow">
                         <div id="episode-info-container" className="flex flex-col">
                             <div className="flex flex-row justify-between">
-                                <h2 className="w-1/3 px-[1rem] border-2 mask-clip-border">Season {data.season_num}</h2> {/* mask-[url(/images/masks/season-mask.svg)] */}
+                                <h2 className="w-1/3 px-[1rem] border-2 mask-clip-border mask-[url(/images/masks/RightAngledMask.png)]">Season {data.season_num}</h2> {/* mask-[url(/images/masks/season-mask.svg)] */}
                                 <div id="prev-next-container" className="pt-[0.5em]">
                                     {prevEp && <Link href={`/episodes/${prevEp?.slug}`} className="h-min px-[1em] py-[0.25rem] border">{'<'} Prev</Link>}
                                     {nextEp && <Link href={`/episodes/${nextEp?.slug}`} className="h-min px-[1em] py-[0.25rem] border">Next {'>'}</Link>}
