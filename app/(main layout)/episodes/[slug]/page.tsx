@@ -106,8 +106,8 @@ export default async function EpisodeDynamic({
                     </div>
                 </div>
                 <div id="credits-container" className="border-2 mt-[1rem] p-[1rem]">
-                    <h2 className="flex flex-row justify-center">Cast</h2>
-                    <div className="grid grid-cols-2 align-start justify-center">
+                    <h2 className="text-center">Cast</h2>
+                    <div className="grid grid-cols-2 align-start">
                         {data.credits.filter((entry) => entry.superrole === 'Cast').map((entry) => {
                             return (
                                 <Fragment key={entry.id}>
@@ -118,8 +118,8 @@ export default async function EpisodeDynamic({
                         })}
                     </div>
 
-                    <h2 className="flex flex-row justify-center mt-[1rem]">Crew</h2>
-                    <div className="grid grid-cols-2 align-start justify-center">
+                    <h2 className="text-center mt-[1rem]">Crew</h2>
+                    <div className="grid grid-cols-2 align-start">
                         {data.credits.filter((entry) => entry.superrole === 'Crew').map((entry) => {
                             return (
                                 <Fragment key={entry.id}>
