@@ -95,8 +95,8 @@ export default async function EpisodeDynamic({
                             </div>
                             <div id="episode-info" className="flex flex-col justify-center border-2 -mt-[1rem] p-[1rem]">
                                 <h2 className="text-center underline">{data.season_ep_num && `Soulbound Ep. ${data.season_ep_num} -`} {data.title}</h2>
-                                <p id="episode-description" className="text-center">{data.description}</p>
-                                <p id="trigger-warnings" className="text-center">Trigger Warnings: {data.triggers}</p>
+                                <p id="episode-description" className="text-center mb-[1rem] whitespace-pre-line">{data.description.replace(/\\n/g,"\n")}</p>
+                                <p id="trigger-warnings" className="text-center whitespace-pre-line"><b>Trigger Warnings:</b> <br/> {data.triggers.replace(/\\n/g,"\n")}</p>
                             </div>
                         </div>
                         <div id="transcript-container" className="flex flex-col border-2 mt-[1rem] p-[1rem] grow">
@@ -105,29 +105,32 @@ export default async function EpisodeDynamic({
                         </div>
                     </div>
                 </div>
-                <div id="credits-container" className="border-2 mt-[1rem] p-[1rem]">
-                    <h2 className="text-center">Cast</h2>
-                    <div className="grid grid-cols-2 align-start">
-                        {data.credits.filter((entry) => entry.superrole === 'Cast').map((entry) => {
-                            return (
-                                <Fragment key={entry.id}>
-                                    <div className="flex flex-row-reverse mx-[1rem]"><b>{entry.role}:</b></div>
-                                    <div>{entry.name}</div>
-                                </Fragment>
-                            )
-                        })}
+                <div id="credits-container" className="flex flex-col md:flex-row justify-around border-2 mt-[1rem] p-[1rem]">
+                    <div id="cast-container">
+                        <h2 className="text-center">Cast</h2>
+                        <div className="grid grid-cols-2 align-start">
+                            {data.credits.filter((entry) => entry.superrole === 'Cast').map((entry) => {
+                                return (
+                                    <Fragment key={entry.id}>
+                                        <div className="flex flex-row-reverse mx-[1rem]"><b>{entry.role}:</b></div>
+                                        <div>{entry.name}</div>
+                                    </Fragment>
+                                )
+                            })}
+                        </div>
                     </div>
-
-                    <h2 className="text-center mt-[1rem]">Crew</h2>
-                    <div className="grid grid-cols-2 align-start">
-                        {data.credits.filter((entry) => entry.superrole === 'Crew').map((entry) => {
-                            return (
-                                <Fragment key={entry.id}>
-                                    <div className="flex flex-row-reverse mx-[1rem]"><b>{entry.role}:</b></div>
-                                    <div>{entry.name}</div>
-                                </Fragment>
-                            )
-                        })}
+                    <div id="crew-container">
+                        <h2 className="text-center">Crew</h2>
+                        <div className="grid grid-cols-2 align-start">
+                            {data.credits.filter((entry) => entry.superrole === 'Crew').map((entry) => {
+                                return (
+                                    <Fragment key={entry.id}>
+                                        <div className="flex flex-row-reverse mx-[1rem]"><b>{entry.role}:</b></div>
+                                        <div>{entry.name}</div>
+                                    </Fragment>
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
             </main>
