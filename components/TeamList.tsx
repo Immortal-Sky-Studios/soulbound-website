@@ -12,27 +12,27 @@ export default function EmbeddedEpisode({
     return (
         <ul id="team-list" className="flex flex-col list-none">
             {teamList.map((entry, index) => {
-                const direction = index % 2 === 0 ? 'flex-row' : 'flex-row-reverse';
+                const direction = index % 2 === 0 ? false : true;
                 return (
-                <li key={entry.id} className={`flex flex-col sm:flex-row border-2 p-[1rem] my-[1rem]`}>
+                <li key={entry.id} className={`flex flex-col ${direction ? "lg:flex-row" : "lg:flex-row-reverse"} max-lg:items-center border-2 p-[1rem] my-[1rem]`}>
                     <Image
-                        className={`object-contain border border-black ${index % 2 === 0 ? "" : "order-last"}`}
+                        className="object-contain border border-black"
                         src={`/images/headshots/${entry.headshot_filename}`}
                         alt={`Image of ${entry.name}`}
                         width={300}
                         height={300}
                         priority
                     />
-                    <div className={`${index % 2 === 0 ? "" : "order-first"}`}>
-                        <div className={`flex ${direction}`}>
-                            <h2 className="border px-[0.5rem]">{entry.name} ({entry.pronouns})</h2>
-                            <div className="w-auto h-1/3 p-[0.25rem] border">{entry.roles.join(", ")}</div>
+                    <div className="">
+                        <div className={`flex flex-col ${direction ? "md:flex-row" : "md:flex-row-reverse"}`}>
+                            <h2 className="border px-[0.5rem] max-sm:mb-0">{entry.name} ({entry.pronouns})</h2>
+                            <div className={`h-fit p-[0.25rem] border grow ${direction ? "text-start" : "text-end"}`}>{entry.roles.join(", ")}</div>
                         </div>
-                        <div className={`flex ${direction} p-[0.5rem]`}>
-                            <div className="mx-[1rem]">
+                        <div className={`flex flex-col ${direction ? "sm:flex-row" : "sm:flex-row-reverse"} sm:p-[0.5rem]`}>
+                            <div className="mx-[1rem] max-sm:my-[1rem]">
                                 {entry.bio}
                             </div>
-                            <ul className="flex flex-col px-[2rem] py-[1rem] mx-[0.5rem] list-disc border">
+                            <ul className="flex flex-col px-[2rem] py-[1rem] sm:mx-[0.5rem] list-disc border">
                                 <li>
                                     {entry.socials}
                                 </li>

@@ -47,7 +47,7 @@ export default function AboutUs() {
                     />
                 </div>
             </div>
-            <div id="meettheteam-container" className="border-y-4 px-[5rem] bg-[/AboutUsBG.png]">
+            <div id="meettheteam-container" className="border-y-4 sm:px-[5rem] bg-[/AboutUsBG.png]">
                 <div id="team-center-section" className="flex flex-col justify-center items-stretch border-x-4 p-[1rem]">
                     <h2 className="mx-[30%] text-center -mt-[1rem] border-2">Meet the Team!</h2>
                     <Suspense fallback={
