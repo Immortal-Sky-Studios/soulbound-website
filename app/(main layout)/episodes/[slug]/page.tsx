@@ -40,7 +40,7 @@ export default async function EpisodeDynamic({
         return (
             <main className="min-h-screen w-full p-[2rem]">
                 <div id="top-section" className="flex flex-col sm:flex-row justify-center">
-                    <div id="left-section" className="mx-[1rem]">
+                    <div id="left-section" className="flex flex-col items-center sm:items-start sm:mx-[1rem]">
                         <Image
                             id="episode-cover"
                             className="h-[300px] w-auto"
@@ -51,7 +51,7 @@ export default async function EpisodeDynamic({
                             priority
                         />
                         <iframe className="w-[300px] h-[152px] my-[1rem]" src={`${spotifyComponents[0]}embed/episode/${spotifyComponents[1]}?utm_source=generator`} width="100%" height="352" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                        <ul id="showlinks-container" className="flex flex-row justify-around items-center">
+                        <ul id="showlinks-container" className="flex flex-row justify-around items-center w-full mb-[1rem] sm:mb-0">
                             <li>
                                 <Link href={data.link_spotify} target="_blank" rel="noopener noreferrer">
                                     <Image
