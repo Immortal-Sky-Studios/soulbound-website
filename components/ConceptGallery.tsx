@@ -14,7 +14,7 @@ export default function ConceptArt({
     const conceptArt = use(art);
     
     return (
-        <Carousel autoPlay>
+        <Carousel className="w-full md:w-1/2" autoPlay infiniteLoop>
             {conceptArt.map((entry) => (
                 <div key={entry.id} className="relative h-[75vh]">
                     <Image
