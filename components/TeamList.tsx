@@ -14,16 +14,16 @@ export default function EmbeddedEpisode({
             {teamList.map((entry, index) => {
                 const direction = index % 2 === 0 ? 'flex-row' : 'flex-row-reverse';
                 return (
-                <li key={entry.id} className={`flex flex-col sm:${direction} border-2 p-[1rem] my-[1rem]`}>
+                <li key={entry.id} className={`flex flex-col sm:flex-row border-2 p-[1rem] my-[1rem]`}>
                     <Image
-                        className="object-contain border border-black"
+                        className={`object-contain border border-black ${index % 2 === 0 ? "" : "order-last"}`}
                         src={`/images/headshots/${entry.headshot_filename}`}
                         alt={`Image of ${entry.name}`}
                         width={300}
                         height={300}
                         priority
                     />
-                    <div className="">
+                    <div className={`${index % 2 === 0 ? "" : "order-first"}`}>
                         <div className={`flex ${direction}`}>
                             <h2 className="border px-[0.5rem]">{entry.name} ({entry.pronouns})</h2>
                             <div className="w-auto h-1/3 p-[0.25rem] border">{entry.roles.join(", ")}</div>
