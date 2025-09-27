@@ -11,7 +11,7 @@ export default function ConceptArt({
     const centerArt = use(art)[0];
 
     return (
-        <div className="relative h-[50vh] w-2/3 m-[1rem]">
+        <div className="relative h-[50vh] w-1/3 m-[1rem] border-2">
             <Image
                 className="object-contain"
                 src={`/images/404art/${centerArt.filename}`}
