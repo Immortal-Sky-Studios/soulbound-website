@@ -127,10 +127,19 @@ export async function getConceptArt(count?: number, type?: string) {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
     const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
 
+    const countResponse = await db
+        .selectFrom("concept_art")
+        .select(db.fn.countAll<number>().as("count"))
+        .$if(Boolean(type), (qb) => qb.where('type', '=', String(type)))
+        .execute();
+
+    const rowCount = count != undefined ? countResponse[0].count - count : countResponse[0].count;
+
     const response = await db
         .selectFrom('concept_art')
         .selectAll()
         .$if(Boolean(type), (qb) => qb.where('type', '=', String(type)))
+        .offset(Math.floor(Math.random() * rowCount))
         .$if(Boolean(count), (qb) => qb.limit(Number(count)))
         .orderBy('id', 'asc')
         .execute();
