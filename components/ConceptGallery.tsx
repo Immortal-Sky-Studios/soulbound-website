@@ -1,10 +1,11 @@
 'use client'
 import { use } from 'react';
 import Image from 'next/image';
-import { getConceptArt } from '@/lib/neonFunctions';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+
+import { getConceptArt } from '@/lib/neonFunctions';
 
 export default function ConceptArt({
     art,
