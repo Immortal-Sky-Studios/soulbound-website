@@ -47,6 +47,12 @@ export interface Episodes {
   triggers: string;
 }
 
+export interface NotfoundArt {
+  alt_text: string;
+  filename: string;
+  id: Generated<number>;
+}
+
 export interface Seasons {
   cover_alt_text: Generated<string>;
   cover_filename: string;
@@ -81,6 +87,7 @@ export interface DB {
   credits: Credits;
   episode_covers: EpisodeCovers;
   episodes: Episodes;
+  notfound_art: NotfoundArt;
   seasons: Seasons;
   show_links: ShowLinks;
   team: Team;

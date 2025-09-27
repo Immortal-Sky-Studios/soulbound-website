@@ -148,3 +148,25 @@ export async function getConceptArt(count?: number, type?: string) {
 
     return response;
 }
+
+export async function getNotFoundArt() {
+    const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+    const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
+
+    const rangeResponse = await db
+        .selectFrom('notfound_art')
+        .select((eb) => eb.fn.max('id').as('max_id'))
+        .execute();
+    
+    const randomId = Math.floor((Math.random() * rangeResponse[0].max_id) + 1);
+
+    const response = await db
+        .selectFrom('notfound_art')
+        .selectAll()
+        .where('id','=',randomId)
+        .execute();
+
+    pool.end();
+
+    return response;
+}
