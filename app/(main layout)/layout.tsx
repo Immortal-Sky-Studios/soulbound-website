@@ -7,7 +7,7 @@ import { Suspense } from 'react';
 
 // Local Image Imports
 import HeaderLogo from "@images/icons/header-logo-icon.svg";
-import MetalShine from "@images/miscImages/MetalShine.png";
+import MetalShine from "@images/misc/MetalShine.png";
 
 import HeaderFooterButtons from "@components/HeaderFooterButtons";
 import { getLatestEp } from "@lib/neonFunctions";

@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 // Local Image Imports
-import SoulboundTextLogo from "@images/miscImages/SoulboundTextLogo.png"
+import SoulboundTextLogo from "@images/misc/SoulboundTextLogo.png"
 import defaultCover from "@images/covers/episodes/defaultCover.jpg"
 
 import EmbeddedEpisode from "@components/EmbeddedEpisode";
