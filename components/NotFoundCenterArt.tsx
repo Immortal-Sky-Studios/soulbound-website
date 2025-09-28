@@ -1,3 +1,4 @@
+'use client'
 import { use } from 'react';
 import Image from "next/image";
 
@@ -11,15 +12,13 @@ export default function ConceptArt({
     const centerArt = use(art)[0];
 
     return (
-        <div className="relative h-[50vh] w-1/3 m-[1rem] border-2">
-            <Image
-                className="object-contain"
-                src={`/images/404art/${centerArt.filename}`}
-                alt={centerArt.alt_text}
-                fill
-                sizes="50vh"
-                priority
-            />
-        </div>
+        <Image
+            className="object-contain h-[25rem] w-fit border-2 border-black"
+            src={`/images/404art/${centerArt.filename}`}
+            alt={centerArt.alt_text}
+            width={centerArt.width}
+            height={centerArt.height}
+            priority
+        />
     )
 }

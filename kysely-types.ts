@@ -13,8 +13,10 @@ export interface ConceptArt {
   alt_text: string;
   caption: Generated<string>;
   filename: string;
+  height: Generated<number>;
   id: Generated<number>;
   type: Generated<string>;
+  width: Generated<number>;
 }
 
 export interface Credits {
@@ -28,7 +30,9 @@ export interface Credits {
 export interface EpisodeCovers {
   alt_text: string;
   filename: string;
+  height: Generated<number>;
   id: Generated<number>;
+  width: Generated<number>;
 }
 
 export interface Episodes {
@@ -50,12 +54,16 @@ export interface Episodes {
 export interface NotfoundArt {
   alt_text: string;
   filename: string;
+  height: Generated<number>;
   id: Generated<number>;
+  width: Generated<number>;
 }
 
 export interface Seasons {
   cover_alt_text: Generated<string>;
   cover_filename: string;
+  cover_height: Generated<number>;
+  cover_width: Generated<number>;
   id: Generated<number>;
   season_num: number;
 }
@@ -74,6 +82,8 @@ export interface Team {
   fname: string;
   full_name: string;
   headshot_filename: Generated<string>;
+  headshot_height: Generated<number>;
+  headshot_width: Generated<number>;
   id: Generated<number>;
   lname: string;
   projects: Generated<string>;
