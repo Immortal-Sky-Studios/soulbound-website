@@ -1,5 +1,6 @@
 import { getNotFoundArt } from "@/lib/neonFunctions";
-import CenterArt from "@/components/NotFoundCenterArt"
+import UserDateTime from "@/components/UserDateTime";
+import CenterArt from "@/components/NotFoundCenterArt";
 
 
 export default function MainNotFound() {
@@ -7,7 +8,7 @@ export default function MainNotFound() {
 
     return (
         <main className="flex flex-col items-center">
-            <h1 className="mb-0">DECK 0S REPORT: [date]</h1>
+            <h1 className="mb-0">DECK 0S REPORT: {<UserDateTime/>}</h1>
             <h1>ERROR 404</h1>
             <CenterArt art={centerArt}/>
             <h2>Page not found</h2>
