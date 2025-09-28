@@ -13,7 +13,7 @@ export default function ConceptArt({
 
     return (
         <Image
-            className="object-contain h-[25rem] w-fit border-2 border-black"
+            className="object-contain h-[25rem] mb-[1rem] w-fit border-2 border-black"
             src={`/images/404art/${centerArt.filename}`}
             alt={centerArt.alt_text}
             width={centerArt.width}
