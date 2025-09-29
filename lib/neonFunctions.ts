@@ -71,7 +71,7 @@ export async function getNearbyEp(start: number, move: number) {
     const response = await db
         .selectFrom('episodes')
         .select(['id', 'slug'])
-        .where('id', '=', start + move)
+        .where('season_ep_num', '=', start + move)
         .execute();
 
     pool.end();

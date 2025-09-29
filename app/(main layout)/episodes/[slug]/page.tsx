@@ -33,8 +33,8 @@ export default async function EpisodeDynamic({
             notFound(); // database returned that slug does not exist, redirect to 404 page
         }
 
-        const prevEp = await getNearbyEp(data.id,-1);
-        const nextEp = await getNearbyEp(data.id,1);
+        const prevEp = await getNearbyEp(data.season_ep_num || data.ep_num,-1);
+        const nextEp = await getNearbyEp(data.season_ep_num || data.ep_num,1);
         const spotifyComponents = data.link_spotify.split('episode');
 
         return (
