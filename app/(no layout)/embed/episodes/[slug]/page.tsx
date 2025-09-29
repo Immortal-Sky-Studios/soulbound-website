@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { getEpisode } from '@lib/neonFunctions.ts';
+import EpisodeLinks from "@/components/EpisodeLinks";
 
 export default async function EpisodeEmbed({
         params,
@@ -22,8 +23,8 @@ export default async function EpisodeEmbed({
                     className="h-full w-auto rounded-lg py-[0.5rem]"
                     src={`/images/covers/episodes/${data.cover_filename}`}
                     alt={data.cover_alt_text}
-                    width={300}
-                    height={300}
+                    width={data.cover_width}
+                    height={data.cover_height}
                     priority
                 />
                 <div id="right-section" className="flex flex-col px-[1rem] grow">
@@ -38,36 +39,7 @@ export default async function EpisodeEmbed({
                         </p>
                     </div>
                     <ul id="showlinks-container" className="flex flex-row justify-around items-center py-[0.5rem] grow list-none">
-                        <li>
-                            <Link href={data.link_spotify} target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    src="/images/icons/spotify-icon.svg"
-                                    alt="Spotify"
-                                    width={50}
-                                    height={50}
-                                />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href={data.link_apple} target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    src="/images/icons/apple-icon.svg"
-                                    alt="Apple Podcasts"
-                                    width={50}
-                                    height={50}
-                                />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href={data.link_amazon} target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    src="/images/icons/amazon-icon.svg"
-                                    alt="Amazon Music"
-                                    width={50}
-                                    height={50}
-                                />
-                            </Link>
-                        </li>
+                        <EpisodeLinks links={[data.link_spotify,data.link_apple,data.link_amazon]}/>
                     </ul>
                 </div>
             </main>

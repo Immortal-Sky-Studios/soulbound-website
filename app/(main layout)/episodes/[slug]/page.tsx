@@ -5,6 +5,7 @@ import { Fragment } from 'react';
 import { notFound } from 'next/navigation';
 
 import { getEpisode, getNearbyEp } from '@lib/neonFunctions.ts';
+import EpisodeLinks from '@/components/EpisodeLinks';
 
 export async function generateMetadata({
     params
@@ -46,42 +47,13 @@ export default async function EpisodeDynamic({
                             className="h-[300px] w-auto"
                             src={`/images/covers/episodes/${data.cover_filename}`}
                             alt={data.cover_alt_text}
-                            width={2048}
-                            height={2048}
+                            width={data.cover_width}
+                            height={data.cover_height}
                             priority
                         />
                         <iframe className="w-[300px] h-[152px] my-[1rem]" src={`${spotifyComponents[0]}embed/episode/${spotifyComponents[1]}?utm_source=generator`} width="100%" height="352" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                         <ul id="showlinks-container" className="flex flex-row justify-around items-center w-full mb-[1rem] sm:mb-0">
-                            <li>
-                                <Link href={data.link_spotify} target="_blank" rel="noopener noreferrer">
-                                    <Image
-                                        src="/images/icons/spotify-icon.svg"
-                                        alt="Spotify"
-                                        width={50}
-                                        height={50}
-                                    />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href={data.link_apple} target="_blank" rel="noopener noreferrer">
-                                    <Image
-                                        src="/images/icons/apple-icon.svg"
-                                        alt="Apple Podcasts"
-                                        width={50}
-                                        height={50}
-                                    />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href={data.link_amazon} target="_blank" rel="noopener noreferrer">
-                                    <Image
-                                        src="/images/icons/amazon-icon.svg"
-                                        alt="Amazon Music"
-                                        width={50}
-                                        height={50}
-                                    />
-                                </Link>
-                            </li>
+                            <EpisodeLinks links={[data.link_spotify,data.link_apple,data.link_amazon]}/>
                         </ul>
                     </div>
                     <div id="right-section" className="flex flex-col items-stretch align-start grow">
