@@ -23,10 +23,11 @@ export default function ShowLinks({
                             rel="noopener noreferrer"
                         >
                             <Image
+                                className="h-[3rem] w-fit"
                                 src={`/images/icons/${entry.icon_filename}`}
                                 alt={entry.icon_alt_text}
-                                width={50}
-                                height={50}
+                                width={64}
+                                height={64}
                             />
                         </Link>
                     </li>
