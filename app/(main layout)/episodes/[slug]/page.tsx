@@ -59,25 +59,25 @@ export default async function EpisodeDynamic({
                     <div id="right-section" className="flex flex-col items-stretch align-start grow">
                         <div id="episode-info-container" className="flex flex-col">
                             <div className="flex flex-row justify-between">
-                                <h2 className="w-1/3 px-[1rem] border-2 mask-clip-border mask-[url(/images/masks/RightAngledMask.png)]">Season {data.season_num}</h2> {/* mask-[url(/images/masks/season-mask.svg)] */}
+                                <h2 className="w-1/3 px-[1rem] bg-cyan-300 border-x-4 border-t-4 border-[#414042] mask-clip-border mask-[url(/images/masks/RightAngledMask.png)]">Season {data.season_num}</h2> {/* mask-[url(/images/masks/season-mask.svg)] */}
                                 <div id="prev-next-container" className="pt-[0.5em]">
-                                    {prevEp && <Link href={`/episodes/${prevEp?.slug}`} className="h-min px-[1em] py-[0.25rem] border">{'<'} Prev</Link>}
-                                    {nextEp && <Link href={`/episodes/${nextEp?.slug}`} className="h-min px-[1em] py-[0.25rem] border">Next {'>'}</Link>}
+                                    {prevEp && <Link href={`/episodes/${prevEp?.slug}`} className="h-min px-[1em] py-[0.25rem] bg-cyan-300 border border-[#414042]">{'<'} Prev</Link>}
+                                    {nextEp && <Link href={`/episodes/${nextEp?.slug}`} className="h-min px-[1em] py-[0.25rem] bg-cyan-300 border border-[#414042]">Next {'>'}</Link>}
                                 </div>
                             </div>
-                            <div id="episode-info" className="flex flex-col justify-center border-2 -mt-[1rem] p-[1rem]">
+                            <div id="episode-info" className="flex flex-col justify-center bg-[url('/images/backgrounds/MetalHeartBackground.png')] bg-size-[4rem] bg-repeat border-4 border-[#414042] -mt-[1rem] p-[1rem]">
                                 <h2 className="text-center underline">{data.season_ep_num && `Soulbound Ep. ${data.season_ep_num} -`} {data.title}</h2>
                                 <p id="episode-description" className="text-center mb-[1rem] whitespace-pre-line">{data.description.replace(/\\n/g,"\n")}</p>
                                 <p id="trigger-warnings" className="text-center whitespace-pre-line"><b>Trigger Warnings:</b> <br/> {data.triggers.replace(/\\n/g,"\n")}</p>
                             </div>
                         </div>
-                        <div id="transcript-container" className="flex flex-col border-2 mt-[1rem] p-[1rem] grow">
+                        <div id="transcript-container" className="flex flex-col border-4 border-[#414042] mt-[1rem] p-[1rem] grow">
                             <h2 className="underline">Transcript</h2>
                             <div className="overflow-y-scroll grow">However the fuck we render the transcript</div>
                         </div>
                     </div>
                 </div>
-                <div id="credits-container" className="flex flex-col md:flex-row justify-around border-2 mt-[1rem] p-[1rem]">
+                <div id="credits-container" className="flex flex-col md:flex-row justify-around items-center mt-[1rem] p-[1rem] bg-cyan-300 text-blue-700 border-[1rem] border-image-[url('/images/borders/ThreeRivetBorder.png')] border-slice-[180] border-image-width-[1rem] border-repeat-round">
                     <div id="cast-container">
                         <h2 className="text-center">Cast</h2>
                         <div className="grid grid-cols-2 align-start">
@@ -91,6 +91,7 @@ export default async function EpisodeDynamic({
                             })}
                         </div>
                     </div>
+                    <hr className="w-1/7 rotate-90"/>
                     <div id="crew-container">
                         <h2 className="text-center">Crew</h2>
                         <div className="grid grid-cols-2 align-start">
