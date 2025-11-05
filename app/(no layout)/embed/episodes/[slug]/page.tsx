@@ -17,7 +17,7 @@ export default async function EpisodeEmbed({
         }
 
         return (
-            <main className="flex flex-row h-[100vh] w-[100vw] p-[1rem] bg-[#4D4D4D] rounded-4xl">
+            <main className="flex flex-row h-[100vh] w-[100vw] p-[1rem] text-cyan-300 bg-[#4D4D4D] rounded-4xl">
                 <Image
                     id="episode-cover"
                     className="h-full w-auto rounded-lg py-[0.5rem]"
