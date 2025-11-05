@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { Suspense } from "react";
 import Image from 'next/image';
 
-import defaultCover from "@images/covers/episodes/defaultCover.jpg";
+import leftSquare from '@images/misc/AboutUsLeftSquare.png';
+import rightSquare from '@images/misc/AboutUsRightSquare.png';
 
 import ConceptGallery from "@components/ConceptGallery";
 import TeamList from "@components/TeamList";
@@ -21,29 +22,25 @@ export default function AboutUs() {
 
     return (
         <main>
-            <div id="aboutus-container" className="flex flex-col md:flex-row justify-between items-center p-[2em]">
-                <div id="left-art" className="flex flex-col justify-center items-center max-md:order-last max-md:my-[0.5rem]">
+            <div id="aboutus-container" className="flex flex-col lg:flex-row justify-center items-center p-[2em]">
+                <div id="left-art" className="flex flex-col justify-center items-center max-md:my-[0.5rem]">
                     <Image
                         id="episode-cover"
-                        className=""
-                        src={defaultCover}
-                        alt="ALTTEXT"
-                        width={250}
-                        height={250}
+                        className="object-contain h-[20rem] w-auto"
+                        src={leftSquare}
+                        alt="Doctor Buttons, Null N Void, K-FED, Cal, and Jaylin Glaslow chilling and chatting together"
                     />
                 </div>
-                <div id="description-container" className="flex flex-col justify-center items-center md:w-1/3">
+                <div id="description-container" className="flex flex-col justify-center items-center mx-[3rem] max-lg:order-last md:w-1/3">
                     <h1 className="text-center underline">ABOUT US</h1>
                     <p className="text-center">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
                 </div>
                 <div id="right-art" className="flex flex-col justify-center items-center max-md:my-[0.5rem]">
                     <Image
                         id="episode-cover"
-                        className=""
-                        src={defaultCover}
-                        alt="ALTTEXT"
-                        width={250}
-                        height={250}
+                        className="object-contain h-[20rem] w-auto"
+                        src={rightSquare}
+                        alt="Jeri Gander, Gwydion Jormund, Mason, and Figaro Tele sitting together in pleasant company"
                     />
                 </div>
             </div>
