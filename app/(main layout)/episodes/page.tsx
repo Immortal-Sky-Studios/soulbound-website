@@ -23,7 +23,7 @@ export default function Episodes() {
 
     return (
         <main className="flex flex-row justify-center w-full bg-[url('/images/backgrounds/SpaceBannerSTATIC.png')]">
-            <div id="center-container" className="flex flex-col w-full md:w-fit h-full bg-background border-x-[1rem] border-image-[url('/images/borders/RivetSideBorder.png')] border-slice-[157] border-image-width-[1rem] border-repeat-round">
+            <div id="center-container" className="flex flex-col w-full md:w-fit h-full bg-background border-x-[1rem] border-image-[url('/images/borders/RivetSideBorderX.png')] border-slice-[157] border-image-width-[1rem] border-repeat-round">
                 <div id="main-header" className="flex flex-col">
                     <div className="flex flex-row justify-center mx-[2rem]">
                         <h1 className={`${stalinistOne.className} w-fit px-[1rem] text-center mt-[0.5rem] border-[1rem] border-image-[url('/images/borders/RivetCornerBorder.png')] border-slice-[157] border-image-width-[1rem] border-repeat-round`}>EPISODES</h1>
