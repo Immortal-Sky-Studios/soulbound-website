@@ -11,6 +11,7 @@ import MetalShine from "@images/misc/MetalShine.png";
 
 import HeaderFooterButtons from "@components/HeaderFooterButtons";
 import { getLatestEp } from "@lib/neonFunctions";
+import BackToTopButton from "@/components/BackToTopButton";
 
 const oswald = Oswald({
     variable: "--font-oswald",
@@ -79,6 +80,7 @@ export default function RootLayout({
             
             {children}
 
+            <BackToTopButton/>
             <footer className="flex flex-row justify-between items-center border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch">
                 <Suspense fallback={
                     <ul className="flex flex-row list-none justify-center items-center m-[1rem]">
@@ -87,7 +89,6 @@ export default function RootLayout({
                 }>
                     <HeaderFooterButtons episode={data}/>
                 </Suspense>
-                <a id="back-to-top" href="#top" className="py-[1rem]">Back to top</a>
                 <div id="copyright-notice" className="w-[20rem] py-[0.5rem] m-[1rem] text-[0.75rem] text-center text-background bg-[#414042] border-2 border-[#58595b]">
                     Soulbound is published under an Attribution-NonComercial-ShareAlike 4.0 International License
                 </div>
