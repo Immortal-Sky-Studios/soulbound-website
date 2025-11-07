@@ -68,8 +68,8 @@ export default async function EpisodeDynamic({
                             </div>
                             <div id="episode-info" className="flex flex-col justify-center bg-[url('/images/backgrounds/MetalHeartBackground.png')] bg-size-[4rem] bg-repeat border-4 border-[#414042] -mt-[1rem] p-[1rem]">
                                 <h2 className="text-center underline">{data.season_ep_num && `Soulbound Ep. ${data.season_ep_num} -`} {data.title}</h2>
-                                <p id="episode-description" className="text-center mb-[1rem] whitespace-pre-line">{data.description.replace(/\\n/g,"\n")}</p>
-                                <p id="trigger-warnings" className="text-center whitespace-pre-line"><b>Trigger Warnings:</b> <br/> {data.triggers.replace(/\\n/g,"\n")}</p>
+                                <p id="episode-description" className="max-h-[4rem] text-center mb-[1rem] whitespace-pre-line overflow-y-auto">{data.description.replace(/\\n/g,"\n")}</p>
+                                <p id="trigger-warnings" className="max-h-[4rem] text-center whitespace-pre-line overflow-y-auto"><b>Trigger Warnings:</b> <br/> {data.triggers.replace(/\\n/g,"\n")}</p>
                             </div>
                         </div>
                         <div id="transcript-container" className="flex flex-col bg-[#949494] border-4 border-[#414042] mt-[1rem] px-[1rem] py-[0.5rem] grow">
