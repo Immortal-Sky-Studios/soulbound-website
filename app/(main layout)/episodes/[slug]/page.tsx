@@ -77,6 +77,7 @@ export default async function EpisodeDynamic({
                         <ul id="showlinks-container" className="flex flex-row justify-around items-center w-full mb-[1rem] sm:mb-0">
                             <EpisodeLinks links={[data.link_spotify,data.link_apple,data.link_amazon]}/>
                         </ul>
+                        {/* <p>{'<iframe style="border-radius:12px;overflow:hidden" src="https://thesoulboundseries.com/embed/episodes/{slug}" width="100%" height="300" frameBorder="0" loading="lazy"></iframe>'}</p> */}
                     </div>
                     <div id="right-section" className="flex flex-col items-stretch align-start grow">
                         <div id="episode-info-container" className="flex flex-col">
