@@ -26,7 +26,7 @@ export async function getEpisode(slug: string) {
         .selectFrom('episodes')
         .innerJoin('episode_covers', 'episodes.cover_id', 'episode_covers.id')
         .innerJoin('seasons', 'episodes.season_id', 'seasons.id')
-        .select(['episodes.id as id', 'ep_num', 'season_num', 'episodes.season_ep_num', 'title', 'slug', 'link_spotify', 'link_apple', 'link_amazon', 'description', 'triggers', 'episodes.transcript_filename', 'episode_covers.filename as cover_filename', 'episode_covers.alt_text as cover_alt_text', 'episode_covers.width as cover_width', 'episode_covers.height as cover_height', 'seasons.cover_filename as season_cover_filename', 'seasons.cover_alt_text as season_cover_alt_text'])
+        .select(['episodes.id as id', 'ep_num', 'season_num', 'episodes.season_ep_num', 'title', 'slug', 'link_spotify', 'link_apple', 'link_amazon', 'description', 'triggers', 'episode_covers.filename as cover_filename', 'episode_covers.alt_text as cover_alt_text', 'episode_covers.width as cover_width', 'episode_covers.height as cover_height', 'seasons.cover_filename as season_cover_filename', 'seasons.cover_alt_text as season_cover_alt_text'])
         .where('slug', '=', slug)
         .execute();
     

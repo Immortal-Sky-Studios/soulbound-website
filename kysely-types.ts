@@ -47,7 +47,6 @@ export interface Episodes {
   season_id: Generated<number>;
   slug: string;
   title: string;
-  transcript_filename: string | null;
   triggers: string;
 }
 
