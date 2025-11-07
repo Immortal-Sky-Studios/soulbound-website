@@ -92,6 +92,14 @@ export interface Team {
   socials: Generated<string>;
 }
 
+export interface Transcripts {
+  character: string;
+  ep_id: number;
+  id: Generated<number>;
+  line: string;
+  line_num: number;
+}
+
 export interface DB {
   concept_art: ConceptArt;
   credits: Credits;
@@ -101,4 +109,5 @@ export interface DB {
   seasons: Seasons;
   show_links: ShowLinks;
   team: Team;
+  transcripts: Transcripts;
 }

@@ -30,6 +30,14 @@ export async function getEpisode(slug: string) {
         .where('slug', '=', slug)
         .execute();
     
+    const transcriptResponse = await db
+        .selectFrom('episodes')
+        .innerJoin('transcripts', 'transcripts.ep_id', 'episodes.id')
+        .select(['transcripts.line_num as line_num', 'transcripts.character as character', 'transcripts.line as line'])
+        .where('slug','=',slug)
+        .orderBy('line_num')
+        .execute();
+    
     const creditsResponse = await db
         .selectFrom('episodes')
         .innerJoin('credits', 'credits.ep_id', 'episodes.id')
@@ -41,7 +49,8 @@ export async function getEpisode(slug: string) {
     // compile data from both queries into one object for use on page
     const compiledData = {
         ...episodeResponse[0],
-        credits: creditsResponse
+        credits: creditsResponse,
+        transcript: transcriptResponse
     }
 
     pool.end();
@@ -166,6 +175,22 @@ export async function getNotFoundArt() {
         .where('id','=',randomId)
         .execute();
 
+    pool.end();
+
+    return response;
+}
+
+export async function getTranscript(ep_num: number) {
+    const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+    const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
+
+    const response = await db
+        .selectFrom('transcripts')
+        .selectAll()
+        .where('ep_id','=',ep_num)
+        .orderBy('line_num')
+        .execute();
+    
     pool.end();
 
     return response;

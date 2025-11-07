@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 
 import { getEpisode, getNearbyEp } from '@lib/neonFunctions.ts';
 import EpisodeLinks from '@/components/EpisodeLinks';
+import Transcript from '@/components/Transcript';
 
 export async function generateMetadata({
     params
@@ -71,9 +72,11 @@ export default async function EpisodeDynamic({
                                 <p id="trigger-warnings" className="text-center whitespace-pre-line"><b>Trigger Warnings:</b> <br/> {data.triggers.replace(/\\n/g,"\n")}</p>
                             </div>
                         </div>
-                        <div id="transcript-container" className="flex flex-col border-4 border-[#414042] mt-[1rem] p-[1rem] grow">
+                        <div id="transcript-container" className="flex flex-col bg-[#949494] border-4 border-[#414042] mt-[1rem] px-[1rem] py-[0.5rem] grow">
                             <h2 className="underline">Transcript</h2>
-                            <div className="overflow-y-scroll grow">However the fuck we render the transcript</div>
+                            <div className="overflow-y-scroll h-[13rem] text-[1.25rem]">
+                                <Transcript transcript={data.transcript}/>
+                            </div>
                         </div>
                     </div>
                 </div>
