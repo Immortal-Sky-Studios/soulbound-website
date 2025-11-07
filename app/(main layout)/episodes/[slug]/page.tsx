@@ -8,6 +8,25 @@ import { getEpisode, getNearbyEp } from '@lib/neonFunctions.ts';
 import EpisodeLinks from '@/components/EpisodeLinks';
 import Transcript from '@/components/Transcript';
 
+function sortCredits(credits: {
+        role: string;
+        superrole: string;
+        id: number;
+        name: string;
+    }[]) {
+        const sortedCredits = [];
+
+        for (const role of ["Writer", "Editor", "Director"]) {
+            for (const [i, credit] of credits.entries()) {
+                if (credit.role == role) {
+                    sortedCredits.push(credits.splice(i,1)[0]);
+                }
+            }
+        }
+
+        return sortedCredits.concat(credits);
+}
+
 export async function generateMetadata({
     params
 }: {
@@ -34,6 +53,8 @@ export default async function EpisodeDynamic({
         if (!data?.id) {
             notFound(); // database returned that slug does not exist, redirect to 404 page
         }
+
+        data.credits = sortCredits(data.credits);
 
         const prevEp = await getNearbyEp(data.season_ep_num || data.ep_num,-1);
         const nextEp = await getNearbyEp(data.season_ep_num || data.ep_num,1);
@@ -66,7 +87,7 @@ export default async function EpisodeDynamic({
                                     {nextEp && <Link href={`/episodes/${nextEp?.slug}`} className="h-min px-[1em] py-[0.25rem] bg-cyan-300 border border-[#414042]">Next {'>'}</Link>}
                                 </div>
                             </div>
-                            <div id="episode-info" className="flex flex-col justify-center bg-[url('/images/backgrounds/MetalHeartBackground.png')] bg-size-[4rem] bg-repeat border-4 border-[#414042] -mt-[1rem] p-[1rem]">
+                            <div id="episode-info" className="flex flex-col justify-center text-shadow-md text-shadow-white bg-[url('/images/backgrounds/MetalHeartBackground.png')] bg-size-[4rem] bg-repeat border-4 border-[#414042] -mt-[1rem] p-[1rem]">
                                 <h2 className="text-center underline">{data.season_ep_num && `Soulbound Ep. ${data.season_ep_num} -`} {data.title}</h2>
                                 <p id="episode-description" className="max-h-[4rem] text-center mb-[1rem] whitespace-pre-line overflow-y-auto">{data.description.replace(/\\n/g,"\n")}</p>
                                 <p id="trigger-warnings" className="max-h-[4rem] text-center whitespace-pre-line overflow-y-auto"><b>Trigger Warnings:</b> <br/> {data.triggers.replace(/\\n/g,"\n")}</p>
