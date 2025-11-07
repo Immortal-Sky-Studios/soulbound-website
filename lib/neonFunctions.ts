@@ -99,14 +99,21 @@ export async function getTeamList() {
     
     const roleResponse = await db
         .selectFrom('credits')
-        .select(['team_id', 'role'])
+        .select(['team_id', 'superrole', 'role'])
         .distinct()
         .execute();
 
     const compiledData = infoResponse.map((member) => {
-        const memberRoles = roleResponse.filter((entry) => entry.team_id === member.id).map((entry) => entry.role);
+        const memberJobs = roleResponse.filter((entry) => (entry.team_id === member.id) && (entry.superrole == 'Crew')).map((entry) => entry.role);
+        const memberRoles = roleResponse.filter((entry) => (entry.team_id === member.id) && (entry.superrole == 'Cast')).map((entry) => entry.role);
+
+        if (memberRoles.length != 0) {
+            memberJobs.push('Voice Actor');
+        }
+
         return {
             ...member,
+            jobs: memberJobs,
             roles: memberRoles
         }
     });

@@ -26,7 +26,8 @@ export default function EmbeddedEpisode({
                     <div className="grow">
                         <div className={`flex flex-col ${direction ? "items-start" : "items-end"}`}>
                             <h2 className={`px-[0.5rem] mb-0 w-1/2 ${direction ? "text-start" : "text-end"} bg-cyan-300`}>{entry.name} ({entry.pronouns})</h2>
-                            <div className={`h-fit p-[0.25rem] mb-[1rem] w-3/8 ${direction ? "text-start" : "text-end"} text-background bg-[#414042]`}>{entry.roles.join(", ")}</div>
+                            <div className={`h-fit p-[0.25rem] w-5/12 ${direction ? "text-start" : "text-end"} text-[#949494] bg-[#414042]`}>{entry.jobs.length == 0 ? "Upcoming Team Member" : entry.jobs.join(", ")}</div>
+                            {entry.roles.length != 0 && <div className={`h-fit p-[0.25rem] mb-[1rem] w-2/6 ${direction ? "text-start" : "text-end"} text-[#949494] bg-[#525053]`}><b>Roles:</b> {entry.roles.join(", ")}</div>}
                         </div>
                         <div className="flex flex-col justify-center items-center sm:p-[0.5rem]">
                             <div className="w-1/2 mx-[1rem] my-[1rem]">
