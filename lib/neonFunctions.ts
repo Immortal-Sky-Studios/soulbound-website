@@ -73,14 +73,15 @@ export async function getLatestEp() {
     return response[0];
 }
 
-export async function getNearbyEp(start: number, move: number) {
+export async function getNearbyEp(column: string, num: number) {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
     const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
 
     const response = await db
         .selectFrom('episodes')
         .select(['id', 'slug'])
-        .where('season_ep_num', '=', start + move)
+        .$if(column == "season", (qb) => qb.where('season_ep_num', '=', num))
+        .$if(column == "ep", (qb) => qb.where('ep_num', '=', num))
         .execute();
 
     pool.end();

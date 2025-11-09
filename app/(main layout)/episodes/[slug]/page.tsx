@@ -56,8 +56,8 @@ export default async function EpisodeDynamic({
 
         data.credits = sortCredits(data.credits);
 
-        const prevEp = await getNearbyEp(data.season_ep_num || data.ep_num,-1);
-        const nextEp = await getNearbyEp(data.season_ep_num || data.ep_num,1);
+        const prevEp = await getNearbyEp(data.season_ep_num ? "season" : "ep", (data.season_ep_num || data.ep_num) - 1);
+        const nextEp = await getNearbyEp(data.season_ep_num ? "season" : "ep", (data.season_ep_num || data.ep_num) + 1);
         const spotifyComponents = data.link_spotify.split('episode');
 
         return (
