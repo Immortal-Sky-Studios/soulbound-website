@@ -24,7 +24,7 @@ export default function BackToTopButton() {
     return (
         <>
         {scrollY != 0 &&
-            <a id="back-to-top" href="#top" className="w-[7rem] h-[7rem] fixed bottom-5 right-10 z-100">
+            <a id="back-to-top" href="#top" className="w-[7rem] h-[7rem] lg:w-[5rem] lg:h-[5rem] fixed bottom-5 right-10 z-100">
                 <Image
                     className=""
                     src={UpArrow}
