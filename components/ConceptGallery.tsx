@@ -18,7 +18,7 @@ export default function ConceptArt({
     const conceptArt = use(art);
 
     return (
-        <Carousel className="w-full md:w-1/2" autoPlay infiniteLoop showThumbs={false}
+        <Carousel className="w-full md:w-3/4 lg:w-2/3 xl:w-1/2" autoPlay infiniteLoop showThumbs={false}
             renderArrowPrev={(clickHandler, hasPrev) => {
                 return (
                     <div

@@ -22,7 +22,7 @@ export default function AboutUs() {
 
     return (
         <main>
-            <div id="aboutus-container" className="flex flex-col lg:flex-row justify-center items-center p-[2em] text-cyan-300 bg-[url('/images/backgrounds/SpaceBannerSTATIC.png')]">
+            <div id="aboutus-container" className="flex flex-row justify-center items-center p-[2em] text-cyan-300 bg-[url('/images/backgrounds/SpaceBannerSTATIC.png')]">
                 <div id="left-art" className="flex flex-col justify-center items-center max-md:my-[0.5rem]">
                     <Image
                         id="episode-cover"
@@ -56,7 +56,7 @@ export default function AboutUs() {
             </div>
             <div id="meettheteam-container" className="sm:px-[5rem] bg-[url('/images/backgrounds/AboutUsStarryBackground.png')] border-y-[1.9rem] border-image-[url('/images/borders/RivetSideBorderY.png')] border-slice-[157] border-image-width-[2rem] border-repeat-round">
                 <div id="team-center-section" className="flex flex-col justify-center items-stretch p-[1rem] bg-[#757575] border-x-4 border-cyan-300">
-                    <h2 className="mx-[30%] text-center -mt-[1rem] text-[4rem] text-[#414042] font-bold">Meet the Team!</h2>
+                    <h2 className="text-center -mt-[1rem] text-[4rem] text-[#414042] font-bold">Meet the Team!</h2>
                     <Suspense fallback={
                         <ul id="team-list" className="flex flex-col list-none">
                             Loading...
