@@ -22,17 +22,17 @@ export default function AboutUs() {
 
     return (
         <main>
-            <div id="aboutus-container" className="flex flex-row justify-center items-center p-[2em] text-cyan-300 bg-[url('/images/backgrounds/SpaceBannerSTATIC.png')]">
+            <div id="aboutus-container" className="grid grid-cols-2 lg:flex lg:flex-row justify-center items-center p-[2em] text-cyan-300 bg-[url('/images/backgrounds/SpaceBannerSTATIC.png')]">
                 <div id="left-art" className="flex flex-col justify-center items-center max-md:my-[0.5rem]">
                     <Image
                         id="episode-cover"
-                        className="object-contain h-[30rem] w-auto"
+                        className="object-contain w-1/2 h-auto lg:h-[20rem] 2xl:h-[30rem] lg:w-auto"
                         src={leftSquare}
                         alt="Doctor Buttons, Null N Void, K-FED, Cal, and Jaylin Glaslow chilling and chatting together"
                     />
                 </div>
-                <div id="description-container" className="flex flex-col justify-center items-center mx-[3rem] max-lg:order-last md:w-1/3">
-                    <h1 className="text-center text-[5rem] font-bold">ABOUT US</h1>
+                <div id="description-container" className="flex flex-col justify-center items-center mx-[3rem] max-lg:order-last max-lg:col-span-2 lg:w-2/3 2xl:w-1/3">
+                    <h1 className="text-center text-[3rem] sm:text-[5rem] font-bold">ABOUT US</h1>
                     <p className="text-center">
                         Hi, Olivia Jeske here, Type 1 Diabetic and creator of Soulbound. For those of you who haven&apos;t figured it out yet, Soulbound is a show about characters with disabilities fighting for their own survival. It started with three monologues I wrote in my free time to vent about different aspects of my own disability, those being the monologues of Maybelle, Null, and Buttons, and it spiraled from there. 
 
@@ -48,7 +48,7 @@ export default function AboutUs() {
                 <div id="right-art" className="flex flex-col justify-center items-center max-md:my-[0.5rem]">
                     <Image
                         id="episode-cover"
-                        className="object-contain h-[30rem] w-auto"
+                        className="object-contain w-1/2 h-auto lg:h-[20rem] 2xl:h-[30rem] lg:w-auto"
                         src={rightSquare}
                         alt="Jeri Gander, Gwydion Jormund, Mason, and Figaro Tele sitting together in pleasant company"
                     />
