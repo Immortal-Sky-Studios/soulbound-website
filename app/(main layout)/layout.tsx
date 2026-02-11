@@ -48,7 +48,7 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body
-            className={`${oswald.className} antialiased text-black`}
+            className={`${oswald.className} antialiased text-black overflow-x-hidden`}
         >
             <a id="top" className=""></a>
             <header className="flex flex-row justify-between items-center bg-background border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch sticky top-0 z-100">

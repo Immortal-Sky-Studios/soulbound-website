@@ -7,7 +7,7 @@ export default function MainNotFound() {
     const centerArt = getNotFoundArt();
 
     return (
-        <main className="flex flex-col justify-center items-center h-[90vh] w-[100vw] bg-[url('/images/backgrounds/CrackedPageBackground.png')] bg-cover">
+        <main className="flex flex-col justify-center items-center h-[90vh] w-[100vw] overflow-x-hidden bg-[url('/images/backgrounds/CrackedPageBackground.png')] bg-cover">
             <h1 className="mb-0">DECK 0S REPORT: {<UserDateTime/>}</h1>
             <h1>ERROR 404</h1>
             <CenterArt art={centerArt}/>
