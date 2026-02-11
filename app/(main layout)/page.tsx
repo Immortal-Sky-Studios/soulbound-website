@@ -27,7 +27,9 @@ export default async function Home() {
                 <div id="podcast-description" className="flex flex-col justify-center xl:w-1/3">
                     <h2>What is Soulbound?</h2>
                     When robots across the known galaxy begin to develop sentience, the Astral Assembly sends their most disposable highest ranked historical officer, Dr Jaylin Glaslow, to investigate. When he&apos;s not conducting interviews and prying into the personal lives of his robotic hosts, Dr Glaslow spends his time learning more about political history and editing screenplays.
-                    In other words, Soulbound is a Science Fiction Audio Drama Podcast about sentient robots and what makes us truly human. Or, hominid. Or, Fleshbag. Depending on who you ask. We&apos;re published under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, which means you&apos;re free to repost audio from our podcast and make fan content so long as you don&apos;t claim you made the podcast itself and you don&apos;t profit off the work. 
+                    In other words, Soulbound is a Science Fiction Audio Drama Podcast about sentient robots and what makes us truly human. Or, hominid. Or, Fleshbag. Depending on who you ask.
+                    <br/>
+                    We&apos;re published under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, which means you&apos;re free to repost audio from our podcast and make fan content so long as you don&apos;t claim you made the podcast itself and you don&apos;t profit off the work. 
                     We ask you not use any of our audio, scripts, or art to train any form of artificial intelligence. Despite it&apos;s subject matter, we never use Artificial Intelligence to make any of our content. 100% human made content, that&apos;s our guarantee.
                     If you&apos;d like to get in touch with us, feel free to reach out to us at <Link className="underline inline" href="mailto:thesoulboundseries@gmail.com" target="_blank">thesoulboundseries@gmail.com</Link>
                 </div>
