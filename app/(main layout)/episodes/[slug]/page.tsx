@@ -90,7 +90,7 @@ export default async function EpisodeDynamic({
                                     {nextEp && <Link href={`/episodes/${nextEp?.slug}`} className="h-min px-[1em] py-[0.25rem] bg-cyan-300 border border-[#414042]">Next {'>'}</Link>}
                                 </div>
                             </div>
-                            <div id="episode-info" className="flex flex-col justify-center text-shadow-md text-shadow-white bg-[url('/images/backgrounds/MetalHeartBackground.png')] bg-size-[4rem] bg-repeat border-4 border-[#414042] -mt-[1rem] p-[1rem]">
+                            <div id="episode-info" className="flex flex-col justify-center text-shadow-md text-shadow-white/50 bg-[url('/images/backgrounds/MetalHeartBackground.png')] bg-size-[4rem] bg-repeat border-4 border-[#414042] -mt-[1rem] p-[1rem]">
                                 <h2 className="text-center underline">{data.season_ep_num && `Soulbound Ep. ${data.season_ep_num} -`} {data.title}</h2>
                                 <p id="episode-description" className="max-h-[4rem] text-center mb-[1rem] whitespace-pre-line overflow-y-auto">{data.description.replace(/\\n/g,"\n")}</p>
                                 <p id="trigger-warnings" className="max-h-[4rem] text-center whitespace-pre-line overflow-y-auto"><b>Trigger Warnings:</b> <br/> {data.triggers.replace(/\\n/g,"\n")}</p>
