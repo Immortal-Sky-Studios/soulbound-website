@@ -35,7 +35,7 @@ export default function EpisodesList({
                 />
                 <input className="px-[1.5rem] w-2/3 border-2 border-[#58595b] bg-cyan-300" name="episode-search" type="text" placeholder="Search by title or episode number" defaultValue="" autoFocus={true} onChange={handleSearch} />
             </div>
-            <ul id="results-list" className="flex flex-col overflow-y-auto list-none h-[75vh] border-t-1">
+            <ul id="results-list" className="flex flex-col overflow-y-auto list-none md:w-[45rem] h-[75vh] border-t-1">
                 {!filteredEps?.length ? <Skeleton count={10}/> : filteredEps.map((entry) => {
                     return (
                         <li key={entry.id} className="border bg-cyan-300">
