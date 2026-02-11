@@ -23,8 +23,8 @@ export default async function Home() {
                     priority
                 />
             </div>
-            <div id="whatis-section" className="flex flex-col sm:flex-row items-center justify-around py-[2rem] px-[2rem] sm:px-[10rem] bg-cyan-300 border-[2rem] border-image-[url('/images/borders/MetalScrewBorder.png')] border-slice-[990] border-image-width-[150px] border-repeat-round">
-                <div id="podcast-description" className="flex flex-col justify-center sm:w-1/3">
+            <div id="whatis-section" className="flex flex-col xl:flex-row items-center justify-around py-[2rem] px-[2rem] xl:px-[10rem] bg-cyan-300 border-[2rem] border-image-[url('/images/borders/MetalScrewBorder.png')] border-slice-[990] border-image-width-[150px] border-repeat-round">
+                <div id="podcast-description" className="flex flex-col justify-center xl:w-1/3">
                     <h2>What is Soulbound?</h2>
                     When robots across the known galaxy begin to develop sentience, the Astral Assembly sends their most disposable highest ranked historical officer, Dr Jaylin Glaslow, to investigate. When he&apos;s not conducting interviews and prying into the personal lives of his robotic hosts, Dr Glaslow spends his time learning more about political history and editing screenplays.
                     In other words, Soulbound is a Science Fiction Audio Drama Podcast about sentient robots and what makes us truly human. Or, hominid. Or, Fleshbag. Depending on who you ask. We&apos;re published under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, which means you&apos;re free to repost audio from our podcast and make fan content so long as you don&apos;t claim you made the podcast itself and you don&apos;t profit off the work. 
