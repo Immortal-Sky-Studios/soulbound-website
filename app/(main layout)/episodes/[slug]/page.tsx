@@ -8,25 +8,6 @@ import { getEpisode, getNearbyEp } from '@lib/neonFunctions.ts';
 import EpisodeLinks from '@/components/EpisodeLinks';
 import Transcript from '@/components/Transcript';
 
-function sortCredits(credits: {
-        role: string;
-        superrole: string;
-        id: number;
-        name: string;
-    }[]) {
-        const sortedCredits = [];
-
-        for (const role of ["Writer", "Editor", "Director"]) {
-            for (const [i, credit] of credits.entries()) {
-                if (credit.role == role) {
-                    sortedCredits.push(credits.splice(i,1)[0]);
-                }
-            }
-        }
-
-        return sortedCredits.concat(credits);
-}
-
 export async function generateMetadata({
     params
 }: {
@@ -43,6 +24,32 @@ export async function generateMetadata({
     }
 }
 
+function compareCredits(
+    a: {
+        role: string;
+        superrole: string;
+        id: number;
+        name: string;
+    },
+    b: {
+        role: string;
+        superrole: string;
+        id: number;
+        name: string;
+    }) {
+        const rankings: { [char: string]: number } = {
+            "Writer": 1,
+            "Assistant Writer": 2,
+            "Editor": 3,
+            "Director": 4
+        }
+
+        const a_rank = rankings[a.role] || 100;
+        const b_rank = rankings[b.role] || 100;
+
+        return a_rank - b_rank;
+}
+
 export default async function EpisodeDynamic({
         params,
     }: {
@@ -54,7 +61,7 @@ export default async function EpisodeDynamic({
             notFound(); // database returned that slug does not exist, redirect to 404 page
         }
 
-        data.credits = sortCredits(data.credits);
+        data.credits.sort(compareCredits);
 
         const prevEp = await getNearbyEp(data.season_ep_num ? "season" : "ep", (data.season_ep_num || data.ep_num) - 1);
         const nextEp = await getNearbyEp(data.season_ep_num ? "season" : "ep", (data.season_ep_num || data.ep_num) + 1);
