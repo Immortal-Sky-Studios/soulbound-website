@@ -81,7 +81,7 @@ export default async function EpisodeDynamic({
                             priority
                         />
                         <div className="flex flex-col items-center max-md:mx-[1rem]">
-                            <iframe className="w-[300px] h-[152px] my-[1rem]" src={`${spotifyComponents[0]}embed/episode/${spotifyComponents[1]}?utm_source=generator`} width="100%" height="352" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            <iframe className="w-[300px] h-[152px] my-[1rem]" src={`${spotifyComponents[0]}embed/episode/${spotifyComponents[1]}?utm_source=generator`} width="100%" height="352" loading="lazy"></iframe>
                             <ul id="showlinks-container" className="flex flex-row justify-around items-center w-full mb-[1rem] sm:mb-0">
                                 <EpisodeLinks links={[data.link_spotify,data.link_apple,data.link_amazon]}/>
                             </ul>
