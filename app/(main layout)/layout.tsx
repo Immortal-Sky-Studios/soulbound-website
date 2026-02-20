@@ -67,6 +67,7 @@ export default function RootLayout({
                     className="h-[3.5rem] w-auto"
                     src={MetalShine}
                     alt="Metal shine graphic"
+                    priority
                 />
 
                 <Suspense fallback={
