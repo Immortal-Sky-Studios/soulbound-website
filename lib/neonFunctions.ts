@@ -2,7 +2,7 @@ import { Pool } from '@neondatabase/serverless';
 import { Kysely, PostgresDialect } from 'kysely';
 import { DB } from "@/kysely-types.ts";
 
-export async function getEpisodeList() {
+export async function getEpisodeList(sort_order: 'asc' | 'desc') {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
     const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
 
@@ -10,7 +10,7 @@ export async function getEpisodeList() {
         .selectFrom('episodes')
         .innerJoin('seasons', 'episodes.season_id', 'seasons.id')
         .select(['episodes.id as id', 'title', 'slug', 'ep_num', 'season_num', 'season_ep_num'])
-        .orderBy('ep_num','desc')
+        .orderBy('ep_num',sort_order)
         .execute();
 
     pool.end();

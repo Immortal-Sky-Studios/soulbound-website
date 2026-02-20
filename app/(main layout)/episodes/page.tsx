@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default function Episodes() {
-    const episodes = getEpisodeList();
+    const episodes = getEpisodeList('desc');
     const showLinks = getShowLinks('Podcast Hosts');
 
     return (
