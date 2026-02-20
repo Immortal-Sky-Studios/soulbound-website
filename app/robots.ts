@@ -13,8 +13,8 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
         },
         {
             userAgent: '*',
-            disallow: ['/embed/', '/episodes/'],
-            allow: ['/episodes', '/'],
+            disallow: ['/embed/'],
+            allow: ['/'],
         },
         ],
         sitemap: 'https://thesoulboundseries.com/sitemap.xml',
