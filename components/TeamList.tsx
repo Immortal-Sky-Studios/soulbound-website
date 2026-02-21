@@ -3,7 +3,7 @@ import { use } from 'react';
 import Image from 'next/image';
 import { getTeamList } from '@/lib/neonFunctions';
 
-export default function EmbeddedEpisode({
+export default function TeamList({
     team,
 }: {
     team: ReturnType<typeof getTeamList>
