@@ -95,7 +95,7 @@ export async function getTeamList() {
 
     const infoResponse = await db
         .selectFrom('team')
-        .select(['id', 'full_name as name', 'pronouns', 'headshot_filename', 'bio', 'socials', 'projects', 'quote'])
+        .select(['id', 'full_name as name', 'pronouns', 'headshot_filename', 'headshot_width', 'headshot_height', 'bio', 'socials', 'projects', 'quote'])
         .execute();
     
     const roleResponse = await db
