@@ -2,6 +2,30 @@
 import { use } from 'react';
 import Image from 'next/image';
 import { getTeamList } from '@/lib/neonFunctions';
+import Link from 'next/link';
+
+function parseMarkdown(raw_text: string) {
+    return (
+        <>
+            {!raw_text.includes('-') ?
+                <p className="ml-[1rem]">{raw_text}</p>
+                : <ul className="ml-[2rem] list-disc">
+                    {raw_text.split('-').map((item, index) => {
+                        if (item == '') return;
+                        
+                        const linkComponents = item.split(/[\x5B\x5D\x28\x29]+/);
+                        return (
+                        <li key={index}>
+                            <Link className="underline" href={linkComponents[2] || ''} target="_blank" rel="noopener noreferrer">
+                                {linkComponents[1]}
+                            </Link>
+                        </li>
+                    )})}
+                </ul>
+            }
+        </>
+    )
+}
 
 export default function TeamList({
     team,
@@ -29,21 +53,29 @@ export default function TeamList({
                             <div className={`h-fit p-[0.25rem] w-3/4 lg:w-5/12 ${direction ? "text-start" : "text-end"} text-[#949494] bg-[#414042]`}>{entry.jobs.length == 0 ? "Upcoming Team Member" : entry.jobs.join(", ")}</div>
                             {entry.roles.length != 0 && <div className={`h-fit p-[0.25rem] mb-[1rem] w-2/3 lg:w-1/3 ${direction ? "text-start" : "text-end"} text-[#949494] bg-[#525053]`}><b>Roles:</b> {entry.roles.join(", ")}</div>}
                         </div>
-                        <div className="flex flex-col justify-center items-center">
+                        <div className="flex flex-col lg:flex-row justify-center items-center">
                             <div className="w-full lg:w-1/2 max-lg:p-[1rem] mx-[1rem] my-[1rem]">
                                 {entry.bio}
                             </div>
-                            <ul className="flex flex-col w-full lg:w-1/2 px-[2rem] py-[1rem] sm:mx-[0.5rem] list-disc border">
-                                <li>
-                                    {entry.socials}
-                                </li>
-                                <li>
-                                    {entry.projects}
-                                </li>
-                                <li>
-                                    {entry.quote}
-                                </li>
-                            </ul>
+                            <div className="flex flex-col w-full lg:w-1/2 px-[2rem] py-[1rem] sm:mx-[0.5rem] border">
+                                <div id="socials-container">
+                                    <h3><b>Socials</b></h3>
+                                    {parseMarkdown(entry.socials)}
+                                </div>
+                                <div id="projects-container">
+                                    <h3><b>Projects</b></h3>
+                                    {parseMarkdown(entry.projects)}
+                                </div>
+                                <div id="quote-container">
+                                    <h3><b>Favorite Quote</b></h3>
+                                    <p className="ml-[1rem]">
+                                        {entry.quote.includes('"') ?
+                                            <em>{entry.quote}</em> :
+                                            <>{entry.quote}</>
+                                        }
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </li>
