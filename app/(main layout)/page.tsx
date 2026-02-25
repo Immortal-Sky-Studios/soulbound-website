@@ -10,7 +10,7 @@ import { getLatestEp, getShowLinks } from "@lib/neonFunctions";
 import Link from "next/link";
 
 export default async function Home() {
-    const latestEp = getLatestEp();
+    const latestEp = getLatestEp('episodes');
     const showLinks = getShowLinks();
 
     return (

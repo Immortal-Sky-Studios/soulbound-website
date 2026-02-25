@@ -58,14 +58,18 @@ export async function getEpisode(slug: string) {
     return compiledData;
 }
 
-export async function getLatestEp() {
+export async function getLatestEp(mode: 'episodes' | 'announcements' | 'all') {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
     const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
+
+    const MODE = mode == 'episodes' ? ' not' : '';
 
     const response = await db
         .selectFrom('episodes')
         .select(['id', 'slug'])
-        .where('id', '=', ({selectFrom}) => (selectFrom('episodes').select((eb) => eb.fn.max('id').as('max_id'))))
+        .$if(mode != "all", (qb) => qb.where('season_ep_num',`is${MODE}`,null))
+        .orderBy('id desc')
+        .limit(1)
         .execute();
 
     pool.end();

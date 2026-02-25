@@ -43,7 +43,7 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const data = getLatestEp();
+    const data = getLatestEp('episodes');
 
     return (
         <html lang="en">
