@@ -27,18 +27,18 @@ export default async function EpisodeEmbed({
                     height={data.cover_height}
                     priority
                 />
-                <div id="right-section" className="flex flex-col px-[1rem] grow">
-                    <div id="episode-info-container" className="flex flex-col">
+                <div id="right-section" className="flex flex-col justify-around px-[1rem] grow h-full">
+                    <div id="episode-info-container" className="flex flex-col h-2/3">
                         <div id="episode-title" className="flex flex-row justify-between">
                             <Link href={`https://thesoulboundseries.com/episodes/${data.slug}`} target="_blank" rel="noopener noreferrer">
                                 <h2 className="underline hover:no-underline">S{data.season_num}E{data.season_ep_num} - {data.title}</h2>
                             </Link>
                         </div>
-                        <p id="episode-description">
-                            {data.description}
+                        <p id="episode-description" className="overflow-y-auto whitespace-pre-line">
+                            {data.description.replace(/\\n/g,"\n")}
                         </p>
                     </div>
-                    <ul id="showlinks-container" className="flex flex-row justify-around items-center py-[0.5rem] grow list-none">
+                    <ul id="showlinks-container" className="flex flex-row justify-around items-center py-[0.5rem] list-none">
                         <EpisodeLinks links={[data.link_spotify,data.link_apple,data.link_amazon]}/>
                     </ul>
                 </div>
