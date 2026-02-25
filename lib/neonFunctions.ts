@@ -101,6 +101,7 @@ export async function getTeamList() {
     const roleResponse = await db
         .selectFrom('credits')
         .select(['team_id', 'superrole', 'role'])
+        .where('credits.role','not like','%self')
         .distinct()
         .execute();
 
