@@ -7,6 +7,8 @@ import { notFound } from 'next/navigation';
 import { getEpisode, getNearbyEp } from '@lib/neonFunctions.ts';
 import EpisodeLinks from '@/components/EpisodeLinks';
 import Transcript from '@/components/Transcript';
+import EmbedButton from '@/components/EmbedButton';
+import EmbeddedEpisode from "@components/EmbeddedEpisode";
 
 export async function generateMetadata({
     params
@@ -84,8 +86,8 @@ export default async function EpisodeDynamic({
                             <iframe className="w-[300px] h-[152px] my-[1rem]" src={`${spotifyComponents[0]}embed/episode/${spotifyComponents[1]}?utm_source=generator`} width="100%" height="352" loading="lazy"></iframe>
                             <ul id="showlinks-container" className="flex flex-row justify-around items-center w-full mb-[1rem] sm:mb-0">
                                 <EpisodeLinks links={[data.link_spotify,data.link_apple,data.link_amazon]}/>
+                                <EmbedButton embedStr={`<iframe style="border-radius:12px;overflow:hidden" src="https://thesoulboundseries.com/embed/episodes/${data.slug}" width="100%" height="300" frameBorder="0" loading="lazy"></iframe>`}/>
                             </ul>
-                            {/* <p>{'<iframe style="border-radius:12px;overflow:hidden" src="https://thesoulboundseries.com/embed/episodes/{slug}" width="100%" height="300" frameBorder="0" loading="lazy"></iframe>'}</p> */}
                         </div>
                     </div>
                     <div id="right-section" className="flex flex-col items-stretch align-start grow">
