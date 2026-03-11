@@ -47,17 +47,17 @@ export default function TeamList({
                         height={entry.headshot_width || 2048}
                         priority
                     />
-                    <div className="grow w-full">
+                    <div className="flex flex-col justify-start w-full">
                         <div className={`flex flex-col ${direction ? "items-start" : "items-end"}`}>
                             <h2 className={`px-[0.5rem] mb-0 w-full lg:w-3/4 xl:w-5/8 2xl:w-1/2 ${direction ? "text-start" : "text-end"} bg-cyan-300`}>{entry.name} ({entry.pronouns})</h2>
                             <div className={`h-fit p-[0.25rem] w-3/4 lg:w-5/12 ${direction ? "text-start" : "text-end"} text-[#949494] bg-[#414042]`}>{entry.jobs.length == 0 ? "Upcoming Team Member" : entry.jobs.join(", ")}</div>
                             {entry.roles.length != 0 && <div className={`h-fit p-[0.25rem] mb-[1rem] w-2/3 lg:w-1/3 ${direction ? "text-start" : "text-end"} text-[#949494] bg-[#525053]`}><b>Roles:</b> {entry.roles.join(", ")}</div>}
                         </div>
-                        <div className="flex flex-col lg:flex-row justify-center items-center">
-                            <div className="w-full lg:w-1/2 max-lg:p-[1rem] mx-[1rem] my-[1rem]">
+                        <div className={`flex flex-col justify-start ${direction ? "items-start" : "items-end"} mx-[1rem] grow`}>
+                            <div className={`w-full max-lg:p-[1rem] mx-[1rem] my-[1rem] ${direction ? "text-start" : "text-end"}`}>
                                 {entry.bio}
                             </div>
-                            <div className="flex flex-col w-full lg:w-1/2 px-[2rem] py-[1rem] sm:mx-[0.5rem] border">
+                            <div className={`flex flex-col lg:flex-row w-full justify-around sm:mx-[0.5rem]`}>
                                 <div id="socials-container">
                                     <h3><b>Socials</b></h3>
                                     {parseMarkdown(entry.socials)}
