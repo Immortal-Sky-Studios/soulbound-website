@@ -6,12 +6,15 @@ import defaultCover from "@images/covers/episodes/defaultCover.jpg"
 
 import EmbeddedEpisode from "@components/EmbeddedEpisode";
 import ShowLinks from "@components/ShowLinks";
-import { getLatestEp, getShowLinks } from "@lib/neonFunctions";
+import { getEpisode, getLatestEp, getShowLinks } from "@lib/neonFunctions";
 import Link from "next/link";
+import Announcement from "@/components/Announcement";
 
-export default async function Home() {
-    const latestEp = getLatestEp('episodes');
+export default function Home() {
     const showLinks = getShowLinks();
+
+    const latestEp = getLatestEp('episodes');
+    const latestAnnounce = getLatestEp('announcements');
 
     return (
         <main className="flex flex-col">
@@ -23,6 +26,7 @@ export default async function Home() {
                     priority
                 />
             </div>
+            <Announcement latestEp={latestEp} latestAnnounce={latestAnnounce}/>
             <div id="whatis-section" className="flex flex-col xl:flex-row items-center justify-around py-[2rem] px-[2rem] xl:px-[10rem] bg-cyan-300 border-[2rem] border-image-[url('/images/borders/MetalScrewBorder.png')] border-slice-[990] border-image-width-[150px] border-repeat-round">
                 <div id="podcast-description" className="flex flex-col justify-center xl:w-1/3">
                     <h2>What is Soulbound?</h2>
