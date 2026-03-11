@@ -83,13 +83,10 @@ export default function RootLayout({
 
             <BackToTopButton/>
             <footer className="flex flex-row justify-between items-center border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch">
-                <Suspense fallback={
-                    <ul className="flex flex-row list-none justify-center items-center m-[1rem]">
-                        <li className="flex justify-center items-center bg-cyan-300 border-2 h-fit"><Link href="#" className="px-[0.5rem] py-[0.25rem]">Loading</Link></li>
-                    </ul>
-                }>
-                    <HeaderFooterButtons episode={data}/>
-                </Suspense>
+                <div id="footer-links-container" className="flex flex-row justify-around lg:w-1/3">
+                    <Link href="/terms-of-use" className="underline text-cyan-300 hover:text-foreground">Terms Of Use</Link>
+                    <Link href="mailto:thesoulboundseries@gmail.com" target="_blank" className="underline text-cyan-300 hover:text-foreground">Contact Us</Link>
+                </div>
                 <div id="copyright-notice" className="w-[20rem] py-[0.5rem] m-[1rem] text-[0.75rem] text-center text-background bg-[#414042] border-2 border-[#58595b]">
                     Soulbound is published under an Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
                 </div>
