@@ -23,15 +23,13 @@ export default function BackToTopButton() {
 
     return (
         <>
-        {scrollY != 0 &&
-            <a id="back-to-top" href="#top" className="w-[7rem] h-[7rem] lg:w-[5rem] lg:h-[5rem] fixed bottom-5 right-10 z-100">
+            <a id="back-to-top" href="#top" className={`sticky top-[88vh] lg:top-[90vh] left-full z-100 ${scrollY == 0 ? 'invisible' : ''}`}>
                 <Image
-                    className=""
+                    className="object-contain w-[6.6rem] h-[6.6rem] sm:w-[5.4rem] sm:h-[5.4rem] mr-[1rem]"
                     src={UpArrow}
                     alt="Upwards facing styled arrow"
                 />
             </a>
-        }
         </>
     )
 }
