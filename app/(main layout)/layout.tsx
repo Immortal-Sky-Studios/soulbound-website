@@ -51,8 +51,8 @@ export default function RootLayout({
             className={`${oswald.className} antialiased text-black overflow-x-hidden`}
         >
             <a id="top" className=""></a>
-            <div id="backtotop-region">
-                <header className="flex flex-row justify-between items-center bg-background border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch fixed w-full top-0 z-100">
+            <div id="backtotop-region" className="relative">
+                <header className="flex flex-row justify-between items-center bg-background border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch sticky top-0 z-100">
                     <Link
                         href="/"
                         className="m-[0.5rem] h-fit"
@@ -79,10 +79,12 @@ export default function RootLayout({
                         <HeaderFooterButtons episode={data}/>
                     </Suspense>
                 </header>
-                    
-                <BackToTopButton/>
 
                 {children}
+
+                <div id="backto-top-container" className="absolute flex flex-row justify-end items-end bottom-0 right-0 w-full h-full z-99 pointer-events-none">
+                    <BackToTopButton/>
+                </div>
 
             </div>
             <footer className="flex flex-row justify-between items-center border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch">

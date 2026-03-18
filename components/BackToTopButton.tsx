@@ -23,9 +23,9 @@ export default function BackToTopButton() {
 
     return (
         <>
-            <a id="back-to-top" href="#top" className={`sticky top-[88vh] lg:top-[90vh] left-full z-100 ${scrollY == 0 ? 'invisible' : ''}`}>
+            <a id="back-to-top" href="#top" className={`sticky h-fit bottom-5 right-5 z-100 pointer-events-auto ${scrollY == 0 ? 'hidden' : ''}`}>
                 <Image
-                    className="object-contain w-[6.6rem] h-[6.6rem] sm:w-[5.4rem] sm:h-[5.4rem] mr-[1rem]"
+                    className="object-contain w-[7rem] h-[7rem] sm:w-[5rem] sm:h-[5rem]"
                     src={UpArrow}
                     alt="Upwards facing styled arrow"
                 />
