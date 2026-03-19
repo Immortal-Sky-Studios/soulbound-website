@@ -72,7 +72,7 @@ export default async function EpisodeDynamic({
         return (
             <main className="min-h-screen w-full p-[2rem]">
                 <div id="top-section" className="flex flex-col md:flex-row justify-center">
-                    <div id="left-section" className="flex flex-col sm:max-md:flex-row items-center md:items-start md:mx-[1rem]">
+                    <div id="left-section" className="flex flex-col sm:max-md:flex-row items-center md:items-start md:mx-[1rem] max-md:mb-[1rem]">
                         <Image
                             id="episode-cover"
                             className="h-[300px] w-auto sm:max-md:w-1/2 sm:max-md:h-auto"
