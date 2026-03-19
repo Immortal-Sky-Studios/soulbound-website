@@ -2,10 +2,11 @@
 import { ChangeEvent, use, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getEpisodeList } from '@/lib/neonFunctions';
 import 'react-loading-skeleton/dist/skeleton.css';
 import Skeleton from 'react-loading-skeleton';
 
+import SearchIcon from '@images/icons/search-icon.svg';
+import { getEpisodeList } from '@/lib/neonFunctions';
 
 export default function EpisodesList({
     episodes,
@@ -25,13 +26,11 @@ export default function EpisodesList({
 
     return (
         <>
-            <div id="search-container" className="flex flex-row justify-center mb-[1rem]">
+            <div id="search-container" className="flex flex-row justify-center items-center mb-[1rem]">
                 <Image
-                    src="/images/icons/search-icon.svg"
+                    src={SearchIcon}
                     alt="Search magnifying glass icon"
-                    width={15}
-                    height={15}
-                    className="-mr-[1.25rem] z-2"
+                    className="h-[1rem] w-auto -mr-[1.25rem] z-2"
                 />
                 <input className="px-[1.5rem] w-2/3 border-2 border-[#58595b] bg-cyan-300" name="episode-search" type="text" placeholder="Search by title or episode number" defaultValue="" autoFocus={true} onChange={handleSearch} />
             </div>
