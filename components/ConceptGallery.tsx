@@ -18,7 +18,7 @@ export default function ConceptArt({
     const conceptArt = use(art);
 
     return (
-        <Carousel className="w-full md:w-3/4 lg:w-2/3 xl:w-1/2" autoPlay infiniteLoop showThumbs={false}
+        <Carousel className="w-full lg:w-3/4 xl:w-1/2" autoPlay infiniteLoop showThumbs={false}
             renderArrowPrev={(clickHandler, hasPrev) => {
                 return (
                     <div
@@ -53,7 +53,7 @@ export default function ConceptArt({
             }}
         >
             {conceptArt.map((entry) => (
-                <div key={entry.id} className="relative h-[75vh]">
+                <div key={entry.id} className="relative h-[75vh] mx-[8rem]">
                     <Image
                         className="object-contain pt-[2rem] pb-[4rem]"
                         src={`/images/conceptArt/${entry.filename}`}
