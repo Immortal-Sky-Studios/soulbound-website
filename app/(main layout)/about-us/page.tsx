@@ -67,7 +67,7 @@ export default function AboutUs() {
                 </div>
             </div>
             <div id="conceptgallery-container" className="flex flex-col items-center bg-[url('/images/backgrounds/MetalHeartBackground.png')] bg-size-[9rem] md:bg-size-[11rem] bg-repeat">
-                <h2 className="text-center text-[4rem] text-[#414042]">Concept Art Gallery</h2>
+                <h2 className="text-center text-[3rem] lg:text-[4rem] text-[#414042]">Concept Art Gallery</h2>
                 <Suspense fallback={
                     <div id="conceptgallery-container">
                         <h2>Concept Art Gallery</h2>
