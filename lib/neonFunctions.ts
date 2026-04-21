@@ -69,7 +69,7 @@ export async function getLatestEp(mode: 'episodes' | 'announcements' | 'all') {
         .select(['id', 'slug'])
         .$if(mode == "announcements", (qb) => qb.select(['description']))
         .$if(mode != "all", (qb) => qb.where('season_ep_num',`is${MODE}`,null))
-        .orderBy('id desc')
+        .orderBy('id', 'desc')
         .limit(1)
         .execute();
 
