@@ -36,7 +36,7 @@ export default function TeamList({
     return (
         <ul id="team-list" className="flex flex-col list-none">
             {teamList.map((entry, index) => {
-                const direction = index % 2 === 0 ? false : true;
+                const direction = index % 2 === 0 ? true : false;
                 return (
                 <li key={entry.id} className={`flex flex-col ${direction ? "lg:flex-row" : "lg:flex-row-reverse"} max-lg:items-center lg:p-[1rem] my-[1rem] bg-[#949494] border-[1rem] border-image-[url('/images/borders/MetalHashBorder.png')] border-slice-t-[980] border-slice-r-[1000] border-slice-b-[990] border-slice-l-[1030] border-image-width-[4rem] border-repeat-round`}>
                     <Image
