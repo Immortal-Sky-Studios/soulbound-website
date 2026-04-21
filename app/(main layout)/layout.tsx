@@ -61,6 +61,7 @@ export default function RootLayout({
                             className="h-[2.5rem] w-auto"
                             src={HeaderLogo}
                             alt="Soulbound logo"
+                            loading="eager"
                         />
                     </Link>
 
