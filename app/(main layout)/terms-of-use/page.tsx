@@ -33,21 +33,21 @@ export default function TermsOfUse() {
                         <li>The author does not condone the creation of what is colloquially called a “Torment Nexus.” If you build a HEART or SOUL drive, do not blame the author when it goes wrong.</li>
                     </ul>
 
-                    <h2 className="mt-[2rem]">Cookie Policy</h2>
+                    <h2 id="cookie-policy" className="mt-[2rem]">Cookie Policy</h2>
                     <p>
                         This website has absolutely no reason to collect cookies, or frankly any kind of information from its users, and as such, by design, does not.
                         <br/><br/>
                         That being said, a few of the other platforms required to make this site work <em>do</em> collect cookies of their own, namely:
                     </p>
                     <ul className="list-disc pl-[2rem]">
-                        <li>Cloudflare, our website host, collects some cookies during any use of the site. Their cookie policy can be found here.</li>
-                        <li>Spotify, our primary podcast host, collects some cookies via the Embedded Players on our Episode pages. Their cookie policy can be found here.</li>
+                        <li>Cloudflare, our website host, collects some cookies during any use of the site. Here's their <Link className="underline hover:no-underline" href="https://www.cloudflare.com/cookie-policy/" target="_blank" rel="noopener noreferrer">Cookie Policy</Link> and <Link className="underline hover:no-underline" href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Privacy Policy</Link>.</li>
+                        <li>Spotify, our primary podcast host, collects some cookies via the Embedded Players on our Episode pages. Here's their <Link className="underline hover:no-underline" href="https://www.spotify.com/us/legal/cookies-policy/" target="_blank" rel="noopener noreferrer">Cookie Policy</Link> and <Link className="underline hover:no-underline" href="https://www.spotify.com/us/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</Link>.</li>
                     </ul>
                     <p>
                         Even in the case of those exceptions, we still use every setting and tool at our disposal to minimize the amount of cookies collected by these third parties that allow our site to function.
                     </p>
 
-                    <h2 className="mt-[2rem]">AI Statement</h2>
+                    <h2 id="ai-statement" className="mt-[2rem]">AI Statement</h2>
                     <p>
                         Soulbound may be about Synthetic People attempting to gain legal recognition, but that doesn't mean we are Pro-Ai. Until the moment that Ai proves itself to be self reliant and fully sentient in its own right, we will never knowingly use Generative Ai in anything we produce. There may be times we slip up, but we will remain transparent about our usage. 
                         <br/><br/>
@@ -56,8 +56,7 @@ export default function TermsOfUse() {
                         We do <b>NOT</b> give consent, permission, or license to take our voices, transcripts, website text, artwork, or any other content of any kind produced for this website, this podcast, our social media pages, or any other facet of Soulbound, for use training any LLM, Image Generation model, or other forms of AI model.
                     </p>
                     
-                    <h2 className="mt-[2rem]">License</h2>
-                    {/* <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"></img> */}
+                    <h2 id="license" className="mt-[2rem]">License</h2>
                     <p>
                         Soulbound is published under a
                         <Link className="underline hover:no-underline ml-[.25em]" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</Link>
