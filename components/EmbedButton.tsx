@@ -12,12 +12,22 @@ export default function EmbedButton({
 }) {
     return (
         <li>
-            <button className="cursor-pointer" onClick={() => {navigator.clipboard.writeText(embedStr)}}>
+            <button className="cursor-pointer" onClick={() => {
+                navigator.clipboard.writeText(embedStr);
+                let label = document.getElementById("embed-label");
+                if (label) {
+                    label.textContent = "COPIED!";
+                    setTimeout(() => {
+                        label.textContent = "EMBED";
+                    }, 1000);
+                }
+            }}>
                 <Image
                     className="h-[3rem] w-fit"
                     src={EmbedIcon}
                     alt="Embed Icon"
                 />
+                <div id="embed-label" className="-mt-[.5rem]">EMBED</div>
             </button>
         </li>
     )
