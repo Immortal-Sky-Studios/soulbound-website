@@ -102,6 +102,11 @@ export async function getTeamList() {
         .selectFrom('team')
         .select(['id', 'full_name as name', 'pronouns', 'headshot_filename', 'headshot_width', 'headshot_height', 'bio', 'socials', 'projects', 'quote'])
         .execute();
+
+    const jobResponse = await db
+        .selectFrom('team_jobs')
+        .select(['team_id','job_title'])
+        .execute();
     
     const roleResponse = await db
         .selectFrom('credits')
@@ -111,7 +116,7 @@ export async function getTeamList() {
         .execute();
 
     const compiledData = infoResponse.map((member) => {
-        const memberJobs = roleResponse.filter((entry) => (entry.team_id === member.id) && (entry.superrole == 'Crew')).map((entry) => entry.role);
+        const memberJobs = [...jobResponse.filter((entry) => (entry.team_id === member.id)).map((entry) => entry.job_title), ...roleResponse.filter((entry) => (entry.team_id === member.id) && (entry.superrole == 'Crew')).map((entry) => entry.role)];
         const memberRoles = roleResponse.filter((entry) => (entry.team_id === member.id) && (entry.superrole == 'Cast')).map((entry) => entry.role);
 
         if (memberRoles.length != 0) {

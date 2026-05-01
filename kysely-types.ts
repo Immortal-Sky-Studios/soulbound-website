@@ -91,6 +91,12 @@ export interface Team {
   socials: Generated<string>;
 }
 
+export interface TeamJobs {
+  id: Generated<number>;
+  job_title: string;
+  team_id: number | null;
+}
+
 export interface Transcripts {
   character: string;
   ep_id: number;
@@ -108,5 +114,6 @@ export interface DB {
   seasons: Seasons;
   show_links: ShowLinks;
   team: Team;
+  team_jobs: TeamJobs;
   transcripts: Transcripts;
 }
