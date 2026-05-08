@@ -59,7 +59,7 @@ export interface NotfoundArt {
 }
 
 export interface Seasons {
-  cover_alt_text: Generated<string>;
+  cover_alt_text: string;
   cover_filename: string;
   cover_height: Generated<number>;
   cover_width: Generated<number>;
