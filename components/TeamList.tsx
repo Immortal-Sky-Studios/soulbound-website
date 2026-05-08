@@ -59,8 +59,8 @@ export default function TeamList({
                             {entry.roles.length != 0 && <div className={`h-fit py-[0.25rem] px-[0.5rem] w-2/3 lg:w-1/3 ${direction ? "text-start" : "text-end"} text-[#949494] bg-[#525053]`}><b>Roles:</b> {entry.roles.join(", ")}</div>}
                         </div>
                         <div className={`flex flex-col justify-start ${direction ? "items-start" : "items-end"} m-[1rem] pb-[1rem] grow`}>
-                            <div className={`w-full max-lg:p-[1rem] mx-[1rem] my-[1rem] ${direction ? "text-start" : "text-end"}`}>
-                                {entry.bio}
+                            <div className={`w-full max-lg:p-[1rem] mx-[1rem] my-[1rem] whitespace-pre-line ${direction ? "text-start" : "text-end"}`}>
+                                {entry.bio.replace(/\\n/g,"\n")}
                             </div>
                             <div className="flex flex-col lg:flex-row w-full justify-around lg:items-center grow">
                                 <div id="socials-container">
