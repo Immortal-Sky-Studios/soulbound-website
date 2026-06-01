@@ -31,6 +31,7 @@ export default function ConceptArt({
                             className="object-contain h-1/4 w-auto select-none"
                             src={LeftArrow}
                             alt="Gallery carousel left arrow"
+                            loading="lazy"
                         />
                     </div>
                 )
@@ -47,6 +48,7 @@ export default function ConceptArt({
                             className="object-contain h-1/4 w-auto select-none"
                             src={RightArrow}
                             alt="Gallery carousel right arrow"
+                            loading="lazy"
                         />
                     </div>
                 )
@@ -60,7 +62,7 @@ export default function ConceptArt({
                         alt={entry.alt_text}
                         fill
                         sizes="75vh"
-                        priority
+                        loading="lazy"
                     />
                     <div className="absolute bottom-[2rem] text-center w-full">{entry.alt_text}</div>
                 </div>

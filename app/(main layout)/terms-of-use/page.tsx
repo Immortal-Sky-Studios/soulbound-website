@@ -66,6 +66,7 @@ export default function TermsOfUse() {
                             alt=""
                             width={64}
                             height={64}
+                            loading='eager'
                         />
                         <Image
                             className="inline max-w-[1em] max-h-[1em] ml-[.2em]"
@@ -73,6 +74,7 @@ export default function TermsOfUse() {
                             alt=""
                             width={64}
                             height={64}
+                            loading='eager'
                         />
                         <Image
                             className="inline max-w-[1em] max-h-[1em] ml-[.2em]"
@@ -80,6 +82,7 @@ export default function TermsOfUse() {
                             alt=""
                             width={64}
                             height={64}
+                            loading='eager'
                         />
                         <Image
                             className="inline max-w-[1em] max-h-[1em] ml-[.2em] mr-[.25em]"
@@ -87,6 +90,7 @@ export default function TermsOfUse() {
                             alt=""
                             width={64}
                             height={64}
+                            loading='eager'
                         />
                         License. This means you are free to use clips, make fan-creations, and generally share the podcast around so long as you ensure you credit us and aren't profiting off our work. You are free to profit off your own work so long as we are credited as the inspiration or original source. This does not mean you may take any of said content and train an AI model off of them, as mentioned above.
                     </p>
