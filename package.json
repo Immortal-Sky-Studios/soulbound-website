@@ -3,23 +3,27 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
+    "dev": "next dev --webpack",
     "start": "next start",
     "lint": "next lint",
     "update-kysely-types": "kysely-codegen --out-file ./kysely-types.ts",
-    "update-robots-txt": "fetch-github-release -s robots.txt ai-robots-txt ai.robots.txt lib/releaseDownloads/"
+    "update-robots-txt": "fetch-github-release -s robots.txt ai-robots-txt ai.robots.txt lib/releaseDownloads/",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.10.4",
-    "@opennextjs/cloudflare": "^1.19.8",
+    "@opennextjs/cloudflare": "^1.19.11",
     "@terascope/fetch-github-release": "^2.1.0",
     "kysely": "^0.28.16",
     "kysely-codegen": "^0.18.3",
-    "next": "^16.1.6",
+    "next": "^16.2.6",
     "pg": "^8.14.1",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "react-loading-skeleton": "^3.5.0",
     "react-responsive-carousel": "^3.2.23"
   },
@@ -30,12 +34,12 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "eslint": "^9",
-    "eslint-config-next": "16.1.6",
+    "eslint-config-next": "^16.2.6",
     "eslint-plugin-react-hooks": "^5.2.0",
     "tailwindcss": "^4",
     "tailwindcss-border-image": "^1.1.2",
     "typescript": "^5",
-    "wrangler": "^4.90.0"
+    "wrangler": "^4.95.0"
   },
   "overrides": {
     "@types/react": "19.2.14",
