@@ -88,13 +88,13 @@ export default function RootLayout({
                 </div>
 
             </div>
-            <footer className="flex flex-col m:flex-row justify-between items-center p-[1rem] border-[0.5rem] md:border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[10px] md:border-image-width-[20px] border-repeat-stretch">
+            <footer className="flex flex-col md:flex-row justify-between items-center p-[1rem] border-[0.5rem] md:border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[10px] md:border-image-width-[20px] border-repeat-stretch">
                 <div id="footer-links-container" className="flex flex-row justify-around w-full lg:w-1/3">
                     <Link href="/terms-of-use" className="underline text-cyan-300 hover:text-foreground">Terms Of Use</Link>
                     <Link href="mailto:thesoulboundseries@gmail.com" target="_blank" className="underline text-cyan-300 hover:text-foreground">Contact Us</Link>
                     <Link href="https://github.com/Immortal-Sky-Studios/soulbound-website/" target="_blank" rel="noopener noreferrer" className="underline text-cyan-300 hover:text-foreground">Github</Link>
                 </div>
-                <div id="copyright-notice" className="w-full m:w-[20rem] py-[0.5rem] mt-[1rem] m:m-[1rem] text-[0.75rem] text-center text-background bg-[#414042] border-2 border-[#58595b]">
+                <div id="copyright-notice" className="w-full md:w-[20rem] py-[0.5rem] mt-[1rem] md:m-[1rem] text-[0.75rem] text-center text-background bg-[#414042] border-2 border-[#58595b]">
                     Soulbound is published under an Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
                 </div>
             </footer>
