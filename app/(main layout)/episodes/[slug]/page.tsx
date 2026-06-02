@@ -75,7 +75,7 @@ export default async function EpisodeDynamic({
                     <div id="left-section" className="flex flex-col sm:max-md:flex-row items-center md:items-start md:mx-[1rem] max-md:mb-[1rem]">
                         <Image
                             id="episode-cover"
-                            className="h-auto m:h-[300px] w-full md:w-auto sm:max-md:w-1/2 sm:max-md:h-auto"
+                            className="h-auto md:h-[300px] w-full md:w-auto sm:max-md:w-1/2 sm:max-md:h-auto"
                             src={`/images/covers/episodes/${data.cover_filename}`}
                             alt={data.cover_alt_text}
                             width={data.cover_width}
