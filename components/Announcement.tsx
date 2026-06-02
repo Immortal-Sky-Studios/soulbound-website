@@ -33,6 +33,7 @@ export default function Announcement({
                         className={`inline h-[2rem] w-auto -ml-[0.33rem] -mt-[0.2rem] object-contain ${open ? 'transform-[scaleY(-1)]' : ''}`}
                         src={ChevronIcon}
                         alt="down arrow"
+                        loading="eager"
                     />
                 </button>
             </div>
