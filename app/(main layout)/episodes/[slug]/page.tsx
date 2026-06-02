@@ -80,7 +80,7 @@ export default async function EpisodeDynamic({
                             alt={data.cover_alt_text}
                             width={data.cover_width}
                             height={data.cover_height}
-                            preload={true}
+                            loading="eager"
                         />
                         <div className="flex flex-col items-center w-full max-md:mx-[1rem]">
                             <iframe className="w-full md:w-[300px] h-[160px] md:h-[152px] my-[1rem]" src={`${spotifyComponents[0]}embed/episode/${spotifyComponents[1]}?utm_source=generator`} width="100%" height="352" loading="lazy"></iframe>

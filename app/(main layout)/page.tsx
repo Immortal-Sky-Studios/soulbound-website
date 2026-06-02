@@ -6,7 +6,7 @@ import defaultCover from "@images/covers/episodes/defaultCover.jpg"
 
 import EmbeddedEpisode from "@components/EmbeddedEpisode";
 import ShowLinks from "@components/ShowLinks";
-import { getEpisode, getLatestEp, getShowLinks } from "@lib/neonFunctions";
+import { getLatestEp, getShowLinks } from "@lib/neonFunctions";
 import Link from "next/link";
 import Announcement from "@/components/Announcement";
 
@@ -23,7 +23,7 @@ export default function Home() {
                     className="sm:h-[20rem] w-auto"
                     src={SoulboundTextLogo}
                     alt="Space banner image"
-                    preload={true}
+                    loading="eager"
                 />
             </div>
             <Announcement latestEp={latestEp} latestAnnounce={latestAnnounce}/>

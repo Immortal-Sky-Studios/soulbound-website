@@ -28,7 +28,7 @@ export default function ShowLinks({
                                 alt={entry.icon_alt_text}
                                 width={64}
                                 height={64}
-                                loading="eager"
+                                loading="lazy"
                             />
                         </Link>
                     </li>

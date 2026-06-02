@@ -25,7 +25,7 @@ export default async function EpisodeEmbed({
                     alt={data.cover_alt_text}
                     width={data.cover_width}
                     height={data.cover_height}
-                    preload={true}
+                    loading="eager"
                 />
                 <div id="right-section" className="flex flex-col justify-around px-[1rem] grow h-full">
                     <div id="episode-info-container" className="flex flex-col max-sm:items-center h-2/3">
