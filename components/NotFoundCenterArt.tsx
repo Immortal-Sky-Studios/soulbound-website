@@ -18,7 +18,7 @@ export default function CenterArt({
             alt={centerArt.alt_text}
             width={centerArt.width}
             height={centerArt.height}
-            priority
+            preload={true}
         />
     )
 }

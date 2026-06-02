@@ -18,7 +18,7 @@ export default function ConceptArt({
     const conceptArt = use(art);
 
     return (
-        <Carousel className="w-3/4 xl:w-1/2" autoPlay infiniteLoop showThumbs={false}
+        <Carousel className="w-full m:w-3/4 xl:w-1/2" autoPlay infiniteLoop showThumbs={false}
             renderArrowPrev={(clickHandler, hasPrev) => {
                 return (
                     <div
@@ -31,6 +31,7 @@ export default function ConceptArt({
                             className="object-contain h-1/4 w-auto select-none"
                             src={LeftArrow}
                             alt="Gallery carousel left arrow"
+                            loading="lazy"
                         />
                     </div>
                 )
@@ -47,20 +48,21 @@ export default function ConceptArt({
                             className="object-contain h-1/4 w-auto select-none"
                             src={RightArrow}
                             alt="Gallery carousel right arrow"
+                            loading="lazy"
                         />
                     </div>
                 )
             }}
         >
             {conceptArt.map((entry) => (
-                <div key={entry.id} className="relative h-[33vh] md:h-[50vh] lg:h-[75vh] mx-[8rem]">
+                <div key={entry.id} className="relative h-[55vh] m:h-[33vh] md:h-[50vh] lg:h-[75vh] mx-[8rem]">
                     <Image
                         className="object-contain pt-[2rem] pb-[4rem]"
                         src={`/images/conceptArt/${entry.filename}`}
                         alt={entry.alt_text}
                         fill
                         sizes="75vh"
-                        priority
+                        loading="lazy"
                     />
                     <div className="absolute bottom-[2rem] text-center w-full">{entry.alt_text}</div>
                 </div>

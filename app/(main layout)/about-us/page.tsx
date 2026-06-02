@@ -30,6 +30,7 @@ export default function AboutUs() {
                             className="object-contain w-auto h-[10rem]"
                             src={leftSquare}
                             alt="Doctor Buttons, Null N Void, K-FED, Cal, and Jaylin Glaslow chilling and chatting together"
+                            loading="eager"
                         />
                     </div>
                     <h1 className="text-center text-[3rem] md:text-[5rem] font-bold w-1/2 xl:w-1/3">ABOUT US</h1>
@@ -39,6 +40,7 @@ export default function AboutUs() {
                             className="object-contain w-auto h-[10rem]"
                             src={rightSquare}
                             alt="Jeri Gander, Gwydion Jormund, Mason, and Figaro Tele sitting together in pleasant company"
+                            loading="eager"
                         />
                     </div>
                 </div>
@@ -67,7 +69,7 @@ export default function AboutUs() {
                 </div>
             </div>
             <div id="conceptgallery-container" className="flex flex-col items-center bg-[url('/images/backgrounds/MetalHeartBackground.png')] bg-size-[9rem] md:bg-size-[11rem] bg-repeat">
-                <h2 className="text-center text-[3rem] lg:text-[4rem] text-[#414042]">Concept Art Gallery</h2>
+                <h2 className="text-center text-[2rem] max-sm:mb-0 m:text-[3rem] lg:text-[4rem] text-[#414042]">Concept Art Gallery</h2>
                 <Suspense fallback={
                     <div id="conceptgallery-container">
                         <h2>Concept Art Gallery</h2>

@@ -50,7 +50,7 @@ export default function TeamList({
                         alt={`Image of ${entry.name}`}
                         width={entry.headshot_width || 2048}
                         height={entry.headshot_width || 2048}
-                        priority
+                        loading="lazy"
                     />
                     <div className="flex flex-col justify-start w-full">
                         <div className={`flex flex-col ${direction ? "items-start" : "items-end"}`}>

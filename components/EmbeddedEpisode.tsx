@@ -9,6 +9,6 @@ export default function EmbeddedEpisode({
 }) {
     const selectedEp = use(episode);
     return (
-        <iframe src={`/embed/episodes/${selectedEp?.slug}`} className="h-[15rem] w-full rounded-4xl overflow-hidden"/>
+        <iframe src={`/embed/episodes/${selectedEp?.slug}`} className="h-[30rem] sm:h-[15rem] w-full rounded-4xl overflow-hidden"/>
     )
 }
