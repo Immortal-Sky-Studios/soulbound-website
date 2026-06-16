@@ -31,6 +31,7 @@ export default function EpisodesList({
                     src={SearchIcon}
                     alt="Search magnifying glass icon"
                     className="h-[1rem] w-auto -mr-[1.25rem] z-2"
+                    loading="eager"
                 />
                 <input className="px-[1.5rem] w-2/3 border-2 border-[#58595b] bg-cyan-300" name="episode-search" type="text" placeholder="Search by title or episode number" defaultValue="" autoFocus={true} onChange={handleSearch} />
             </div>
