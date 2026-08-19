@@ -75,15 +75,15 @@ export default async function EpisodeDynamic({
                     <div id="left-section" className="flex flex-col sm:max-md:flex-row items-center md:items-start md:mx-[1rem] max-md:mb-[1rem]">
                         <Image
                             id="episode-cover"
-                            className="h-[300px] w-auto sm:max-md:w-1/2 sm:max-md:h-auto"
+                            className="h-auto md:h-[300px] w-full md:w-auto sm:max-md:w-1/2 sm:max-md:h-auto"
                             src={`/images/covers/episodes/${data.cover_filename}`}
                             alt={data.cover_alt_text}
                             width={data.cover_width}
                             height={data.cover_height}
-                            priority
+                            loading="eager"
                         />
-                        <div className="flex flex-col items-center max-md:mx-[1rem]">
-                            <iframe className="w-[300px] h-[152px] my-[1rem]" src={`${spotifyComponents[0]}embed/episode/${spotifyComponents[1]}?utm_source=generator`} width="100%" height="352" loading="lazy"></iframe>
+                        <div className="flex flex-col items-center w-full max-md:mx-[1rem]">
+                            <iframe title="spotifyPlayer" className="w-full md:w-[300px] h-[160px] md:h-[152px] my-[1rem]" src={`${spotifyComponents[0]}embed/episode/${spotifyComponents[1]}?utm_source=generator`} width="100%" height="352" loading="lazy"></iframe>
                             <ul id="showlinks-container" className="flex flex-row justify-around items-center w-full mb-[1rem] sm:mb-0">
                                 <EpisodeLinks links={[data.link_spotify,data.link_apple,data.link_amazon]}/>
                                 <EmbedButton embedStr={`<iframe style="border-radius:12px;overflow:hidden" src="https://thesoulboundseries.com/embed/episodes/${data.slug}" width="100%" height="300" frameBorder="0" loading="lazy"></iframe>`}/>
@@ -113,7 +113,7 @@ export default async function EpisodeDynamic({
                         </div>
                     </div>
                 </div>
-                <div id="credits-container" className="flex flex-col md:flex-row justify-around items-center min-h-[15rem] mt-[1rem] p-[1rem] bg-cyan-300 text-blue-700 border-[1rem] border-image-[url('/images/borders/ThreeRivetBorder.png')] border-slice-[180] border-image-width-[1rem] border-repeat-round">
+                <div id="credits-container" className="flex flex-col md:flex-row justify-around items-center min-h-[15rem] mt-[1rem] p-[0.5rem] md:p-[1rem] bg-cyan-300 text-blue-700 border-[1rem] border-image-[url('/images/borders/ThreeRivetBorder.png')] border-slice-[43] border-image-width-[1rem] border-repeat-round">
                     <div id="cast-container" className="max-md:mb-[1rem]">
                         <h2 className="text-center">Cast</h2>
                         {data.credits.length ? 
@@ -121,8 +121,8 @@ export default async function EpisodeDynamic({
                                 {data.credits.filter((entry) => entry.superrole === 'Cast').map((entry) => {
                                     return (
                                         <Fragment key={entry.id}>
-                                            <div className="flex flex-row-reverse mx-[1rem]"><b>{entry.role}:</b></div>
-                                            <div>{entry.name}</div>
+                                            <div className="flex flex-row-reverse items-center text-right mr-[1rem]"><b>{entry.role}:</b></div>
+                                            <div className="flex flex-row items-center text-left">{entry.name}</div>
                                         </Fragment>
                                     )
                                 })}
@@ -137,8 +137,8 @@ export default async function EpisodeDynamic({
                                 {data.credits.filter((entry) => entry.superrole === 'Crew').map((entry) => {
                                     return (
                                         <Fragment key={entry.id}>
-                                            <div className="flex flex-row-reverse mx-[1rem]"><b>{entry.role}:</b></div>
-                                            <div>{entry.name}</div>
+                                            <div className="flex flex-row-reverse items-center text-right mr-[1rem]"><b>{entry.role}:</b></div>
+                                            <div className="flex flex-row items-center text-left">{entry.name}</div>
                                         </Fragment>
                                     )
                                 })}

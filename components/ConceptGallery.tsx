@@ -18,19 +18,20 @@ export default function ConceptArt({
     const conceptArt = use(art);
 
     return (
-        <Carousel className="w-3/4 xl:w-1/2" autoPlay infiniteLoop showThumbs={false}
+        <Carousel className="relative w-full m:w-3/4 xl:w-1/2" autoPlay infiniteLoop showThumbs={false}
             renderArrowPrev={(clickHandler, hasPrev) => {
                 return (
                     <div
                         className={`${
                         hasPrev ? "absolute" : "hidden"
-                        } top-0 bottom-0 left-0 flex justify-center items-center p-3 opacity-30 hover:opacity-100 cursor-pointer z-20`}
+                        } top-0 bottom-0 left-0 flex justify-center items-center w-1/3 p-3 opacity-30 hover:opacity-100 cursor-pointer z-20`}
                         onClick={clickHandler}
                     >
                         <Image
                             className="object-contain h-1/4 w-auto select-none"
                             src={LeftArrow}
                             alt="Gallery carousel left arrow"
+                            loading="lazy"
                         />
                     </div>
                 )
@@ -40,27 +41,28 @@ export default function ConceptArt({
                     <div
                         className={`${
                         hasNext ? "absolute" : "hidden"
-                        } top-0 bottom-0 right-0 flex justify-center items-center p-3 opacity-30 hover:opacity-100 cursor-pointer z-20`}
+                        } top-0 bottom-0 right-0 flex justify-center items-center w-1/3 p-3 opacity-30 hover:opacity-100 cursor-pointer z-20`}
                         onClick={clickHandler}
                     >
                         <Image
                             className="object-contain h-1/4 w-auto select-none"
                             src={RightArrow}
                             alt="Gallery carousel right arrow"
+                            loading="lazy"
                         />
                     </div>
                 )
             }}
         >
             {conceptArt.map((entry) => (
-                <div key={entry.id} className="relative h-[33vh] md:h-[50vh] lg:h-[75vh] mx-[8rem]">
+                <div key={entry.id} className="relative w-auto min-h-[20rem] h-[40vh] md:h-[50vh] lg:h-[75vh] mx-[8rem]">
                     <Image
                         className="object-contain pt-[2rem] pb-[4rem]"
                         src={`/images/conceptArt/${entry.filename}`}
                         alt={entry.alt_text}
                         fill
                         sizes="75vh"
-                        priority
+                        loading="lazy"
                     />
                     <div className="absolute bottom-[2rem] text-center w-full">{entry.alt_text}</div>
                 </div>

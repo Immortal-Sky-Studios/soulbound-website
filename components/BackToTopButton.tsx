@@ -27,6 +27,7 @@ export default function BackToTopButton() {
                 className="object-contain w-[6rem] h-[6rem] lg:w-[5rem] lg:h-[5rem] rounded-full"
                 src={UpArrow}
                 alt="Upwards facing styled arrow"
+                loading="lazy"
             />
         </a>
     )

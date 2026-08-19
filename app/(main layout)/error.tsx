@@ -18,7 +18,7 @@ export default function Error({
     }, [error])
     
     return (
-        <main className="flex flex-col justify-center items-center h-[90vh] w-[100vw] p-[1rem] bg-[url('/images/backgrounds/CrackedPageBackground.png')] bg-cover">
+        <main className="flex flex-col justify-center items-center h-[90vh] w-[100vw] p-[1rem] bg-[url('/images/backgrounds/CrackedPageBackground.webp')] bg-cover">
             <h1 className="mb-0">DECK 0S REPORT: {<UserDateTime/>}</h1>
             <h1>SERVER ERROR</h1>
             <p className="text-[2rem] text-center mb-[1rem]">{error.message}{error.digest ? ` (${error.digest})` : ''}</p>

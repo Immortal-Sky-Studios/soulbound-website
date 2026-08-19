@@ -28,6 +28,7 @@ export default function EmbedButton({
                     className="h-[3rem] w-fit"
                     src={EmbedIcon}
                     alt="Embed Icon"
+                    loading="eager"
                 />
                 <div id="embed-label" className="-mt-[.5rem]">{label}</div>
             </button>

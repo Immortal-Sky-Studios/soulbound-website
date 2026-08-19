@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Suspense } from "react";
 import Image from 'next/image';
 
-import leftSquare from '@images/misc/AboutUsLeftSquare.png';
-import rightSquare from '@images/misc/AboutUsRightSquare.png';
+import leftSquare from '@images/misc/AboutUsLeftSquare.webp';
+import rightSquare from '@images/misc/AboutUsRightSquare.webp';
 
 import ConceptGallery from "@components/ConceptGallery";
 import TeamList from "@components/TeamList";
@@ -22,7 +22,7 @@ export default function AboutUs() {
 
     return (
         <main>
-            <div id="aboutus-container" className="flex flex-col justify-center items-center p-[2em] text-cyan-300 bg-[url('/images/backgrounds/SpaceBannerSTATIC.png')]">
+            <div id="aboutus-container" className="flex flex-col justify-center items-center p-[2em] text-cyan-300 bg-[url('/images/backgrounds/SpaceBannerSTATIC.webp')] bg-cover bg-center">
                 <div id="title-container" className="flex flex-row w-full justify-center items-center">
                     <div id="left-image" className="flex flex-row justify-end items-centermr-[1rem]">
                         <Image
@@ -30,6 +30,7 @@ export default function AboutUs() {
                             className="object-contain w-auto h-[10rem]"
                             src={leftSquare}
                             alt="Doctor Buttons, Null N Void, K-FED, Cal, and Jaylin Glaslow chilling and chatting together"
+                            loading="eager"
                         />
                     </div>
                     <h1 className="text-center text-[3rem] md:text-[5rem] font-bold w-1/2 xl:w-1/3">ABOUT US</h1>
@@ -39,6 +40,7 @@ export default function AboutUs() {
                             className="object-contain w-auto h-[10rem]"
                             src={rightSquare}
                             alt="Jeri Gander, Gwydion Jormund, Mason, and Figaro Tele sitting together in pleasant company"
+                            loading="eager"
                         />
                     </div>
                 </div>
@@ -54,7 +56,7 @@ export default function AboutUs() {
                     I hope you have good luck out there too.
                 </p>
             </div>
-            <div id="meettheteam-container" className="sm:px-[5rem] bg-[url('/images/backgrounds/AboutUsStarryBackground.png')] border-y-[1.9rem] border-image-[url('/images/borders/RivetSideBorderY.png')] border-slice-[157] border-image-width-[2rem] border-repeat-round">
+            <div id="meettheteam-container" className="sm:px-[5rem] bg-[url('/images/backgrounds/AboutUsStarryBackground.webp')] border-y-[1.9rem] border-image-[url('/images/borders/RivetSideBorderY.png')] border-slice-[39] border-image-width-[2rem] border-repeat-round">
                 <div id="team-center-section" className="flex flex-col justify-center items-stretch p-[1rem] bg-[#757575] border-x-4 border-cyan-300">
                     <h2 className="text-center -mt-[1rem] text-[4rem] text-[#414042] font-bold">Meet the Team!</h2>
                     <Suspense fallback={
@@ -67,7 +69,7 @@ export default function AboutUs() {
                 </div>
             </div>
             <div id="conceptgallery-container" className="flex flex-col items-center bg-[url('/images/backgrounds/MetalHeartBackground.png')] bg-size-[9rem] md:bg-size-[11rem] bg-repeat">
-                <h2 className="text-center text-[3rem] lg:text-[4rem] text-[#414042]">Concept Art Gallery</h2>
+                <h2 className="text-center text-[2rem] max-sm:mb-0 m:text-[3rem] lg:text-[4rem] text-[#414042]">Concept Art Gallery</h2>
                 <Suspense fallback={
                     <div id="conceptgallery-container">
                         <h2>Concept Art Gallery</h2>

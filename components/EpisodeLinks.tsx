@@ -38,6 +38,7 @@ export default function EpisodeLinks({
                             className="h-[4rem] w-fit"
                             src={entry.icon}
                             alt={`Link to this episode on ${entry.name}`}
+                            loading="eager"
                         />
                     </Link>
                 </li>

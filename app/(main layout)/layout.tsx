@@ -52,7 +52,7 @@ export default function RootLayout({
         >
             <a id="top" className=""></a>
             <div id="backtotop-region" className="relative">
-                <header className="flex flex-row justify-between items-center bg-background border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch sticky top-0 z-100">
+                <header className="flex flex-row justify-between items-center bg-background border-[0.5rem] md:border-[1rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-48 border-image-width-[0.5rem] md:border-image-width-[1rem] border-repeat-stretch sticky top-0 z-100">
                     <Link
                         href="/"
                         className="m-[0.5rem] h-fit"
@@ -66,10 +66,10 @@ export default function RootLayout({
                     </Link>
 
                     <Image
-                        className="h-[3.5rem] w-auto"
+                        className="h-[4.7rem] md:h-[3.5rem] w-auto"
                         src={MetalShine}
                         alt="Metal shine graphic"
-                        priority
+                        loading="eager"
                     />
 
                     <Suspense fallback={
@@ -88,12 +88,13 @@ export default function RootLayout({
                 </div>
 
             </div>
-            <footer className="flex flex-row justify-between items-center border-[0.95rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-[200] border-image-width-[20px] border-repeat-stretch">
-                <div id="footer-links-container" className="flex flex-row justify-around lg:w-1/3">
+            <footer className="flex flex-col md:flex-row justify-between items-center p-[1rem] bg-background border-[0.5rem] md:border-[1rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-48 border-image-width-[0.5rem] md:border-image-width-[1rem] border-repeat-stretch">
+                <div id="footer-links-container" className="flex flex-row justify-around w-full lg:w-1/3">
                     <Link href="/terms-of-use" className="underline text-cyan-300 hover:text-foreground">Terms Of Use</Link>
                     <Link href="mailto:thesoulboundseries@gmail.com" target="_blank" className="underline text-cyan-300 hover:text-foreground">Contact Us</Link>
+                    <Link href="https://github.com/Immortal-Sky-Studios/soulbound-website/" target="_blank" rel="noopener noreferrer" className="underline text-cyan-300 hover:text-foreground">Github</Link>
                 </div>
-                <div id="copyright-notice" className="w-[20rem] py-[0.5rem] m-[1rem] text-[0.75rem] text-center text-background bg-[#414042] border-2 border-[#58595b]">
+                <div id="copyright-notice" className="w-full md:w-[20rem] py-[0.5rem] mt-[1rem] md:m-[1rem] text-[0.75rem] text-center text-background bg-[#414042] border-2 border-[#58595b]">
                     Soulbound is published under an Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
                 </div>
             </footer>
