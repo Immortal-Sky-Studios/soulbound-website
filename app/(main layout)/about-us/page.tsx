@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Suspense } from "react";
 import Image from 'next/image';
 
-import leftSquare from '@images/misc/AboutUsLeftSquare.png';
-import rightSquare from '@images/misc/AboutUsRightSquare.png';
+import leftSquare from '@images/misc/AboutUsLeftSquare.webp';
+import rightSquare from '@images/misc/AboutUsRightSquare.webp';
 
 import ConceptGallery from "@components/ConceptGallery";
 import TeamList from "@components/TeamList";
@@ -22,7 +22,7 @@ export default function AboutUs() {
 
     return (
         <main>
-            <div id="aboutus-container" className="flex flex-col justify-center items-center p-[2em] text-cyan-300 bg-[url('/images/backgrounds/SpaceBannerSTATIC.png')]">
+            <div id="aboutus-container" className="flex flex-col justify-center items-center p-[2em] text-cyan-300 bg-[url('/images/backgrounds/SpaceBannerSTATIC.webp')] bg-cover bg-center">
                 <div id="title-container" className="flex flex-row w-full justify-center items-center">
                     <div id="left-image" className="flex flex-row justify-end items-centermr-[1rem]">
                         <Image
@@ -56,7 +56,7 @@ export default function AboutUs() {
                     I hope you have good luck out there too.
                 </p>
             </div>
-            <div id="meettheteam-container" className="sm:px-[5rem] bg-[url('/images/backgrounds/AboutUsStarryBackground.png')] border-y-[1.9rem] border-image-[url('/images/borders/RivetSideBorderY.png')] border-slice-[39] border-image-width-[2rem] border-repeat-round">
+            <div id="meettheteam-container" className="sm:px-[5rem] bg-[url('/images/backgrounds/AboutUsStarryBackground.webp')] border-y-[1.9rem] border-image-[url('/images/borders/RivetSideBorderY.png')] border-slice-[39] border-image-width-[2rem] border-repeat-round">
                 <div id="team-center-section" className="flex flex-col justify-center items-stretch p-[1rem] bg-[#757575] border-x-4 border-cyan-300">
                     <h2 className="text-center -mt-[1rem] text-[4rem] text-[#414042] font-bold">Meet the Team!</h2>
                     <Suspense fallback={

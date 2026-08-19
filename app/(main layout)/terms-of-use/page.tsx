@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function TermsOfUse() {
     return (
-        <main className="flex flex-row justify-center w-full bg-[url('/images/backgrounds/SpaceBannerSTATIC.png')]">
+        <main className="flex flex-row justify-center w-full bg-[url('/images/backgrounds/SpaceBannerSTATIC.webp')]">
             <div id="center-container" className="flex flex-col items-center w-full md:w-2/3 h-full p-[3rem] bg-background border-x-[1rem] border-image-[url('/images/borders/RivetSideBorderX.png')] border-slice-[40] border-image-width-l-[1rem] border-image-width-r-[1rem] border-repeat-round">
                 <h1 className={`${stalinistOne.className} w-fit px-[1rem] text-center mb-[3rem] border-[1rem] border-image-[url('/images/borders/RivetCornerBorder.png')] border-slice-[43] border-image-width-[1rem] border-repeat-round`}>Terms of Use</h1>
                 <div className="flex flex-col">

@@ -88,7 +88,7 @@ export default function RootLayout({
                 </div>
 
             </div>
-            <footer className="flex flex-col md:flex-row justify-between items-center p-[1rem] border-[0.5rem] md:border-[1rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-48 border-image-width-[0.5rem] md:border-image-width-[1rem] border-repeat-stretch">
+            <footer className="flex flex-col md:flex-row justify-between items-center p-[1rem] bg-background border-[0.5rem] md:border-[1rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-48 border-image-width-[0.5rem] md:border-image-width-[1rem] border-repeat-stretch">
                 <div id="footer-links-container" className="flex flex-row justify-around w-full lg:w-1/3">
                     <Link href="/terms-of-use" className="underline text-cyan-300 hover:text-foreground">Terms Of Use</Link>
                     <Link href="mailto:thesoulboundseries@gmail.com" target="_blank" className="underline text-cyan-300 hover:text-foreground">Contact Us</Link>
