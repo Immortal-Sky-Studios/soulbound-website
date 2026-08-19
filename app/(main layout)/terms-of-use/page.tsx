@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 export default function TermsOfUse() {
     return (
         <main className="flex flex-row justify-center w-full bg-[url('/images/backgrounds/SpaceBannerSTATIC.png')]">
-            <div id="center-container" className="flex flex-col items-center w-full md:w-2/3 h-full p-[3rem] bg-background border-x-[1rem] border-image-[url('/images/borders/RivetSideBorderX.png')] border-slice-[157] border-image-width-[1rem] border-repeat-round">
-                <h1 className={`${stalinistOne.className} w-fit px-[1rem] text-center mb-[3rem] border-[1rem] border-image-[url('/images/borders/RivetCornerBorder.png')] border-slice-[157] border-image-width-[1rem] border-repeat-round`}>Terms of Use</h1>
+            <div id="center-container" className="flex flex-col items-center w-full md:w-2/3 h-full p-[3rem] bg-background border-x-[1rem] border-image-[url('/images/borders/RivetSideBorderX.png')] border-slice-[40] border-image-width-l-[1rem] border-image-width-r-[1rem] border-repeat-round">
+                <h1 className={`${stalinistOne.className} w-fit px-[1rem] text-center mb-[3rem] border-[1rem] border-image-[url('/images/borders/RivetCornerBorder.png')] border-slice-[43] border-image-width-[1rem] border-repeat-round`}>Terms of Use</h1>
                 <div className="flex flex-col">
                     <p>
                         Soulbound is an independently produced volunteer project, which means any work done on this website has been done on our own time and on our own dollar. As such, it's only as accurate as we have the time to make it. We may fall behind on episode releases and transcripts, and our transcripts may not be as accurate as we'd like. We do our best to maintain all of our information to be as up to date as possible, but if you hear us contradict ourselves in the podcast itself, trust the podcast first.

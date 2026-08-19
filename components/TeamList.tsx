@@ -43,9 +43,9 @@ export default function TeamList({
             {teamList.map((entry, index) => {
                 const direction = index % 2 === 0 ? true : false;
                 return (
-                <li key={entry.id} className={`flex flex-col ${direction ? "lg:flex-row" : "lg:flex-row-reverse"} max-lg:items-center lg:p-[1rem] my-[1rem] bg-[#949494] border-[1rem] border-image-[url('/images/borders/MetalHashBorder.png')] border-slice-t-[980] border-slice-r-[1000] border-slice-b-[990] border-slice-l-[1030] border-image-width-[4rem] border-repeat-round`}>
+                <li key={entry.id} className={`flex flex-col ${direction ? "lg:flex-row" : "lg:flex-row-reverse"} max-lg:items-center lg:p-[1rem] my-[1rem] bg-[#949494] border-[1rem] border-image-[url('/images/borders/MetalHashBorder.png')] border-slice-[48] border-image-width-[2rem] border-repeat-round`}>
                     <Image
-                        className="object-contain p-0 w-[20rem] h-auto lg:h-[25rem] lg:w-auto bg-[url('/images/backgrounds/MetalHeartBackground.png')] bg-size-[4rem] bg-repeat border-[1rem] border-image-[url('/images/borders/ThreeRivetBorder.png')] border-slice-[180] border-image-width-[1rem] border-repeat-round"
+                        className="object-contain p-0 w-[20rem] h-auto lg:h-[25rem] lg:w-auto bg-[url('/images/backgrounds/MetalHeartBackground.png')] bg-size-[4rem] bg-repeat border-[1rem] border-image-[url('/images/borders/ThreeRivetBorder.png')] border-slice-[43] border-image-width-[1rem] border-repeat-round"
                         src={`/images/headshots/${entry.headshot_filename}`}
                         alt={`Image of ${entry.name}`}
                         width={entry.headshot_width || 2048}

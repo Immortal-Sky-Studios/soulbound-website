@@ -113,7 +113,7 @@ export default async function EpisodeDynamic({
                         </div>
                     </div>
                 </div>
-                <div id="credits-container" className="flex flex-col md:flex-row justify-around items-center min-h-[15rem] mt-[1rem] p-[0.5rem] md:p-[1rem] bg-cyan-300 text-blue-700 border-[1rem] border-image-[url('/images/borders/ThreeRivetBorder.png')] border-slice-[180] border-image-width-[1rem] border-repeat-round">
+                <div id="credits-container" className="flex flex-col md:flex-row justify-around items-center min-h-[15rem] mt-[1rem] p-[0.5rem] md:p-[1rem] bg-cyan-300 text-blue-700 border-[1rem] border-image-[url('/images/borders/ThreeRivetBorder.png')] border-slice-[43] border-image-width-[1rem] border-repeat-round">
                     <div id="cast-container" className="max-md:mb-[1rem]">
                         <h2 className="text-center">Cast</h2>
                         {data.credits.length ? 
