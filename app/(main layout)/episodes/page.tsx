@@ -22,7 +22,7 @@ export default function Episodes() {
     const showLinks = getShowLinks('Podcast Hosts');
 
     return (
-        <main className="flex flex-row justify-center w-full bg-[url('/images/backgrounds/SpaceBannerSTATIC.png')]">
+        <main className="flex flex-row justify-center w-full bg-[url('/images/backgrounds/SpaceBannerSTATIC.webp')]">
             <div id="center-container" className="flex flex-col w-full md:w-fit h-full bg-background border-x-[1rem] border-image-[url('/images/borders/RivetSideBorderX.png')] border-slice-[40] border-image-width-l-[1rem] border-image-width-r-[1rem] border-repeat-round">
                 <div id="main-header" className="flex flex-col">
                     <div className="flex flex-row justify-center mx-[2rem]">

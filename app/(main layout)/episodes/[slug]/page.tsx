@@ -83,7 +83,7 @@ export default async function EpisodeDynamic({
                             loading="eager"
                         />
                         <div className="flex flex-col items-center w-full max-md:mx-[1rem]">
-                            <iframe className="w-full md:w-[300px] h-[160px] md:h-[152px] my-[1rem]" src={`${spotifyComponents[0]}embed/episode/${spotifyComponents[1]}?utm_source=generator`} width="100%" height="352" loading="lazy"></iframe>
+                            <iframe title="spotifyPlayer" className="w-full md:w-[300px] h-[160px] md:h-[152px] my-[1rem]" src={`${spotifyComponents[0]}embed/episode/${spotifyComponents[1]}?utm_source=generator`} width="100%" height="352" loading="lazy"></iframe>
                             <ul id="showlinks-container" className="flex flex-row justify-around items-center w-full mb-[1rem] sm:mb-0">
                                 <EpisodeLinks links={[data.link_spotify,data.link_apple,data.link_amazon]}/>
                                 <EmbedButton embedStr={`<iframe style="border-radius:12px;overflow:hidden" src="https://thesoulboundseries.com/embed/episodes/${data.slug}" width="100%" height="300" frameBorder="0" loading="lazy"></iframe>`}/>

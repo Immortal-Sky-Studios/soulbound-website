@@ -8,8 +8,8 @@ const oswald = Oswald({
 });
 
 export const metadata: Metadata = {
-    title: "Soulbound",
-    description: "A Sci-Fi Audio Drama by Immortal Sky Studios",
+    title: "Soulbound Episode",
+    description: "An episode of the Soulbound series",
 };
 
 export default function RootLayout({

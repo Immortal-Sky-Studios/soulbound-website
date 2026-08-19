@@ -18,7 +18,7 @@ export default function Home() {
 
     return (
         <main className="flex flex-col">
-            <div id="top-banner" className="flex flex-row justify-center items-center p-[2rem] bg-[url('/images/backgrounds/SpaceBannerSTATIC.png')]">
+            <div id="top-banner" className="flex flex-row justify-center items-center p-[2rem] bg-[url('/images/backgrounds/SpaceBannerSTATIC.webp')] bg-cover bg-center">
                 <Image
                     className="sm:h-[20rem] w-auto"
                     src={SoulboundTextLogo}
