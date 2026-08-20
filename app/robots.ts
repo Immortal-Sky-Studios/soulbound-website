@@ -1,7 +1,11 @@
 import type { MetadataRoute } from 'next'
 import fs from 'fs';
+import { downloadRelease } from "@terascope/fetch-github-release";
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
+    if (!fs.existsSync('lib/releaseDownloads/robots.txt')) {
+        const _releaseInfo = await downloadRelease('ai-robots-txt','ai.robots.txt','lib/releaseDownloads/',(release) => (true || release),(asset) => (asset.name == 'robots.txt'));
+    }
     const botsStr = fs.readFileSync('lib/releaseDownloads/robots.txt').toString();
     const aiBots = botsStr.split('\n').map((entry) => entry.split('User-agent: ')[1]).filter((entry) => (entry));
 
