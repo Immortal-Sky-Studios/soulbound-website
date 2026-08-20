@@ -23,10 +23,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
     {
-      url: 'https://thesoulboundseries.com/about',
+      url: 'https://thesoulboundseries.com/about-us',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: 'https://thesoulboundseries.com/terms-of-use',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.4,
     },
     {
       url: 'https://thesoulboundseries.com/episodes',
