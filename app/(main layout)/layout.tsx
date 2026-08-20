@@ -52,33 +52,34 @@ export default function RootLayout({
         >
             <a id="top" className=""></a>
             <div id="backtotop-region" className="relative">
-                <header className="flex flex-row justify-between items-center bg-background border-[0.5rem] md:border-[1rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-48 border-image-width-[0.5rem] md:border-image-width-[1rem] border-repeat-stretch sticky top-0 z-100">
-                    <Link
-                        href="/"
-                        className="m-[0.5rem] h-fit"
-                    >
-                        <Image
-                            className="h-[2.5rem] w-auto"
-                            src={HeaderLogo}
-                            alt="Soulbound logo"
-                            loading="eager"
-                        />
-                    </Link>
-
+                <header className="relative bg-background border-[0.5rem] md:border-[1rem] border-image-[url('/images/borders/HeaderFooterBorder.png')] border-slice-48 border-image-width-[0.5rem] md:border-image-width-[1rem] border-repeat-stretch sticky top-0 z-100">
                     <Image
-                        className="h-[4.7rem] md:h-[3.5rem] w-auto"
+                        className="absolute left-[40vw] h-full md:h-[3.5rem] w-auto z-1"
                         src={MetalShine}
                         alt="Metal shine graphic"
                         loading="eager"
                     />
+                    <div className="flex flex-row justify-between items-center">
+                        <Link
+                            href="/"
+                            className="m-[0.5rem] h-fit z-2"
+                        >
+                            <Image
+                                className="h-[2.5rem] w-auto"
+                                src={HeaderLogo}
+                                alt="Soulbound logo"
+                                loading="eager"
+                            />
+                        </Link>
 
-                    <Suspense fallback={
-                        <ul className="flex flex-row list-none justify-center items-center w-1/3 m-[0.5rem]">
-                            <li className="flex justify-center items-center bg-cyan-300 border-2"><Link href="#" className="px-[0.5rem] py-[0.25rem]">Loading</Link></li>
-                        </ul>
-                    }>
-                        <HeaderFooterButtons episode={data}/>
-                    </Suspense>
+                        <Suspense fallback={
+                            <ul className="flex flex-row list-none justify-center items-center w-1/3 m-[0.5rem]">
+                                <li className="flex justify-center items-center bg-cyan-300 border-2 z-2"><Link href="#" className="px-[0.5rem] py-[0.25rem]">Loading</Link></li>
+                            </ul>
+                        }>
+                            <HeaderFooterButtons episode={data}/>
+                        </Suspense>
+                    </div>
                 </header>
 
                 {children}
