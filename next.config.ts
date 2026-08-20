@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import './ai.robots.ts';
 
 const isDev = process.env.NODE_ENV === 'development';
 
