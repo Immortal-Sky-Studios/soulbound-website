@@ -1,10 +1,7 @@
 import type { MetadataRoute } from 'next'
-import fs from 'fs';
+import aiBots from './ai.robots';
 
-export default async function robots(): Promise<MetadataRoute.Robots> {
-    const botsStr = fs.readFileSync('lib/releaseDownloads/robots.txt').toString();
-    const aiBots = botsStr.split('\n').map((entry) => entry.split('User-agent: ')[1]).filter((entry) => (entry));
-
+export default function robots(): MetadataRoute.Robots {
     return {
         rules: [
         {
