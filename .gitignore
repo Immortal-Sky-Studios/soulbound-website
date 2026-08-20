@@ -40,9 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# custom additions
-/lib/releaseDownloads/*
-
 # OpenNext
 .open-next
 
@@ -52,3 +49,5 @@ next-env.d.ts
 !.dev.vars.example
 
 !.env.example
+
+# custom additions
