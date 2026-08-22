@@ -8,7 +8,6 @@ import { getEpisode, getNearbyEp } from '@lib/neonFunctions.ts';
 import EpisodeLinks from '@/components/EpisodeLinks';
 import Transcript from '@/components/Transcript';
 import EmbedButton from '@/components/EmbedButton';
-import EmbeddedEpisode from "@components/EmbeddedEpisode";
 
 export async function generateMetadata({
     params
