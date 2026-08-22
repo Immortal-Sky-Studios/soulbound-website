@@ -20,6 +20,15 @@ export async function generateMetadata({
 
     return {
         title: data.title,
+        openGraph: {
+            title: data.title,
+            description: data.description,
+            images: [`/images/covers/episodes/${data.cover_filename}`],
+            url: './',
+            siteName: 'The Soulbound Series',
+            locale: 'en_US',
+            type: 'website',
+        },
         alternates: {
             canonical: './episodes',
         },
