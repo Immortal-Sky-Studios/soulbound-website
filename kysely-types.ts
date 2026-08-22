@@ -68,6 +68,7 @@ export interface Seasons {
 }
 
 export interface ShowLinks {
+  copy_only: Generated<boolean>;
   icon_alt_text: Generated<string>;
   icon_filename: Generated<string>;
   id: Generated<number>;
