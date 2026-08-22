@@ -1,22 +1,7 @@
 # Soulbound Website
-A website for the sci-fi audio drama podcast Soulbound. Find us on Spotify, Itunes, and Amazon Music!
+The official website for the sci-fi audio drama podcast Soulbound. Find us on Spotify, Itunes, and Amazon Music!
 
-## Current Progress
-This project is actively under development, but we're getting close folks! The estimates below aren't exact, but are decently representative of how far along the site is.
-
-### Overall
-![](https://geps.dev/progress/99)
-
-### By Page
-- [x] Home Page ![](https://geps.dev/progress/100)
-- [X] Episodes Page ![](https://geps.dev/progress/100)
-- [X] Episode Page ![](https://geps.dev/progress/100)
-- [X] About Us Page ![](https://geps.dev/progress/100)
-
-### Database
-- [x] Schema ![](https://geps.dev/progress/100)
-- [ ] Episode Entries ![](https://geps.dev/progress/90)
-- [X] Other Entries ![](https://geps.dev/progress/100)
+You can find the website itself at [thesoulboundseries.com](https://thesoulboundseries.com).
 
 ## Next JS
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
