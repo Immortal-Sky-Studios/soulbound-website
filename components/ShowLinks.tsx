@@ -24,6 +24,7 @@ export default function ShowLinks({
                                 copyStr={entry.link}
                                 icon={`/images/icons/${entry.icon_filename}`}
                                 icon_alt_text={entry.icon_alt_text}
+                                text_color={entry.copy_color}
                             />
                         </li>
                     :
