@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { getEpisode } from '@lib/neonFunctions.ts';
+import { getEpisode, getLatestEp } from '@lib/neonFunctions.ts';
 import EpisodeLinks from "@/components/EpisodeLinks";
 
 export default async function EpisodeEmbed({
@@ -10,7 +10,11 @@ export default async function EpisodeEmbed({
     }: {
         params: Promise<{ slug: string }>
     }) {
-        const { slug } = await params;
+        var { slug } = await params;
+        // handle special url case
+        if ("latest_episode" == slug) {
+            slug = await getLatestEp("episodes").then((response) => response.slug)
+        }
         const data = await getEpisode(slug);
         if (!data?.id) {
             notFound(); // database returned that slug does not exist, redirect to 404 page
