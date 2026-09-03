@@ -50,7 +50,7 @@ export default function Home() {
             <div id="latestep-section" className="flex flex-col py-[2rem] px-[2rem] lg:px-[10rem] bg-[url('/images/backgrounds/MetalHeartBackground.png')] bg-size-[5rem] bg-repeat border-[2rem] border-image-[url('/images/borders/MetalHashBorder.png')] border-slice-[48] border-image-width-[2.5rem] border-repeat-round">
                 <h2 className="text-center">Latest Episode</h2>
                 <div className="flex flex-row justify-center items-center w-full">
-                    <EmbeddedEpisode episode={latestEp}/>
+                    <EmbeddedEpisode/>
                 </div>
             </div>
             <div id="keepingup-section" className="flex flex-col justify-center items-center bg-cyan-300 border-[3rem] border-image-[url('/images/borders/MetalScrewBorder.png')] border-slice-[163] border-image-width-[6rem] border-repeat-round">
