@@ -23,13 +23,13 @@ export async function generateMetadata({
             title: data.title,
             description: data.description,
             images: [`/images/covers/episodes/${data.cover_filename}`],
-            url: './',
+            url: `/episodes/${slug}`,
             siteName: 'The Soulbound Series',
             locale: 'en_US',
             type: 'website',
         },
         alternates: {
-            canonical: './episodes',
+            canonical: `/episodes/${slug}`,
         },
     }
 }

@@ -13,7 +13,7 @@ const stalinistOne = Stalinist_One({
 export const metadata: Metadata = {
     title: 'Episodes',
     alternates: {
-        canonical: './episodes',
+        canonical: '/episodes',
     },
 };
 
