@@ -11,7 +11,7 @@ const stalinistOne = Stalinist_One({
 export const metadata: Metadata = {
     title: 'Terms of Use',
     alternates: {
-        canonical: './terms-of-use',
+        canonical: '/terms-of-use',
     },
 };
 

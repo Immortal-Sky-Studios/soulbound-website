@@ -12,7 +12,7 @@ import { getTeamList, getConceptArt } from "@lib/neonFunctions";
 export const metadata: Metadata = {
     title: 'About Us',
     alternates: {
-        canonical: './about-us',
+        canonical: '/about-us',
     },
 };
 
