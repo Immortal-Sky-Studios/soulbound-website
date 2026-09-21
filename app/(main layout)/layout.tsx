@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Soulbound",
         description: "A Sci-Fi Audio Drama by Immortal Sky Studios",
-        url: '/',
+        url: './',
         siteName: 'The Soulbound Series',
         locale: 'en_US',
         type: 'website',
