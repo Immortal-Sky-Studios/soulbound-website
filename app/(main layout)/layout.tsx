@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     metadataBase: new URL('https://thesoulboundseries.com'),
     title: {
         template: "%s | Soulbound",
-        default: "Soulbound"
+        default: "Soulbound Podcast"
     },
     description: "A Sci-Fi Audio Drama by Immortal Sky Studios",
     openGraph: {

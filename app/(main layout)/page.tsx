@@ -22,9 +22,10 @@ export default function Home() {
                 <Image
                     className="sm:h-[20rem] w-auto"
                     src={SoulboundTextLogo}
-                    alt="Space banner image"
+                    alt="Soulbound title image"
                     loading="eager"
                 />
+                <h1 className="absolute invisible">Soulbound: a new science fiction podcast</h1>
             </div>
             <Announcement latestEp={latestEp} latestAnnounce={latestAnnounce}/>
             <div id="whatis-section" className="flex flex-col xl:flex-row items-center justify-around py-[2rem] px-[2rem] xl:px-[10rem] bg-cyan-300 border-[2rem] border-image-[url('/images/borders/MetalScrewBorder.png')] border-slice-[163] border-image-width-[10rem] border-repeat-round">
